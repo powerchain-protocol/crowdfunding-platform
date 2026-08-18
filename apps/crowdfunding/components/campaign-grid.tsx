@@ -1,0 +1,6 @@
+import { Card, ProgressBar, StatusBadge } from "@powerchain/ui";
+import { campaigns } from "../lib/campaigns";
+
+export function CampaignGrid() {
+  return <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">{campaigns.map((campaign) => { const pct = Math.round(campaign.raised / campaign.goal * 100); return <Card key={campaign.slug} className="overflow-hidden"><div className="h-36 bg-[radial-gradient(circle_at_top_right,rgba(66,160,113,.24),transparent_40%),linear-gradient(145deg,#063823,#102019)] p-5 text-white"><StatusBadge>{campaign.type}</StatusBadge><h2 className="mt-5 text-xl font-bold">{campaign.title}</h2><p className="mt-1 text-sm text-white/70">{campaign.region}</p></div><div className="p-5"><p className="min-h-16 text-sm leading-6 text-slate-600">{campaign.summary}</p><div className="mt-4 flex justify-between text-sm"><span className="font-bold">€{campaign.raised.toLocaleString()}</span><span className="text-slate-500">€{campaign.goal.toLocaleString()} goal</span></div><div className="mt-3"><ProgressBar value={pct} /></div><div className="mt-4 flex items-center justify-between"><StatusBadge tone="success">{campaign.mode}</StatusBadge><a href={`/campaigns/${campaign.slug}`} className="text-sm font-bold text-emerald-900">View project →</a></div></div></Card>; })}</div>;
+}

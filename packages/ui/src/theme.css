@@ -1,0 +1,56 @@
+:root {
+  --pc-background: #f7faf8;
+  --pc-surface: #ffffff;
+  --pc-surface-muted: #f0f5f2;
+  --pc-text: #0b1f17;
+  --pc-muted: #64746c;
+  --pc-border: #d8e4dd;
+  --pc-primary: #0b4f35;
+  --pc-primary-strong: #063823;
+  --pc-primary-soft: #e7f2ec;
+  --pc-success: #147a50;
+  --pc-warning: #9a6700;
+  --pc-danger: #b42318;
+}
+
+html { color-scheme: light; background: var(--pc-background); }
+body { background: var(--pc-background); color: var(--pc-text); }
+* { border-color: var(--pc-border); }
+::selection { background: #cfe7da; }
+
+[data-theme="dark"] {
+  --pc-background: #07110d;
+  --pc-surface: #0d1a14;
+  --pc-surface-muted: #12241b;
+  --pc-text: #eef7f2;
+  --pc-muted: #9eb0a6;
+  --pc-border: #233a2e;
+  --pc-primary: #2a8a5d;
+  --pc-primary-strong: #3aa875;
+  --pc-primary-soft: #102c20;
+  --pc-success: #49b984;
+  --pc-warning: #d9a441;
+  --pc-danger: #f97066;
+  color-scheme: dark;
+}
+
+/* Tailwind utility compatibility for the shared scaffold. */
+[data-theme="dark"] .bg-white { background-color: var(--pc-surface) !important; }
+[data-theme="dark"] .bg-slate-50 { background-color: var(--pc-background) !important; }
+[data-theme="dark"] .bg-slate-100 { background-color: var(--pc-surface-muted) !important; }
+[data-theme="dark"] .bg-emerald-50 { background-color: #102c20 !important; }
+[data-theme="dark"] .bg-amber-50 { background-color: #2a210d !important; }
+[data-theme="dark"] .text-slate-950,
+[data-theme="dark"] .text-slate-900,
+[data-theme="dark"] .text-slate-800 { color: var(--pc-text) !important; }
+[data-theme="dark"] .text-slate-700,
+[data-theme="dark"] .text-slate-600,
+[data-theme="dark"] .text-slate-500 { color: var(--pc-muted) !important; }
+[data-theme="dark"] .text-emerald-900,
+[data-theme="dark"] .text-emerald-800 { color: #74cda2 !important; }
+[data-theme="dark"] .border-slate-200 { border-color: var(--pc-border) !important; }
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select { background-color: #0b1711 !important; color: var(--pc-text); }
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder { color: #70837a; }

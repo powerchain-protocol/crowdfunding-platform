@@ -1,0 +1,2 @@
+import { AppShell, PageHeader } from "@powerchain/ui";
+export default function Page(){return <AppShell appName="Privacy"><PageHeader eyebrow="Legal" title="Privacy" description="Sensitive identity, beneficiary and evidence data belongs off-chain with access controls, encryption and auditable retention policies. This scaffold does not publish private banking data or proof documents on-chain."/></AppShell>}

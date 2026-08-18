@@ -1,0 +1,3 @@
+import { AppShell, PageHeader, Section } from "@powerchain/ui";
+import { CampaignGrid } from "../../components/campaign-grid";
+export default function Page(){return <AppShell appName="Explore Projects" nav={[{label:"All projects",href:"/explore"},{label:"Create",href:"/create"},{label:"My projects",href:"/projects"}]}><PageHeader eyebrow="Explore projects" title="Crowdfunding with evidence after funding." description="Browse active campaigns across humanitarian response, disaster relief, renewables, public goods and ticketed community programs."/><Section title="Active campaigns"><CampaignGrid /></Section></AppShell>}

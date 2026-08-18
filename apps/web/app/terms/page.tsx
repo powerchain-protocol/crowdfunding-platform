@@ -1,0 +1,2 @@
+import { AppShell, PageHeader } from "@powerchain/ui";
+export default function Page(){return <AppShell appName="Terms"><PageHeader eyebrow="Legal" title="Terms" description="Campaign participation, ticket utility and supporter attestations must not be represented as equity, profit share, yield or repayment rights unless a separately regulated product explicitly supports that treatment."/></AppShell>}

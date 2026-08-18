@@ -1,0 +1,11 @@
+import { notFound } from "next/navigation";
+import { AppShell, Card, PageHeader, ProgressBar, Section, StatusBadge } from "@powerchain/ui";
+import { campaigns } from "../../../lib/campaigns";
+
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const campaign = campaigns.find((item) => item.slug === slug);
+  if (!campaign) notFound();
+  const pct = Math.round(campaign.raised / campaign.goal * 100);
+  return <AppShell appName="Campaign" nav={[{label:"Explore projects",href:"/explore"},{label:"Create",href:"/create"}]}><PageHeader eyebrow={campaign.type} title={campaign.title} description={campaign.summary} action={<a href="http://localhost:3002" className="rounded-xl bg-emerald-950 px-4 py-2.5 text-sm font-bold text-white">Support project</a>}/><div className="mt-7 grid gap-5 lg:grid-cols-[1fr_340px]"><Card className="p-6"><h2 className="font-bold">Public campaign record</h2><p className="mt-2 text-sm leading-6 text-slate-600">Problem, beneficiaries, budget, milestones, evidence and impact updates remain linked to treasury activity throughout the campaign lifecycle.</p><Section title="Milestone evidence"><div className="grid gap-3"><div className="rounded-xl border p-4 text-sm"><strong>M1 · Initial deployment</strong><div className="mt-1 text-slate-500">Completed · evidence verified</div></div><div className="rounded-xl border p-4 text-sm"><strong>M2 · Next release</strong><div className="mt-1 text-slate-500">Funding threshold reached · evidence pending</div></div></div></Section></Card><Card className="h-fit p-5"><StatusBadge tone="success">{campaign.mode}</StatusBadge><div className="mt-4 flex items-baseline justify-between"><span className="text-2xl font-bold">€{campaign.raised.toLocaleString()}</span><span className="text-xs text-slate-500">of €{campaign.goal.toLocaleString()}</span></div><div className="mt-3"><ProgressBar value={pct}/></div><p className="mt-3 text-xs text-slate-500">{pct}% funded · reconciled contributions</p><a href="http://localhost:3002" className="mt-5 block rounded-xl bg-emerald-950 px-4 py-3 text-center text-sm font-bold text-white">Support this project</a></Card></div></AppShell>;
+}
