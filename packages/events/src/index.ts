@@ -12,6 +12,18 @@ export const DOMAIN_EVENTS = [
   "milestone.completed",
   "evidence.submitted",
   "evidence.verified",
+  "identity.check.submitted",
+  "identity.check.verified",
+  "business.verified",
+  "agreement.created",
+  "agreement.signature.requested",
+  "agreement.signed",
+  "escrow.tranche.approved",
+  "escrow.tranche.released",
+  "notification.queued",
+  "notification.sent",
+  "moderation.report.created",
+  "moderation.resource.suspended",
 ] as const;
 
 export type DomainEventName = (typeof DOMAIN_EVENTS)[number];

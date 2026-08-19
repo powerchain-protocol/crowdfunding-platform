@@ -174,7 +174,7 @@ Webhook endpoints acknowledge quickly after authentication, validation and durab
 
 They do not perform full payment/disbursement reconciliation inline.
 
-## v1.3 milestone evidence
+## Canonical v1.0.0 milestone evidence
 
 ```http
 GET  /api/v1/campaigns/:campaignId/milestones/:milestoneId/evidence
@@ -184,7 +184,7 @@ POST /api/v1/campaigns/:campaignId/milestones/:milestoneId/evidence/:evidenceId/
 
 Evidence writes require authenticated organization context, object-storage preparation, SHA-256 commitment validation and append-only audit persistence. The scaffold routes fail closed until those server integrations are configured.
 
-## v1.3 authentication
+## Canonical v1.0.0 authentication
 
 ```http
 POST /api/v1/auth/login
@@ -193,3 +193,26 @@ POST /api/v1/auth/reset-password
 ```
 
 The login and registration stubs return `AUTH_PROVIDER_NOT_CONFIGURED` until production identity/session infrastructure is wired. Reset-password returns a non-enumerating accepted response.
+
+
+## Identity, agreements, escrow and moderation
+
+```http
+POST /api/v1/identity/checks
+GET  /api/v1/identity/checks/:id
+POST /api/v1/identity/checks/:id/documents
+
+POST /api/v1/agreements/render
+POST /api/v1/agreements/:id/signatures
+
+POST /api/v1/escrows/:id/tranches/:trancheId/release
+
+GET   /api/v1/notifications
+PATCH /api/v1/notifications/preferences
+
+POST /api/v1/reports
+GET  /api/v1/moderation/reports
+GET  /api/v1/audit
+```
+
+All write routes require authenticated resource authorization, idempotency where side effects are possible, durable audit persistence and provider/persistence integration. Scaffold routes fail closed until these dependencies are configured.

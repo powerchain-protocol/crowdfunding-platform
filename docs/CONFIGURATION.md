@@ -58,3 +58,25 @@ Provider-specific values should be loaded through validated typed configuration,
 ## Client-exposed configuration
 
 Only expose non-secret public metadata needed by the UI, such as supported networks, asset symbols and public contract addresses. Server endpoints remain authoritative for financial configuration.
+
+## Identity, agreements, notifications and moderation
+
+Server-only configuration may include:
+
+```text
+IDENTITY_PROVIDER
+IDENTITY_PROVIDER_API_KEY
+IDENTITY_DOCUMENT_BUCKET
+IDENTITY_RETENTION_POLICY
+AGREEMENT_TEMPLATE_STORE
+ESIGN_TIMESTAMP_PROVIDER
+AUDIT_IMMUTABLE_STORE
+EMAIL_PROVIDER
+EMAIL_PROVIDER_API_KEY
+EMAIL_FROM
+MODERATION_AUTO_SUSPEND_ENABLED
+MODERATION_DISTINCT_REPORTER_THRESHOLD
+MODERATION_WEIGHTED_SEVERITY_THRESHOLD
+```
+
+Never expose identity-provider, email-provider, immutable-audit-store or document-storage credentials through `NEXT_PUBLIC_*` variables.

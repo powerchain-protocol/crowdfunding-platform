@@ -17,3 +17,17 @@ export interface BlockchainDataProvider {
 export interface AttestationProvider {
   issue(input: { schema: string; subject: string; dataHash: string }): Promise<{ attestationId: string }>;
 }
+
+
+export interface IdentityVerificationProvider {
+  createCheck(input: { subjectId: string; subjectType: "PERSON" | "BUSINESS"; checkType: string }): Promise<{ checkId: string }>;
+  getCheck(checkId: string): Promise<{ status: "PENDING" | "UNDER_REVIEW" | "VERIFIED" | "REJECTED"; providerReference?: string }>;
+}
+
+export interface SecureDocumentStorageProvider {
+  createUpload(input: { purpose: "KYC" | "BUSINESS_VERIFICATION" | "EVIDENCE" | "AGREEMENT"; contentType: string; sizeBytes: number; sha256: string }): Promise<{ storageKey: string; uploadUrl: string; expiresAt: string }>;
+}
+
+export interface EmailDeliveryProvider {
+  send(input: { to: string; subject: string; text: string; idempotencyKey: string }): Promise<{ messageId: string }>;
+}

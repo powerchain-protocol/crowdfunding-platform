@@ -99,3 +99,43 @@ Conversion between display amount and base units happens in shared financial uti
 ## Versioning
 
 Published campaign content uses immutable `CampaignVersion` records. The public page references the published version, allowing later edits to be audited and reviewed rather than silently mutating what supporters originally saw.
+
+## Identity and trust domain
+
+```text
+VerificationCheck
+IdentityDocument
+```
+
+`VerificationCheck` is the authoritative per-check state. `IdentityDocument` stores only metadata + secure storage reference; raw KYC bytes live in restricted object storage.
+
+## Agreements domain
+
+```text
+AgreementTemplate
+Agreement
+AgreementSignature
+```
+
+Templates are versioned. Agreements store the exact rendered content hash. Signatures bind signer identity/role and consent version to that hash.
+
+## Escrow domain
+
+```text
+CampaignEscrow
+EscrowTranche
+```
+
+Every tranche references a campaign milestone, exact amount/asset, configured platform fee basis points and release transaction when executed.
+
+## Notifications / moderation domain
+
+```text
+Notification
+NotificationPreference
+ModerationReport
+ModerationAction
+AuditEvent
+```
+
+`AuditEvent` is append-only and includes sequence, payload hash, previous event hash and event hash for tamper-evident verification.

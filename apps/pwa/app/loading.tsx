@@ -1,14 +1,3 @@
 export default function Loading() {
-  return (
-    <div className="min-h-[55vh] animate-pulse px-4 py-10">
-      <div className="mx-auto max-w-7xl">
-        <div className="h-3 w-24 rounded bg-slate-100" />
-        <div className="mt-4 h-9 w-80 max-w-full rounded bg-slate-100" />
-        <div className="mt-3 h-4 w-[32rem] max-w-full rounded bg-slate-100" />
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
-          {[0, 1, 2].map((item) => <div key={item} className="h-36 rounded-2xl border bg-white" />)}
-        </div>
-      </div>
-    </div>
-  );
+  return <div className="min-h-[60vh] animate-pulse bg-slate-50 px-4 py-10"><div className="mx-auto max-w-[1440px]"><div className="flex items-center justify-between"><div><div className="h-2.5 w-24 rounded-full bg-slate-200"/><div className="mt-4 h-9 w-80 max-w-full rounded-xl bg-slate-200"/><div className="mt-3 h-3.5 w-[34rem] max-w-full rounded-full bg-slate-100"/></div><div className="hidden h-10 w-32 rounded-xl bg-slate-200 sm:block"/></div><div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">{[0,1,2,3].map((item)=><div key={item} className="h-32 rounded-[20px] border border-slate-200 bg-white"/>)}</div><div className="mt-8 h-80 rounded-[20px] border border-slate-200 bg-white"/></div></div>;
 }

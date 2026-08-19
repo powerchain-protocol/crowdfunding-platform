@@ -74,3 +74,32 @@ A release is not "production ready" merely because it builds.
 - [ ] policy decisions persisted
 - [ ] approvals persisted
 - [ ] agent runs reference tools/policies/outputs
+
+
+## Identity & trust
+
+- [ ] sensitive documents are private, encrypted and retention-limited
+- [ ] each public trust badge maps to a specific verified check
+- [ ] document upload never sets verification status directly
+- [ ] reviewer/provider decisions are auditable
+
+## Agreements / e-signature
+
+- [ ] only versioned counsel-approved templates can enter signing state
+- [ ] exact rendered content hash is bound to every signature
+- [ ] signed documents cannot be mutated in place
+- [ ] signature actions append audit events
+
+## Escrow / tranche release
+
+- [ ] evidence approval does not directly release funds
+- [ ] identity + agreement + treasury gates are enforced server-side
+- [ ] platform fee is shown before approval and booked separately
+- [ ] released tranches are duplicate-protected
+
+## Moderation / notifications
+
+- [ ] report creation is rate-limited and durable
+- [ ] auto-suspension is policy-driven, reversible and audited
+- [ ] audit records are append-only and hash-linked
+- [ ] email sends are idempotent and user-preference aware

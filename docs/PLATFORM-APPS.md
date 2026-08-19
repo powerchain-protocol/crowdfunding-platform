@@ -1,6 +1,6 @@
 # Platform & Apps Architecture
 
-**Revision:** `1.3.0`
+**Revision:** `1.0.0`
 
 PowerChain uses separate deployable apps so public browsing, payment execution, organizational operations and privileged administration do not share an unnecessarily broad runtime boundary.
 
@@ -44,7 +44,7 @@ Organization-facing campaign operations. The dashboard includes a reconciled-fun
 High-trust financial workspace. Milestone funding thresholds do not create execution authority. Evidence and milestone approval gates must be satisfied before a disbursement proposal can advance to multisig approval.
 
 ### Remaining apps
-`donate`, `checkout`, `admin`, `explorer`, `docs`, `pwa` and `api` retain the v1.2 trust boundaries. PWA offline work may capture proof but never auto-executes treasury transactions.
+`donate`, `checkout`, `admin`, `explorer`, `docs`, `pwa` and `api` retain the canonical v1.0.0 trust boundaries. PWA offline work may capture proof but never auto-executes treasury transactions.
 
 ## Design system
 

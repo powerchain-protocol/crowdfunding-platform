@@ -1,6 +1,6 @@
 # Design System
 
-**Revision:** `1.3.0`
+**Revision:** `1.0.0`
 
 PowerChain uses a dark-green institutional palette instead of legacy blue accents.
 

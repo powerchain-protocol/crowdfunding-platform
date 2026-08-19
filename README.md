@@ -1,6 +1,6 @@
 # PowerChain Crowdfunding Platform
 
-**Version:** `1.3.0`  
+**Version:** `1.0.0`  
 **API:** `/api/v1`  
 **Product:** goal-based crowdfunding for humanitarian aid, disaster relief, renewable-energy projects, public goods, community programs and ticketed utility campaigns.
 
@@ -16,7 +16,7 @@ Campaign
   -> Milestone Evidence / Impact
 ```
 
-## v1.3 application upgrade
+## Canonical v1.0.0 application improvements
 
 - Dashboard treasury-vs-milestone funding chart for every active campaign.
 - Milestone evidence submission and reviewer verification flow.
@@ -29,6 +29,11 @@ Campaign
 - Crowdfunding `/explore`, `/projects`, campaign details and upgraded 11-step Create Campaign wizard.
 - `Renewables` added as a first-class campaign purpose/category.
 - New `@powerchain/evidence` and `@powerchain/auth` packages.
+
+
+## Canonical version policy
+
+PowerChain Crowdfunding stays on **v1.0.0** while v1 is expanded and hardened. Package versions, UI version labels and API health metadata are locked to `1.0.0`; the HTTP API remains `/api/v1`. Run `pnpm version:check` to detect drift. See `docs/VERSIONING.md`.
 
 ## Apps
 
@@ -101,3 +106,19 @@ Node 24 is required by the repository contract. Use the root `dev:<app>` scripts
 ## Documentation
 
 Start with [`docs/README.md`](docs/README.md), [`docs/PLATFORM-APPS.md`](docs/PLATFORM-APPS.md), [`docs/MILESTONE-EVIDENCE.md`](docs/MILESTONE-EVIDENCE.md), [`docs/AUTH.md`](docs/AUTH.md) and [`docs/DESIGN-SYSTEM.md`](docs/DESIGN-SYSTEM.md).
+
+## Professional UI/UX layer
+
+Canonical v1.0.0 now uses a unified dark-green institutional design system across marketing, discovery, campaign creation, contribution, checkout, dashboards, treasury, admin and explorer surfaces. See [`docs/UI-UX.md`](docs/UI-UX.md).
+
+
+## Trust, agreements, escrow and safety packages
+
+- `@powerchain/identity` — individual verification checks, business verification and trust badges.
+- `@powerchain/agreements` — versioned counsel-approved templates, deal-term rendering and signature records.
+- `@powerchain/audit` — append-only hash-chain audit contracts.
+- `@powerchain/escrow` — tranche states, fee calculation and release-gate enforcement.
+- `@powerchain/notifications` — in-app/email notification contracts and preferences.
+- `@powerchain/moderation` — reports, severity policy and reversible auto-suspension decisions.
+
+The platform remains canonical `1.0.0`; these additions are improvements within the v1 contract.

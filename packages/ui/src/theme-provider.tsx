@@ -48,7 +48,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={cycle}
-      className="inline-flex h-9 items-center gap-2 rounded-xl border bg-white px-3 text-xs font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50"
+      className="inline-flex h-9 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-xs font-semibold text-slate-700 shadow-sm transition hover:-translate-y-px hover:bg-slate-50 hover:shadow-md focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-900/10"
       aria-label={`Theme: ${label}. Change theme`}
       title={`Theme: ${label}`}
     >

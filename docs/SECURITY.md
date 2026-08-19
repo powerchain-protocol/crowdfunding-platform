@@ -91,3 +91,19 @@ Sensitive evidence uses encrypted object storage with access control. Publish ha
 - SAST/DAST
 - smart-contract review/audit
 - property/fuzz testing for money and state machines
+
+## 9. Identity/KYC security
+
+KYC and business-verification documents are high-sensitivity data. Require encrypted private storage, short-lived server-generated upload credentials, strict reviewer authorization, malware scanning, retention policy and access audit. Do not write raw identity material to public chains.
+
+## 10. Electronic signature integrity
+
+The signing request must bind the signer to the exact rendered agreement hash. Changing any signed term requires a new agreement version. Signature events, voiding and supersession append audit events rather than rewriting history.
+
+## 11. Tranche release separation
+
+Evidence approval is not fund release. Escrow/tranche execution checks authoritative evidence, identity/business status, agreement signatures, fee policy, beneficiary/destination, treasury policy and multisig state server-side before transaction preparation.
+
+## 12. Moderation safety
+
+Auto-suspension is deterministic, configurable, reversible and audit-logged. A suspension can restrict campaign activity but must not itself authorize treasury movement, asset seizure or fund redistribution.

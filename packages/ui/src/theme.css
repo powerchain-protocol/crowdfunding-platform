@@ -1,56 +1,77 @@
 :root {
-  --pc-background: #f7faf8;
+  --pc-background: #f6f8f7;
   --pc-surface: #ffffff;
-  --pc-surface-muted: #f0f5f2;
-  --pc-text: #0b1f17;
-  --pc-muted: #64746c;
-  --pc-border: #d8e4dd;
+  --pc-surface-muted: #f0f4f2;
+  --pc-text: #091712;
+  --pc-muted: #64736c;
+  --pc-border: #dce5e0;
   --pc-primary: #0b4f35;
   --pc-primary-strong: #063823;
-  --pc-primary-soft: #e7f2ec;
+  --pc-primary-soft: #eaf3ee;
   --pc-success: #147a50;
   --pc-warning: #9a6700;
   --pc-danger: #b42318;
 }
 
 html { color-scheme: light; background: var(--pc-background); }
-body { background: var(--pc-background); color: var(--pc-text); }
+body { background: var(--pc-background); color: var(--pc-text); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 * { border-color: var(--pc-border); }
-::selection { background: #cfe7da; }
+::selection { background: #cfe7da; color: #092017; }
 
 [data-theme="dark"] {
-  --pc-background: #07110d;
-  --pc-surface: #0d1a14;
-  --pc-surface-muted: #12241b;
-  --pc-text: #eef7f2;
-  --pc-muted: #9eb0a6;
-  --pc-border: #233a2e;
-  --pc-primary: #2a8a5d;
-  --pc-primary-strong: #3aa875;
-  --pc-primary-soft: #102c20;
-  --pc-success: #49b984;
-  --pc-warning: #d9a441;
-  --pc-danger: #f97066;
+  --pc-background: #07100c;
+  --pc-surface: #0d1813;
+  --pc-surface-muted: #122019;
+  --pc-text: #f0f7f3;
+  --pc-muted: #9bada4;
+  --pc-border: #24372d;
+  --pc-primary: #2c8e61;
+  --pc-primary-strong: #45ae7d;
+  --pc-primary-soft: #10281d;
+  --pc-success: #54c18d;
+  --pc-warning: #d6a44a;
+  --pc-danger: #ff7b72;
   color-scheme: dark;
 }
 
-/* Tailwind utility compatibility for the shared scaffold. */
 [data-theme="dark"] .bg-white { background-color: var(--pc-surface) !important; }
 [data-theme="dark"] .bg-slate-50 { background-color: var(--pc-background) !important; }
 [data-theme="dark"] .bg-slate-100 { background-color: var(--pc-surface-muted) !important; }
-[data-theme="dark"] .bg-emerald-50 { background-color: #102c20 !important; }
-[data-theme="dark"] .bg-amber-50 { background-color: #2a210d !important; }
+[data-theme="dark"] .bg-emerald-50 { background-color: #10281d !important; }
+[data-theme="dark"] .bg-amber-50 { background-color: #2b210e !important; }
+[data-theme="dark"] .bg-red-50 { background-color: #2c1414 !important; }
 [data-theme="dark"] .text-slate-950,
 [data-theme="dark"] .text-slate-900,
 [data-theme="dark"] .text-slate-800 { color: var(--pc-text) !important; }
 [data-theme="dark"] .text-slate-700,
 [data-theme="dark"] .text-slate-600,
 [data-theme="dark"] .text-slate-500 { color: var(--pc-muted) !important; }
+[data-theme="dark"] .text-slate-400 { color: #7f9388 !important; }
+[data-theme="dark"] .text-emerald-950,
 [data-theme="dark"] .text-emerald-900,
-[data-theme="dark"] .text-emerald-800 { color: #74cda2 !important; }
-[data-theme="dark"] .border-slate-200 { border-color: var(--pc-border) !important; }
+[data-theme="dark"] .text-emerald-800 { color: #82d5ab !important; }
+[data-theme="dark"] .text-amber-900 { color: #f0c66d !important; }
+[data-theme="dark"] .text-red-800 { color: #ff9b96 !important; }
+[data-theme="dark"] .border,
+[data-theme="dark"] .border-t,
+[data-theme="dark"] .border-b,
+[data-theme="dark"] .border-dashed,
+[data-theme="dark"] .border-slate-200,
+[data-theme="dark"] .border-slate-300 { border-color: var(--pc-border) !important; }
 [data-theme="dark"] input,
 [data-theme="dark"] textarea,
-[data-theme="dark"] select { background-color: #0b1711 !important; color: var(--pc-text); }
+[data-theme="dark"] select { background-color: #0a1510 !important; color: var(--pc-text) !important; border-color: var(--pc-border) !important; }
 [data-theme="dark"] input::placeholder,
-[data-theme="dark"] textarea::placeholder { color: #70837a; }
+[data-theme="dark"] textarea::placeholder { color: #70847a; }
+[data-theme="dark"] .shadow-sm,
+[data-theme="dark"] .shadow-md,
+[data-theme="dark"] .shadow-lg { box-shadow: 0 12px 35px rgb(0 0 0 / .28) !important; }
+[data-theme="dark"] .from-emerald-950 { --tw-gradient-from: #0b281c var(--tw-gradient-from-position) !important; }
+
+.pc-grid-bg {
+  background-image: linear-gradient(to right, rgba(11,79,53,.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(11,79,53,.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+[data-theme="dark"] .pc-grid-bg {
+  background-image: linear-gradient(to right, rgba(126,211,170,.055) 1px, transparent 1px), linear-gradient(to bottom, rgba(126,211,170,.055) 1px, transparent 1px);
+}

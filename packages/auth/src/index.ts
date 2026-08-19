@@ -7,6 +7,8 @@ export type PlatformRole =
   | "FIELD_OPERATOR"
   | "AUDITOR"
   | "VIEWER"
+  | "COMPLIANCE_REVIEWER"
+  | "MODERATOR"
   | "TREASURY_ADMIN"
   | "TREASURY_APPROVER"
   | "TREASURY_EXECUTOR";

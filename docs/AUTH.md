@@ -1,6 +1,6 @@
 # Authentication & Authorization
 
-**Revision:** `1.3.0`
+**Revision:** `1.0.0`
 
 The web application exposes `/auth/login`, `/auth/sign-in`, `/auth/sign-up` and `/auth/reset-password`, with compatibility aliases for `/auth/signin` and `/auth/signup`.
 

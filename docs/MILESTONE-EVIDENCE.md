@@ -1,6 +1,6 @@
 # Milestone Evidence & Fund-Release Gates
 
-**Revision:** `1.3.0`
+**Revision:** `1.0.0`
 
 Milestone evidence is a treasury control, not a decorative campaign update.
 
