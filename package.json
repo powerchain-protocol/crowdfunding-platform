@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": ">=24 <25"
+    "node": ">=26 <27"
   },
   "packageManager": "pnpm@11.21.0",
   "scripts": {
@@ -27,7 +27,10 @@
     "validate:structure": "node scripts/validate-structure.mjs",
     "conformance": "node scripts/conformance.mjs",
     "version:check": "node scripts/version-lock.mjs",
-    "validate": "pnpm version:check && pnpm validate:structure && pnpm conformance"
+    "validate": "pnpm version:check && pnpm runtime:check && pnpm validate:structure && pnpm engine:check && pnpm conformance",
+    "security:verify:production": "node scripts/verify-production-rls.mjs",
+    "runtime:check": "node scripts/doctor.mjs",
+    "engine:check": "node scripts/validate-crowdfunding-engine.mjs"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",
@@ -37,6 +40,6 @@
     "postcss": "8.5.6",
     "tailwindcss": "4.3.3",
     "turbo": "2.5.6",
-    "typescript": "5.9.3"
+    "typescript": "^6.0.0"
   }
 }

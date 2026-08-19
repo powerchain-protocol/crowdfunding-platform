@@ -101,7 +101,11 @@ pnpm doctor
 pnpm dev
 ```
 
-Node 24 is required by the repository contract. Use the root `dev:<app>` scripts to run a single application.
+Node 26 is required by the repository contract. Use the root `dev:<app>` scripts to run a single application.
+
+## Company profiles & invoicing
+
+Organizations can now configure legal/company/foundation details, branding, registered address, billing contacts and public social links. The dashboard includes a reusable PowerChain invoice renderer, invoice preview tool, invoice list hook and `/api/v1/invoices` boundary. Issued invoices are designed around immutable party snapshots and reconciliation-driven payment state.
 
 ## Documentation
 
@@ -122,3 +126,35 @@ Canonical v1.0.0 now uses a unified dark-green institutional design system acros
 - `@powerchain/moderation` — reports, severity policy and reversible auto-suspension decisions.
 
 The platform remains canonical `1.0.0`; these additions are improvements within the v1 contract.
+
+## Founder / Investor Capital Module
+
+PowerChain v1.0.0 now also contains a structured founder/investor marketplace domain:
+
+```text
+Founder listing
+  -> 3–5 milestone tranches
+  -> derived raise goal
+  -> investor marketplace / watchlist
+  -> due diligence
+  -> interest / offer
+  -> participant-only deal room
+  -> counsel-approved agreement + e-signature
+  -> funded escrow with fee snapshot
+  -> IPFS/content proof
+  -> investor approval
+  -> claim_milestone
+```
+
+Security additions include Supabase/Postgres RLS policies, protected-column triggers, append-only audit protection and a real authenticated-user verification harness. These files establish the security contract; they are **not** evidence that a production database has already passed the harness unless `pnpm security:verify:production` is actually run against the target deployment.
+
+See [`docs/CAPITAL-MARKETPLACE.md`](docs/CAPITAL-MARKETPLACE.md) and [`docs/DATA-SECURITY-RLS.md`](docs/DATA-SECURITY-RLS.md).
+
+
+## Crowdfunding engine
+
+Canonical v1.0.0 now includes goal-based escrowed campaigns, `contribute()`, success withdrawals, pull-based `refund_single()`, proof-gated `claim_milestone()`, discovery registry scaffolding, contributor leaderboard projections, realtime fallbacks, Midtrans hosted-checkout adapter, settings, countdown/progress components and my-donations history. See `docs/CROWDFUNDING-ENGINE.md`.
+
+## Runtime
+
+Repository runtime is Node 26.x with Next.js 16.3.1 and the TypeScript 6.0 compiler line. Product/API version remains 1.0.0.

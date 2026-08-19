@@ -17,7 +17,15 @@
     "next": "16.3.1",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "@powerchain/identity": "workspace:*"
+    "@powerchain/identity": "workspace:*",
+    "@powerchain/deals": "workspace:*",
+    "@powerchain/deal-room": "workspace:*",
+    "@powerchain/i18n": "workspace:*",
+    "@powerchain/activity": "workspace:*",
+    "@powerchain/data": "workspace:*",
+    "@powerchain/hooks": "workspace:*",
+    "@powerchain/funding": "workspace:*",
+    "@powerchain/realtime": "workspace:*"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",
@@ -25,6 +33,9 @@
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.4",
     "tailwindcss": "4.3.3",
-    "typescript": "5.9.3"
+    "typescript": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=26 <27"
   }
 }

@@ -1,0 +1,25 @@
+{
+  "name": "@powerchain/funding",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@powerchain/types": "workspace:*"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./clients": "./src/clients.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json",
+    "lint": "echo funding:lint"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.0",
+    "@types/node": "26.2.0"
+  },
+  "engines": {
+    "node": ">=26 <27"
+  }
+}

@@ -1,0 +1,2 @@
+export interface TreasuryFund { id:string; campaignId:string; address:string; asset:string; chain:"SOLANA"|"SUI"|"EVM"; balanceBaseUnits:string; feeRecipient?:string; }
+export interface TreasuryDisbursement { id:string; treasuryId:string; recipient:string; amountBaseUnits:string; reason:string; milestoneId?:string; signature?:string; status:"PROPOSED"|"APPROVED"|"SUBMITTED"|"CONFIRMED"|"RECONCILED"|"FAILED"; }

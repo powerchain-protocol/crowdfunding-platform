@@ -135,7 +135,8 @@ model EscrowTranche {
   amountMinor          Decimal  @db.Decimal(40, 0)
   asset                String
   status               String
-  platformFeeBps       Int
+  platformFeeBpsSnapshot Int?
+  fundedAt             DateTime?
   releaseTransactionId String?
   releasedAt           DateTime?
   createdAt            DateTime @default(now())
@@ -190,4 +191,170 @@ model ModerationAction {
   actorId    String?
   automatic  Boolean  @default(false)
   createdAt  DateTime @default(now())
+}
+
+
+model FounderListing {
+  id                 String   @id @default(uuid()) @db.Uuid
+  slug               String   @unique
+  founderUserId      String   @db.Uuid
+  organizationId     String   @db.Uuid
+  productName        String
+  tagline             String
+  category            String
+  stage               String
+  location            String
+  pitchDeckStorageKey String?
+  demoVideoStorageKey String?
+  status              String   @default("DRAFT")
+  verificationStatus  String   @default("PENDING")
+  verified            Boolean  @default(false)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@map("founder_listings")
+}
+
+model ListingTranche {
+  id                String   @id @default(uuid()) @db.Uuid
+  listingId         String   @db.Uuid
+  ordinal           Int
+  title             String
+  amountMinor       Decimal  @db.Decimal(40, 0)
+  milestoneSummary  String
+  proofRequirements Json
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@unique([listingId, ordinal])
+  @@map("listing_tranches")
+}
+
+model InvestorOffer {
+  id             String   @id @default(uuid()) @db.Uuid
+  listingId      String   @db.Uuid
+  investorUserId String   @db.Uuid
+  amountMinor    Decimal  @db.Decimal(40, 0)
+  currency       String
+  termsJson      Json
+  status         String   @default("SUBMITTED")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("investor_offers")
+}
+
+model WatchlistItem {
+  userId    String   @db.Uuid
+  listingId String   @db.Uuid
+  createdAt DateTime @default(now())
+
+  @@id([userId, listingId])
+  @@map("watchlist_items")
+}
+
+model DealRoom {
+  id        String   @id @default(uuid()) @db.Uuid
+  listingId String   @db.Uuid
+  offerId   String?  @db.Uuid
+  status    String   @default("OPEN")
+  createdAt DateTime @default(now())
+
+  @@map("deal_rooms")
+}
+
+model DealRoomParticipant {
+  roomId          String   @db.Uuid
+  userId          String   @db.Uuid
+  participantRole String
+  createdAt       DateTime @default(now())
+
+  @@id([roomId, userId])
+  @@map("deal_room_participants")
+}
+
+model DealRoomMessage {
+  id           String   @id @default(uuid()) @db.Uuid
+  roomId       String   @db.Uuid
+  senderUserId String   @db.Uuid
+  kind         String
+  body         String?
+  createdAt    DateTime @default(now())
+  editedAt     DateTime?
+
+  @@map("deal_room_messages")
+}
+
+model DealRoomAttachment {
+  id             String   @id @default(uuid()) @db.Uuid
+  roomId         String   @db.Uuid
+  uploaderUserId String   @db.Uuid
+  storageKey     String
+  fileName       String
+  contentType    String
+  sizeBytes      BigInt
+  sha256         String
+  createdAt      DateTime @default(now())
+
+  @@map("deal_room_attachments")
+}
+
+model MilestoneProof {
+  id                   String   @id @default(uuid()) @db.Uuid
+  escrowTrancheId      String   @db.Uuid
+  submitterUserId      String   @db.Uuid
+  ipfsUri              String
+  sha256               String
+  status               String   @default("SUBMITTED")
+  verifiedByInvestorId String?  @db.Uuid
+  verifiedAt           DateTime?
+  createdAt            DateTime @default(now())
+
+  @@map("milestone_proofs")
+}
+
+model OrganizationProfile {
+  id                 String   @id @default(cuid())
+  organizationId     String   @unique
+  legalName          String
+  tradingName        String?
+  entityType         String
+  registrationNumber String?
+  taxId              String?
+  foundationNumber   String?
+  foundationPurpose  String?
+  foundedAt          DateTime?
+  website            String?
+  billingEmail       String?
+  phone              String?
+  logoObjectKey      String?
+  description        String?
+  registeredAddress  Json?
+  socialLinks        Json?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model InvoiceRecord {
+  id             String   @id @default(cuid())
+  organizationId String
+  number         String
+  status         String
+  currency       String
+  issuerSnapshot Json
+  customerSnapshot Json
+  lines          Json
+  fees           Json?
+  discountAmount Decimal? @db.Decimal(30, 9)
+  settlement     Json?
+  notes          String?
+  paymentTerms   String?
+  auditHash      String?
+  issuedAt       DateTime
+  dueAt          DateTime
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@unique([organizationId, number])
+  @@index([organizationId, status])
 }

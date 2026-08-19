@@ -1,0 +1,3 @@
+import { AppShell, PageHeader } from "@powerchain/ui";
+import { FounderListingBuilder } from "../../../components/founder-listing-builder";
+export default function Page(){return <AppShell appName="Founder Listing" notificationCount={3} nav={[{label:"Founder home",href:"/"},{label:"Offers",href:"/founder/offers"},{label:"Marketplace",href:"http://localhost:3001/marketplace"}]}><PageHeader eyebrow="Founder" title="Build an investor-ready listing" description="Product profile, team, diligence materials and deal terms—structured around 3–5 milestone tranches. The raise goal is derived from the tranche plan rather than entered separately."/><div className="mt-7"><FounderListingBuilder/></div></AppShell>}

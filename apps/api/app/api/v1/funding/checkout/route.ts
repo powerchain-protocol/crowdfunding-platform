@@ -1,0 +1,3 @@
+import { createFundingClient } from "@powerchain/funding/clients";
+import { success } from "@powerchain/api-core";
+export async function POST(request:Request){const body=await request.json() as {campaignId?:string;amount?:number;email?:string};if(!body.campaignId||!body.amount||body.amount<=0)return Response.json({error:{code:"INVALID_PAYMENT",message:"campaignId and a positive amount are required",requestId:crypto.randomUUID()}},{status:400});const orderId=`pc_${crypto.randomUUID()}`;const client=createFundingClient();const result=await client.createCheckout({orderId,grossAmount:body.amount,campaignId:body.campaignId,...(body.email?{email:body.email}:{})});return Response.json(success(result))}

@@ -1,0 +1,3 @@
+export type CrowdfundingCampaignStatus="DRAFT"|"OPEN"|"SUCCESS"|"FAILED"|"WITHDRAWING"|"REFUNDING"|"CLOSED";
+export interface CrowdfundingCampaign { id:string; slug:string; owner:string; title:string; summary:string; category:string; goalBaseUnits:string; fundedBaseUnits:string; deadline:string; asset:string; escrow:string; registryEntry:string; status:CrowdfundingCampaignStatus; projectId?:string; }
+export interface CampaignMilestone { id:string; campaignId:string; ordinal:number; title:string; amountBaseUnits:string; proofRequired:boolean; proofUri?:string; approvedAt?:string; claimedAt?:string; }

@@ -1,4 +1,9 @@
 export type PlatformRole =
+  | "FOUNDER"
+  | "INVESTOR"
+  | "ADVISOR"
+  | "PLATFORM_ADMIN"
+  | "SUPER_ADMIN"
   | "OWNER"
   | "ADMIN"
   | "CAMPAIGN_MANAGER"
@@ -34,3 +39,5 @@ export function validatePassword(value: string): string[] {
   if (!/[0-9]/.test(value)) errors.push("Password must include a number.");
   return errors;
 }
+
+export * from "./session-cookie";

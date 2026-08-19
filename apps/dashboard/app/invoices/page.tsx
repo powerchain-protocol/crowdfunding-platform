@@ -1,0 +1,3 @@
+import { AppShell, PageHeader } from "@powerchain/ui";
+import { InvoicesList } from "../../components/invoices-list";
+export default function InvoicesPage(){return <AppShell appName="Invoices" notificationCount={3} nav={[{label:"Dashboard",href:"/"},{label:"Invoices",href:"/invoices"},{label:"Company",href:"/settings/company"}]}><PageHeader eyebrow="Finance · Invoices" title="Invoices & billing" description="Create consistent invoices from your verified organization profile, campaign/service lines and transparent settlement instructions." action={<a href="/tools/invoice-preview" className="inline-flex h-10 items-center rounded-xl bg-emerald-950 px-4 text-sm font-bold text-white">Create invoice</a>}/><div className="mt-7"><InvoicesList/></div></AppShell>}

@@ -1,0 +1,1 @@
+import {success} from "@powerchain/api-core"; export async function GET(_r:Request,{params}:{params:Promise<{campaignId:string}>}){const {campaignId}=await params;return Response.json(success({campaignId,escrow:"resolved-from-chain",treasuryFund:"configured-at-runtime",reserveFund:"configured-at-runtime",asset:"configured-at-runtime",balanceState:"INDEXED_RECONCILED"}))}

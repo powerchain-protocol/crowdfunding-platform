@@ -1,77 +1,137 @@
+/* PowerChain visual contract: white, light gray, black and dark green only for the core brand palette. */
 :root {
-  --pc-background: #f6f8f7;
-  --pc-surface: #ffffff;
-  --pc-surface-muted: #f0f4f2;
-  --pc-text: #091712;
-  --pc-muted: #64736c;
-  --pc-border: #dce5e0;
-  --pc-primary: #0b4f35;
-  --pc-primary-strong: #063823;
-  --pc-primary-soft: #eaf3ee;
-  --pc-success: #147a50;
-  --pc-warning: #9a6700;
-  --pc-danger: #b42318;
+  --pc-white: #ffffff;
+  --pc-black: #080a09;
+  --pc-black-soft: #141816;
+  --pc-gray-25: #fcfcfc;
+  --pc-gray-50: #f7f8f7;
+  --pc-gray-100: #f0f2f1;
+  --pc-gray-200: #e3e6e4;
+  --pc-gray-300: #d2d7d4;
+  --pc-gray-400: #9ba39f;
+  --pc-gray-500: #6f7873;
+  --pc-gray-600: #4f5753;
+  --pc-gray-700: #343a37;
+  --pc-gray-800: #202522;
+  --pc-gray-900: #111512;
+  --pc-green-50: #edf6f1;
+  --pc-green-100: #dcece3;
+  --pc-green-200: #b8d8c6;
+  --pc-green-300: #86b89d;
+  --pc-green-400: #4f936f;
+  --pc-green-500: #2f7653;
+  --pc-green-600: #1f6344;
+  --pc-green-700: #154f37;
+  --pc-green-800: #0e422d;
+  --pc-green-900: #0a3525;
+  --pc-green-950: #06271b;
+
+  --pc-background: var(--pc-gray-50);
+  --pc-surface: var(--pc-white);
+  --pc-surface-muted: var(--pc-gray-100);
+  --pc-text: var(--pc-black);
+  --pc-muted: var(--pc-gray-500);
+  --pc-border: var(--pc-gray-200);
+  --pc-primary: var(--pc-green-700);
+  --pc-primary-strong: var(--pc-green-950);
+  --pc-primary-soft: var(--pc-green-50);
+  --pc-success: var(--pc-green-600);
+  --pc-warning: #8a6417;
+  --pc-danger: #a33a32;
+  --pc-focus: rgba(10, 53, 37, .14);
+  --pc-shadow-xs: 0 1px 2px rgba(0, 0, 0, .035);
+  --pc-shadow-sm: 0 1px 2px rgba(0, 0, 0, .04), 0 8px 24px rgba(0, 0, 0, .035);
+  --pc-shadow-md: 0 14px 40px rgba(0, 0, 0, .075);
 }
 
 html { color-scheme: light; background: var(--pc-background); }
 body { background: var(--pc-background); color: var(--pc-text); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 * { border-color: var(--pc-border); }
-::selection { background: #cfe7da; color: #092017; }
+::selection { background: var(--pc-green-100); color: var(--pc-green-950); }
 
 [data-theme="dark"] {
-  --pc-background: #07100c;
-  --pc-surface: #0d1813;
-  --pc-surface-muted: #122019;
-  --pc-text: #f0f7f3;
-  --pc-muted: #9bada4;
-  --pc-border: #24372d;
-  --pc-primary: #2c8e61;
-  --pc-primary-strong: #45ae7d;
-  --pc-primary-soft: #10281d;
-  --pc-success: #54c18d;
-  --pc-warning: #d6a44a;
-  --pc-danger: #ff7b72;
+  --pc-background: #080b09;
+  --pc-surface: #0d110f;
+  --pc-surface-muted: #141916;
+  --pc-text: #f7f8f7;
+  --pc-muted: #9ca59f;
+  --pc-border: #262d29;
+  --pc-primary: #3e8a63;
+  --pc-primary-strong: #65ad85;
+  --pc-primary-soft: #10231a;
+  --pc-success: #65ad85;
+  --pc-warning: #d2aa58;
+  --pc-danger: #dc7b73;
+  --pc-focus: rgba(101, 173, 133, .18);
+  --pc-shadow-xs: 0 1px 2px rgba(0, 0, 0, .3);
+  --pc-shadow-sm: 0 1px 2px rgba(0, 0, 0, .25), 0 12px 32px rgba(0, 0, 0, .22);
+  --pc-shadow-md: 0 18px 54px rgba(0, 0, 0, .34);
   color-scheme: dark;
 }
 
+/* Tailwind neutral utilities are the allowed gray family. These dark overrides preserve readable contrast. */
 [data-theme="dark"] .bg-white { background-color: var(--pc-surface) !important; }
-[data-theme="dark"] .bg-slate-50 { background-color: var(--pc-background) !important; }
-[data-theme="dark"] .bg-slate-100 { background-color: var(--pc-surface-muted) !important; }
-[data-theme="dark"] .bg-emerald-50 { background-color: #10281d !important; }
-[data-theme="dark"] .bg-amber-50 { background-color: #2b210e !important; }
-[data-theme="dark"] .bg-red-50 { background-color: #2c1414 !important; }
-[data-theme="dark"] .text-slate-950,
-[data-theme="dark"] .text-slate-900,
-[data-theme="dark"] .text-slate-800 { color: var(--pc-text) !important; }
-[data-theme="dark"] .text-slate-700,
-[data-theme="dark"] .text-slate-600,
-[data-theme="dark"] .text-slate-500 { color: var(--pc-muted) !important; }
-[data-theme="dark"] .text-slate-400 { color: #7f9388 !important; }
+[data-theme="dark"] .bg-neutral-50 { background-color: var(--pc-background) !important; }
+[data-theme="dark"] .bg-neutral-100 { background-color: var(--pc-surface-muted) !important; }
+[data-theme="dark"] .bg-emerald-50 { background-color: var(--pc-primary-soft) !important; }
+[data-theme="dark"] .bg-amber-50 { background-color: #241d10 !important; }
+[data-theme="dark"] .bg-red-50 { background-color: #271313 !important; }
+[data-theme="dark"] .text-neutral-950,
+[data-theme="dark"] .text-neutral-900,
+[data-theme="dark"] .text-neutral-800 { color: var(--pc-text) !important; }
+[data-theme="dark"] .text-neutral-700,
+[data-theme="dark"] .text-neutral-600,
+[data-theme="dark"] .text-neutral-500 { color: var(--pc-muted) !important; }
+[data-theme="dark"] .text-neutral-400 { color: #7f8983 !important; }
 [data-theme="dark"] .text-emerald-950,
 [data-theme="dark"] .text-emerald-900,
-[data-theme="dark"] .text-emerald-800 { color: #82d5ab !important; }
-[data-theme="dark"] .text-amber-900 { color: #f0c66d !important; }
-[data-theme="dark"] .text-red-800 { color: #ff9b96 !important; }
+[data-theme="dark"] .text-emerald-800 { color: #79bf96 !important; }
+[data-theme="dark"] .text-amber-900 { color: #e0be74 !important; }
+[data-theme="dark"] .text-red-800 { color: #e9958f !important; }
 [data-theme="dark"] .border,
 [data-theme="dark"] .border-t,
 [data-theme="dark"] .border-b,
 [data-theme="dark"] .border-dashed,
-[data-theme="dark"] .border-slate-200,
-[data-theme="dark"] .border-slate-300 { border-color: var(--pc-border) !important; }
+[data-theme="dark"] .border-neutral-200,
+[data-theme="dark"] .border-neutral-300 { border-color: var(--pc-border) !important; }
 [data-theme="dark"] input,
 [data-theme="dark"] textarea,
-[data-theme="dark"] select { background-color: #0a1510 !important; color: var(--pc-text) !important; border-color: var(--pc-border) !important; }
+[data-theme="dark"] select { background-color: #0a0e0c !important; color: var(--pc-text) !important; border-color: var(--pc-border) !important; }
 [data-theme="dark"] input::placeholder,
-[data-theme="dark"] textarea::placeholder { color: #70847a; }
+[data-theme="dark"] textarea::placeholder { color: #6f7a74; }
 [data-theme="dark"] .shadow-sm,
 [data-theme="dark"] .shadow-md,
-[data-theme="dark"] .shadow-lg { box-shadow: 0 12px 35px rgb(0 0 0 / .28) !important; }
-[data-theme="dark"] .from-emerald-950 { --tw-gradient-from: #0b281c var(--tw-gradient-from-position) !important; }
+[data-theme="dark"] .shadow-lg { box-shadow: var(--pc-shadow-md) !important; }
+[data-theme="dark"] .from-emerald-950 { --tw-gradient-from: #092117 var(--tw-gradient-from-position) !important; }
+
+/* Core interactive affordances. */
+:where(button, a, input, textarea, select):focus-visible {
+  outline: none;
+}
+:where(button, a, input, textarea, select):focus-visible:not(.focus-visible\:ring-0) {
+  --tw-ring-color: var(--pc-focus);
+}
 
 .pc-grid-bg {
-  background-image: linear-gradient(to right, rgba(11,79,53,.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(11,79,53,.05) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgba(10,53,37,.045) 1px, transparent 1px), linear-gradient(to bottom, rgba(10,53,37,.045) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 [data-theme="dark"] .pc-grid-bg {
-  background-image: linear-gradient(to right, rgba(126,211,170,.055) 1px, transparent 1px), linear-gradient(to bottom, rgba(126,211,170,.055) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgba(101,173,133,.045) 1px, transparent 1px), linear-gradient(to bottom, rgba(101,173,133,.045) 1px, transparent 1px);
 }
+
+/* Locale and RTL foundation. */
+html[dir="rtl"] body { direction: rtl; }
+html[dir="rtl"] .pc-ltr { direction: ltr; }
+html[dir="rtl"] .pc-rtl-row { flex-direction: row-reverse; }
+html[dir="rtl"] input,
+html[dir="rtl"] textarea,
+html[dir="rtl"] select { text-align: start; }
+html[dir="rtl"] [data-directional-icon="true"] { transform: scaleX(-1); }
+html[dir="rtl"] .pc-start-icon { left: auto !important; right: .875rem !important; }
+html[dir="rtl"] .pc-has-start-icon { padding-left: .75rem !important; padding-right: 2.5rem !important; }
+html[dir="rtl"] .font-mono { direction: ltr; unicode-bidi: isolate; }
+html[dir="rtl"] .pc-notification-count { right: auto !important; left: -.25rem !important; }
+html[dir="rtl"] .pc-notification-menu { right: auto !important; left: 0 !important; }
+html[dir="rtl"] .text-right { text-align: left !important; }
+html[dir="rtl"] .text-left { text-align: right !important; }

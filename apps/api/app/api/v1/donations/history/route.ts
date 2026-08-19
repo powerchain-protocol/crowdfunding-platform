@@ -1,0 +1,2 @@
+import {cookies} from "next/headers"; import {SESSION_COOKIE_NAME} from "@powerchain/auth"; import {success} from "@powerchain/api-core";
+export async function GET(){const session=(await cookies()).get(SESSION_COOKIE_NAME)?.value;if(!session)return Response.json({error:{code:"AUTH_REQUIRED",message:"Sign in to view your donation history.",requestId:crypto.randomUUID()}},{status:401});return Response.json(success([{campaignId:"cmp_flood_2026",amount:"50.00",currency:"EUR",status:"RECONCILED",createdAt:"2026-08-12T10:00:00Z"}]),{headers:{"cache-control":"private, no-store"}})}

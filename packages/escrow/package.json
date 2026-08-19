@@ -12,10 +12,13 @@
     "lint": "echo escrow:lint"
   },
   "devDependencies": {
-    "typescript": "5.9.3"
+    "typescript": "^6.0.0"
   },
   "dependencies": {
     "evidence": "workspace:*",
     "identity": "workspace:*"
+  },
+  "engines": {
+    "node": ">=26 <27"
   }
 }

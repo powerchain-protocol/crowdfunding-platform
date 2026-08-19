@@ -5,7 +5,7 @@ export type ModerationAction = "NONE" | "RESTRICT" | "SUSPEND" | "REMOVE";
 export interface ModerationReport {
   id: string;
   reporterUserId?: string;
-  resourceType: "CAMPAIGN" | "ORGANIZATION" | "USER" | "EVIDENCE";
+  resourceType: "CAMPAIGN" | "LISTING" | "DEAL_ROOM" | "ORGANIZATION" | "USER" | "EVIDENCE";
   resourceId: string;
   reason: ReportReason;
   details?: string;

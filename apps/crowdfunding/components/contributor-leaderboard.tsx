@@ -1,0 +1,8 @@
+"use client";
+import { Card, StatusBadge } from "@powerchain/ui";
+import { useLeaderboard } from "@powerchain/hooks";
+import type { LeaderboardSnapshot } from "@powerchain/types";
+export function ContributorLeaderboard({ campaignId }: { campaignId: string }) {
+  const {data,error}=useLeaderboard(campaignId,10_000); const snapshot=data as LeaderboardSnapshot|null;
+  return <Card className="overflow-hidden"><div className="flex items-center justify-between border-b p-4"><div><h3 className="font-bold">Top contributors</h3><p className="mt-1 text-xs text-neutral-500">Top 3 public wallet aggregates from the contributors program/indexer.</p></div><StatusBadge tone={error?"warning":"success"}>{error?"Unavailable":snapshot?.source??"On-chain"}</StatusBadge></div>{error?<div className="p-4 text-xs leading-5 text-neutral-500">{error}</div>:<div className="divide-y divide-neutral-200">{snapshot?.entries.slice(0,3).map(row=><div key={`${row.wallet}-${row.rank}`} className="flex items-center justify-between p-4"><div className="flex items-center gap-3"><span className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-50 text-xs font-bold text-emerald-950">#{row.rank}</span><div><div className="font-mono text-xs font-semibold">{row.publicAlias??row.wallet}</div><div className="mt-1 text-[10px] text-neutral-400">{row.contributionCount} contribution{row.contributionCount===1?"":"s"}</div></div></div><span className="text-sm font-bold">{Number(row.contributedBaseUnits).toLocaleString()}</span></div>)??<div className="p-4 text-xs text-neutral-500">Loading leaderboard…</div>}</div>}</Card>;
+}

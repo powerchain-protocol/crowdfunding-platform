@@ -1,0 +1,3 @@
+"use client";
+import { useEffect, useRef, useState } from "react";
+export function Counter({value,label,durationMs=650}:{value:number;label?:string;durationMs?:number}){const [shown,setShown]=useState(0);const start=useRef<number|null>(null);useEffect(()=>{let frame=0;start.current=null;const tick=(t:number)=>{if(start.current===null)start.current=t;const p=Math.min(1,(t-start.current)/durationMs);setShown(Math.round(value*(1-Math.pow(1-p,3))));if(p<1)frame=requestAnimationFrame(tick)};frame=requestAnimationFrame(tick);return()=>cancelAnimationFrame(frame)},[value,durationMs]);return <div><div className="text-2xl font-bold tracking-[-.03em] tabular-nums">{shown.toLocaleString()}</div>{label?<div className="mt-1 text-xs text-neutral-500">{label}</div>:null}</div>}

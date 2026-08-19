@@ -1,0 +1,12 @@
+{
+  "name": "powerchain_milestone_escrow",
+  "version": "1.0.0",
+  "programId": null,
+  "instructions": [
+    {"name":"fund_tranche","signers":["fundingAuthority"],"snapshot":["amount","asset","platformFeeBps"]},
+    {"name":"submit_proof_commitment","signers":["campaignOwner"],"args":["proofCommitment"]},
+    {"name":"approve_milestone","signers":["authorizedInvestor"],"args":["proofCommitment"]},
+    {"name":"claim_milestone","signers":["campaignOwner"],"requires":["funded","approved","proofCommitmentMatch","notClaimed"]}
+  ],
+  "invariants": ["fee snapshot immutable after funding","claim requires investor approval","proof commitment must match approved commitment","tranche can only be claimed once"]
+}

@@ -20,7 +20,13 @@
     "@powerchain/evidence": "workspace:*",
     "@powerchain/identity": "workspace:*",
     "@powerchain/agreements": "workspace:*",
-    "@powerchain/notifications": "workspace:*"
+    "@powerchain/notifications": "workspace:*",
+    "@powerchain/deals": "workspace:*",
+    "@powerchain/deal-room": "workspace:*",
+    "@powerchain/i18n": "workspace:*",
+    "@powerchain/proofs": "workspace:*",
+    "@powerchain/data": "workspace:*",
+    "@powerchain/hooks": "workspace:*"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",
@@ -28,6 +34,9 @@
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.4",
     "tailwindcss": "4.3.3",
-    "typescript": "5.9.3"
+    "typescript": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=26 <27"
   }
 }

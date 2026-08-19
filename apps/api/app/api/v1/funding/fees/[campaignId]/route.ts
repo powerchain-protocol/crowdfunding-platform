@@ -1,0 +1,1 @@
+import {success} from "@powerchain/api-core"; export async function GET(_r:Request,{params}:{params:Promise<{campaignId:string}>}){const {campaignId}=await params;return Response.json(success({campaignId,platformFeeBps:250,snapshotState:"AT_FUNDING",treasuryFund:"configured-at-runtime",transparent:true}))}

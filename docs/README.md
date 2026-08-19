@@ -65,3 +65,20 @@ This documentation set defines the PowerChain v1 production contract for goal-ba
 - [`AGREEMENTS-ESIGN.md`](AGREEMENTS-ESIGN.md) — counsel-approved templates, term autofill, native e-signature and document-hash binding.
 - [`ESCROW-TRANCHES.md`](ESCROW-TRANCHES.md) — tranche release gates and transparent fee handling.
 - [`NOTIFICATIONS-MODERATION.md`](NOTIFICATIONS-MODERATION.md) — in-app/email notifications, report queue, auto-suspension and moderation audit.
+
+## Founder / investor capital module
+
+- [`CAPITAL-MARKETPLACE.md`](CAPITAL-MARKETPLACE.md) — founder listings, tranche-derived raises, investor marketplace and diligence.
+- [`DEAL-ROOM.md`](DEAL-ROOM.md) — participant-only chat, files and call-provider boundary.
+- [`MILESTONE-INVESTOR-ESCROW.md`](MILESTONE-INVESTOR-ESCROW.md) — proof approval, fee snapshot and `claim_milestone`.
+- [`DATA-SECURITY-RLS.md`](DATA-SECURITY-RLS.md) — Postgres RLS, column guards and real-user verification harness.
+- [`SOLANA-CAPITAL-PROGRAMS.md`](SOLANA-CAPITAL-PROGRAMS.md) — contributors leaderboard and milestone-escrow program interfaces.
+- [`I18N-RTL.md`](I18N-RTL.md) — English/Spanish locale infrastructure and RTL acceptance criteria.
+
+## Crowdfunding engine additions
+
+- [`CROWDFUNDING-ENGINE.md`](CROWDFUNDING-ENGINE.md) — goal-based escrow, pull refunds, milestone claims, registry, leaderboard and realtime indexing.
+- [`RUNTIME-NEXTJS.md`](RUNTIME-NEXTJS.md) — Node 26, Next.js 16.3 and TypeScript 6 runtime contract.
+- [`PAYMENTS-MIDTRANS.md`](PAYMENTS-MIDTRANS.md) — hosted checkout, webhook verification and demo fallback.
+
+- [`COMPANY-INVOICES.md`](COMPANY-INVOICES.md) — organization profiles, foundation fields, branding and invoice architecture.

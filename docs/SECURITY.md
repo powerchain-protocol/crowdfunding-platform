@@ -107,3 +107,22 @@ Evidence approval is not fund release. Escrow/tranche execution checks authorita
 ## 12. Moderation safety
 
 Auto-suspension is deterministic, configurable, reversible and audit-logged. A suspension can restrict campaign activity but must not itself authorize treasury movement, asset seizure or fund redistribution.
+
+## Capital marketplace database hardening
+
+The capital module adds a Supabase/Postgres security contract under `supabase/migrations/`:
+
+```text
+RLS on exposed application tables
++ role-scoped policies (`TO authenticated` / explicit anon reads)
++ protected-column triggers
++ private Storage RLS
++ immutable funded-escrow economics
++ append-only audit log
+```
+
+Protected columns include application role, verification status, verified timestamps, funded escrow amount/asset, fee snapshot, and release transaction identifiers.
+
+`pnpm security:verify:production` is the real-auth negative-test harness. The repository must not claim that a target production tenant is verified until the harness and broader authorization tests are run against that tenant with disposable fixtures.
+
+ZK is selective privacy/attestation infrastructure. A valid ZK proof is still passed through application policy, RLS/resource authorization and escrow rules; it is not a replacement for those controls.

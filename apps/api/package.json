@@ -24,7 +24,16 @@
     "@powerchain/audit": "workspace:*",
     "@powerchain/escrow": "workspace:*",
     "@powerchain/notifications": "workspace:*",
-    "@powerchain/moderation": "workspace:*"
+    "@powerchain/moderation": "workspace:*",
+    "@powerchain/deals": "workspace:*",
+    "@powerchain/deal-room": "workspace:*",
+    "@powerchain/proofs": "workspace:*",
+    "@powerchain/activity": "workspace:*",
+    "@powerchain/security-data": "workspace:*",
+    "@powerchain/zk": "workspace:*",
+    "@powerchain/data": "workspace:*",
+    "@powerchain/funding": "workspace:*",
+    "@powerchain/realtime": "workspace:*"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",
@@ -32,6 +41,9 @@
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.4",
     "tailwindcss": "4.3.3",
-    "typescript": "5.9.3"
+    "typescript": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=26 <27"
   }
 }

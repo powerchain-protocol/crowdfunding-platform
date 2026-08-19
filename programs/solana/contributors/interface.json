@@ -1,0 +1,12 @@
+{
+  "name": "powerchain_contributors",
+  "version": "1.0.0",
+  "programId": null,
+  "pdas": [{"name":"leaderboard","seeds":["contributors","campaign"]}],
+  "instructions": [
+    {"name":"initialize_leaderboard","signers":["campaignAuthority"],"args":["campaign","settlementAuthority"]},
+    {"name":"record_contribution","signers":["settlementAuthority"],"args":["contributor","settledAmount"]},
+    {"name":"rotate_settlement_authority","signers":["campaignAuthority"],"args":["newAuthority"]}
+  ],
+  "invariants": ["arbitrary clients cannot record contribution amounts","top list contains at most three contributors","campaign PDA is validated"]
+}

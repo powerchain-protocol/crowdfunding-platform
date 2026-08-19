@@ -77,3 +77,9 @@ encrypted object storage
 ## 7. Retention
 
 Define retention periods per data class and provider/legal requirement. Deletion/erasure workflows must distinguish off-chain deletable records from immutable public-chain data.
+
+## Founder / investor listings
+
+Founder investment listings are not treated as donation campaigns. Production enablement requires a jurisdiction-aware policy for offering eligibility, investor eligibility/suitability where applicable, disclosures, counsel-approved agreements, communications retention, escrow terms and any transfer/resale constraints.
+
+Marketplace preference matching and ranking are discovery tools. They must not be represented as personalized investment advice or a guarantee that an opportunity is suitable for an investor.

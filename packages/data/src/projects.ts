@@ -1,0 +1,1 @@
+import type { Project } from "@powerchain/types"; export const demoProjects:Project[]=[{id:"prj_flood",slug:"flood-emergency-response",campaignId:"cmp_flood_2026",title:"Flood Emergency Response",category:"Disaster Relief",country:"Finland",ownerId:"usr_demo",status:"PUBLISHED",publishedAt:"2026-08-01T00:00:00Z"}];

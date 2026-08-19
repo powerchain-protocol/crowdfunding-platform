@@ -1,0 +1,3 @@
+import {success} from "@powerchain/api-core";
+const projects=[{id:"cmp_flood_2026",slug:"flood-emergency-response",title:"Flood Emergency Response",category:"Disaster Relief",status:"OPEN",funded:147200,goal:250000,deadline:"2026-09-30T20:00:00Z"},{id:"cmp_solar_2026",slug:"community-solar-recovery",title:"Community Solar Recovery",category:"Renewables",status:"OPEN",funded:88000,goal:160000,deadline:"2026-10-20T20:00:00Z"},{id:"cmp_medical_2026",slug:"mobile-medical-clinics",title:"Mobile Medical Clinics",category:"Humanitarian",status:"OPEN",funded:84200,goal:120000,deadline:"2026-09-12T20:00:00Z"}];
+export async function GET(){return Response.json(success(projects),{headers:{"cache-control":"public, max-age=5, stale-while-revalidate=10"}})}

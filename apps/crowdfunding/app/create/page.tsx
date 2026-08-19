@@ -1,6 +1,3 @@
-import { AppShell } from "@powerchain/ui";
+import { AppShell, Card, StatusBadge } from "@powerchain/ui";
 import { CreateCampaignWizard } from "../../components/create-campaign-wizard";
-
-export default function Page() {
-  return <AppShell appName="Create Campaign" nav={[{ label: "Explore projects", href: "/explore" }, { label: "My projects", href: "/projects" }]}><CreateCampaignWizard /></AppShell>;
-}
+export default function Page(){return <AppShell appName="Create Campaign" nav={[{label:"Explore projects",href:"/explore"},{label:"My projects",href:"/projects"}]}><Card className="mb-5 flex items-center justify-between gap-4 p-4"><div><div className="text-sm font-bold">Authenticated publishing</div><div className="mt-1 text-xs text-neutral-500">Drafts may be prepared locally; publishing requires an authenticated server session stored in an httpOnly cookie.</div></div><StatusBadge tone="success">Auth required</StatusBadge></Card><CreateCampaignWizard /></AppShell>}

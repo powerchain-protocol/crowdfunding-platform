@@ -1,0 +1,3 @@
+import { AppShell, PageHeader } from "@powerchain/ui";
+import { InvoicePreviewTool } from "../../../tools/invoice-preview";
+export default function InvoicePreviewPage(){ return <AppShell appName="Invoice Tools" notificationCount={3} nav={[{label:"Dashboard",href:"/"},{label:"Invoices",href:"/invoices"},{label:"Company",href:"/settings/company"}]}><PageHeader eyebrow="Tools · Invoice preview" title="PowerChain invoice preview" description="Compose a professional invoice with live totals, organization branding, customer details and settlement instructions before issuing it through the authenticated invoice service."/><div className="mt-7"><InvoicePreviewTool/></div></AppShell>; }

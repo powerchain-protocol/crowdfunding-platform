@@ -31,3 +31,24 @@ export interface SecureDocumentStorageProvider {
 export interface EmailDeliveryProvider {
   send(input: { to: string; subject: string; text: string; idempotencyKey: string }): Promise<{ messageId: string }>;
 }
+
+export interface RealtimeDealRoomProvider {
+  subscribe(roomId: string, onEvent: (event: unknown) => void): Promise<() => void>;
+}
+
+export interface MeetingProvider {
+  createMeeting(input: { roomId: string; startsAt: string; participantUserIds: string[] }): Promise<{ meetingReference: string; joinUrl: string }>;
+}
+
+export interface PrivateDocumentStorageProvider {
+  createUpload(input: { ownerUserId: string; scope: string; fileName: string; contentType: string; sizeBytes: number; sha256: string }): Promise<{ storageKey: string; uploadUrl: string }>;
+  createDownload(storageKey: string, viewerUserId: string): Promise<{ downloadUrl: string; expiresAt: string }>;
+}
+
+export interface SolanaContributorsDataProvider {
+  getTopContributors(campaign: string, limit?: 3): Promise<readonly { contributor: string; amountBaseUnits: string }[]>;
+}
+
+export interface MilestoneEscrowProgramProvider {
+  prepareClaimMilestone(input: { campaign: string; milestoneId: string; proofCommitment: string; owner: string }): Promise<{ serializedTransaction: string; reviewHash: string }>;
+}

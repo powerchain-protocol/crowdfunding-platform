@@ -1,0 +1,1 @@
+import {success} from "@powerchain/api-core"; export async function GET(){return Response.json(success({openProjects:3,totalProjects:4,updatedAt:new Date().toISOString()}),{headers:{"cache-control":"public, max-age=10"}})}

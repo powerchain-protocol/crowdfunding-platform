@@ -1,0 +1,3 @@
+"use client";
+import { useCountdown } from "@powerchain/hooks";
+export function Countdown({deadline,compact=false}:{deadline:string;compact?:boolean}){const c=useCountdown(deadline);if(c.expired)return <span className="font-semibold text-red-700">Campaign ended</span>;const parts=[[c.days,"d"],[c.hours,"h"],[c.minutes,"m"],...(compact?[]:[[c.seconds,"s"]] as [number,string][])];return <div className="flex items-center gap-1.5" aria-label={`${c.days} days ${c.hours} hours remaining`}>{parts.map(([n,u])=><span key={u} className="rounded-lg border border-neutral-200 bg-white px-2 py-1 text-xs font-bold tabular-nums">{n}{u}</span>)}</div>}

@@ -1,0 +1,23 @@
+{
+  "name": "@powerchain/data",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@powerchain/types": "workspace:*"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json",
+    "lint": "echo data:lint"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=26 <27"
+  }
+}

@@ -1,0 +1,2 @@
+import {success} from "@powerchain/api-core";
+export async function POST(_request:Request,{params}:{params:Promise<{id:string}>}){const {id}=await params;return Response.json(success({campaignId:id,instruction:"withdraw",status:"PREPARED",conditions:["goal reached","deadline/success policy satisfied","owner wallet matches campaign authority","fee snapshot valid","milestone mode permits whole-campaign withdrawal"],requiresOwnerWalletSignature:true}))}

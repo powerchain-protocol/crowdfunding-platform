@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
+import { Icon } from "./icons";
 
 type Theme = "light" | "dark" | "system";
 
@@ -48,11 +49,11 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={cycle}
-      className="inline-flex h-9 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-xs font-semibold text-slate-700 shadow-sm transition hover:-translate-y-px hover:bg-slate-50 hover:shadow-md focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-900/10"
+      className="inline-flex h-9 items-center gap-2 rounded-xl border border-neutral-200 bg-white px-3 text-xs font-semibold text-neutral-700 shadow-sm transition hover:-translate-y-px hover:border-neutral-300 hover:bg-neutral-50 hover:text-neutral-950 hover:shadow-md focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-950/10"
       aria-label={`Theme: ${label}. Change theme`}
       title={`Theme: ${label}`}
     >
-      <span aria-hidden="true">{theme === "dark" ? "☾" : theme === "light" ? "☀" : "◐"}</span>
+      <Icon name={theme === "dark" ? "moon" : theme === "light" ? "sun" : "monitor"} className="h-4 w-4" />
       <span className="hidden sm:inline">{label}</span>
     </button>
   );

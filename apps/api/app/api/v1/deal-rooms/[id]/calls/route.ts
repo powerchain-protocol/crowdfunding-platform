@@ -1,0 +1,1 @@
+export async function POST(){ return Response.json({error:{code:"VIDEO_PROVIDER_NOT_CONFIGURED",message:"Video calls require a configured meeting provider and authenticated deal-room participants.",requestId:crypto.randomUUID()}},{status:501}); }

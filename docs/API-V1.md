@@ -216,3 +216,45 @@ GET  /api/v1/audit
 ```
 
 All write routes require authenticated resource authorization, idempotency where side effects are possible, durable audit persistence and provider/persistence integration. Scaffold routes fail closed until these dependencies are configured.
+
+## Founder / investor capital endpoints
+
+```http
+GET  /api/v1/listings
+POST /api/v1/listings
+GET  /api/v1/listings/:id
+
+GET  /api/v1/interests
+POST /api/v1/interests
+
+GET  /api/v1/offers
+POST /api/v1/offers
+
+GET  /api/v1/watchlist
+POST /api/v1/watchlist
+
+GET   /api/v1/investor/preferences
+PATCH /api/v1/investor/preferences
+
+GET  /api/v1/deal-rooms/:id/messages
+POST /api/v1/deal-rooms/:id/messages
+GET  /api/v1/deal-rooms/:id/attachments
+POST /api/v1/deal-rooms/:id/attachments
+POST /api/v1/deal-rooms/:id/calls
+
+POST /api/v1/escrows/:id/tranches/:trancheId/approve-proof
+POST /api/v1/campaigns/:id/milestones/:milestoneId/claim
+
+GET /api/v1/activity
+GET /api/v1/campaigns/:id/leaderboard
+POST /api/v1/zk/verifications
+```
+
+### Capital-write rules
+
+- Listing submission validates a 3–5 tranche plan; the raise goal is derived from tranche amounts.
+- Interest, offer, watchlist and deal-room writes require authenticated RLS-scoped actors.
+- Agreement acceptance and escrow funding are separate from an offer's UI state.
+- Milestone proof approval is investor/reviewer-authorized and audit logged.
+- `claim_milestone` never means that the API silently signs for the founder; the configured Solana program and owner wallet remain authoritative.
+- Mock GET fixtures are disabled when `POWERCHAIN_DATA_MODE` is not `mock`.

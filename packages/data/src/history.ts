@@ -1,0 +1,1 @@
+export interface HistoryPoint { at:string; fundedBaseUnits:string; contributorCount:number } export const demoFundingHistory:HistoryPoint[]=[{at:"2026-08-01T00:00:00Z",fundedBaseUnits:"5000000000",contributorCount:16},{at:"2026-08-08T00:00:00Z",fundedBaseUnits:"42000000000",contributorCount:93},{at:"2026-08-15T00:00:00Z",fundedBaseUnits:"119000000000",contributorCount:241}];

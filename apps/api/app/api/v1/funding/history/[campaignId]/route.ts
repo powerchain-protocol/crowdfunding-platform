@@ -1,0 +1,1 @@
+import {success} from "@powerchain/api-core"; import {demoFundingHistory} from "@powerchain/data"; export async function GET(_r:Request,{params}:{params:Promise<{campaignId:string}>}){const {campaignId}=await params;return Response.json(success({campaignId,points:demoFundingHistory}))}

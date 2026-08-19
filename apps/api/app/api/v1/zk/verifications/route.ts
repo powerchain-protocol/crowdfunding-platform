@@ -1,0 +1,1 @@
+export async function POST(){ return Response.json({error:{code:"ZK_VERIFIER_NOT_CONFIGURED",message:"ZK verification is disabled until an audited circuit/verifier version is configured. ZK proofs do not replace application authorization.",requestId:crypto.randomUUID()}},{status:501}); }
