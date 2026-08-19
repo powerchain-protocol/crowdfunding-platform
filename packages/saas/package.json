@@ -1,0 +1,24 @@
+{
+  "name": "@powerchain/saas",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./server": "./src/server.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json",
+    "lint": "echo saas:lint"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.0"
+  },
+  "engines": {
+    "node": "24.19.0"
+  },
+  "dependencies": {
+    "@powerchain/database": "workspace:*"
+  }
+}

@@ -33,17 +33,19 @@
     "@powerchain/zk": "workspace:*",
     "@powerchain/data": "workspace:*",
     "@powerchain/funding": "workspace:*",
-    "@powerchain/realtime": "workspace:*"
+    "@powerchain/realtime": "workspace:*",
+    "@powerchain/database": "workspace:*",
+    "@powerchain/saas": "workspace:*"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",
-    "@types/node": "26.2.0",
+    "@types/node": "^24.0.0",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.4",
     "tailwindcss": "4.3.3",
     "typescript": "^6.0.0"
   },
   "engines": {
-    "node": ">=26 <27"
+    "node": "24.19.0"
   }
 }

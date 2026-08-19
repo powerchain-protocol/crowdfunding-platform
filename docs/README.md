@@ -78,7 +78,7 @@ This documentation set defines the PowerChain v1 production contract for goal-ba
 ## Crowdfunding engine additions
 
 - [`CROWDFUNDING-ENGINE.md`](CROWDFUNDING-ENGINE.md) — goal-based escrow, pull refunds, milestone claims, registry, leaderboard and realtime indexing.
-- [`RUNTIME-NEXTJS.md`](RUNTIME-NEXTJS.md) — Node 26, Next.js 16.3 and TypeScript 6 runtime contract.
+- [`RUNTIME-NEXTJS.md`](RUNTIME-NEXTJS.md) — Node 24.19.0 LTS, Next.js 16.3 and TypeScript runtime contract.
 - [`PAYMENTS-MIDTRANS.md`](PAYMENTS-MIDTRANS.md) — hosted checkout, webhook verification and demo fallback.
 
 - [`COMPANY-INVOICES.md`](COMPANY-INVOICES.md) — organization profiles, foundation fields, branding and invoice architecture.

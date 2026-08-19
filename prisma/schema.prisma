@@ -3,6 +3,12 @@ datasource db { provider = "postgresql" url = env("DATABASE_URL") }
 
 model Campaign {
   id            String   @id @default(cuid())
+  organizationId  String?  @db.Uuid
+  ownerUserId     String?  @db.Uuid
+  summary         String?
+  region          String?
+  raisedAmount    Decimal  @default(0) @db.Decimal(30, 9)
+  deadline        DateTime?
   slug          String   @unique
   title         String
   purpose       String
@@ -357,4 +363,106 @@ model InvoiceRecord {
 
   @@unique([organizationId, number])
   @@index([organizationId, status])
+}
+
+
+model User {
+  id           String   @id @default(uuid()) @db.Uuid
+  email        String   @unique
+  passwordHash String
+  displayName  String?
+  status       String   @default("ACTIVE")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  sessions     Session[]
+  memberships  OrganizationMembership[]
+  usageEvents  UsageEvent[]
+  passwordResetTokens PasswordResetToken[]
+  @@map("users")
+}
+
+model Organization {
+  id          String   @id @default(uuid()) @db.Uuid
+  slug        String   @unique
+  name        String
+  status      String   @default("ACTIVE")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  memberships OrganizationMembership[]
+  subscriptions SaaSSubscription[]
+  usageEvents UsageEvent[]
+  @@map("organizations")
+}
+
+model OrganizationMembership {
+  id             String   @id @default(uuid()) @db.Uuid
+  userId         String   @db.Uuid
+  organizationId String   @db.Uuid
+  role           String   @default("OWNER")
+  status         String   @default("ACTIVE")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  user           User @relation(fields:[userId], references:[id], onDelete:Cascade)
+  organization   Organization @relation(fields:[organizationId], references:[id], onDelete:Cascade)
+  @@unique([userId, organizationId])
+  @@index([organizationId, role])
+  @@map("organization_memberships")
+}
+
+model Session {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @db.Uuid
+  tokenHash String   @unique
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime @default(now())
+  user      User @relation(fields:[userId], references:[id], onDelete:Cascade)
+  @@index([userId, expiresAt])
+  @@map("sessions")
+}
+
+model SaaSSubscription {
+  id                String   @id @default(uuid()) @db.Uuid
+  organizationId    String   @db.Uuid
+  planCode           String
+  status             String   @default("TRIALING")
+  provider           String?  
+  providerCustomerId String?
+  providerSubscriptionId String?
+  currentPeriodStart DateTime
+  currentPeriodEnd   DateTime
+  cancelAtPeriodEnd  Boolean  @default(false)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  organization       Organization @relation(fields:[organizationId], references:[id], onDelete:Cascade)
+  @@index([organizationId, status])
+  @@map("saas_subscriptions")
+}
+
+model UsageEvent {
+  id             String   @id @default(uuid()) @db.Uuid
+  organizationId String   @db.Uuid
+  userId         String?  @db.Uuid
+  metric         String
+  quantity       Int      @default(1)
+  idempotencyKey String   @unique
+  metadata       Json?
+  occurredAt     DateTime @default(now())
+  organization   Organization @relation(fields:[organizationId], references:[id], onDelete:Cascade)
+  user           User? @relation(fields:[userId], references:[id], onDelete:SetNull)
+  @@index([organizationId, metric, occurredAt])
+  @@map("usage_events")
+}
+
+
+model PasswordResetToken {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @db.Uuid
+  tokenHash String   @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime @default(now())
+  user      User @relation(fields:[userId], references:[id], onDelete:Cascade)
+  @@index([userId, expiresAt])
+  @@map("password_reset_tokens")
 }

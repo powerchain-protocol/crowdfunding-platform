@@ -1,6 +1,7 @@
 # PowerChain Crowdfunding Platform
 
-**Version:** `1.0.0`  
+**Version:** `1.0.0`
+**Runtime:** `Node.js 24.19.0 LTS`  
 **API:** `/api/v1`  
 **Product:** goal-based crowdfunding for humanitarian aid, disaster relief, renewable-energy projects, public goods, community programs and ticketed utility campaigns.
 
@@ -101,7 +102,7 @@ pnpm doctor
 pnpm dev
 ```
 
-Node 26 is required by the repository contract. Use the root `dev:<app>` scripts to run a single application.
+Node 24.19.0 LTS is the pinned production and development runtime.
 
 ## Company profiles & invoicing
 
@@ -157,4 +158,22 @@ Canonical v1.0.0 now includes goal-based escrowed campaigns, `contribute()`, suc
 
 ## Runtime
 
-Repository runtime is Node 26.x with Next.js 16.3.1 and the TypeScript 6.0 compiler line. Product/API version remains 1.0.0.
+Repository runtime is Node 24.19.0 LTS is the pinned production and development runtime.
+
+## Full-stack SaaS runtime
+
+The monorepo now contains a real PostgreSQL persistence layer (`@powerchain/database`), first-party session authentication, organization workspaces, SaaS plans/subscriptions/usage, and local Postgres + Redis orchestration.
+
+```bash
+corepack enable
+corepack prepare pnpm@11.21.0 --activate
+pnpm stack:up
+cp .env.example .env
+# set DATABASE_URL=postgresql://powerchain:powerchain_local_only@localhost:5432/powerchain
+pnpm install
+pnpm db:push
+pnpm db:seed
+pnpm dev
+```
+
+Provider-specific financial rails still require their real credentials and deployment manifests; the platform does not fabricate blockchain, banking, KYC, e-signature or payment-provider confirmations when those integrations are absent.

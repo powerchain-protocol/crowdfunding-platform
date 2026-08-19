@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./server": "./src/server.ts"
   },
   "scripts": {
     "typecheck": "tsc -p tsconfig.json",
@@ -12,9 +13,13 @@
     "lint": "echo auth:lint"
   },
   "devDependencies": {
-    "typescript": "^6.0.0"
+    "typescript": "^6.0.0",
+    "@types/node": "^24.0.0"
   },
   "engines": {
-    "node": ">=26 <27"
+    "node": "24.19.0"
+  },
+  "dependencies": {
+    "@powerchain/database": "workspace:*"
   }
 }

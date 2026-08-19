@@ -1,2 +1,3 @@
-import { cookies } from "next/headers"; import { SESSION_COOKIE_NAME } from "@powerchain/auth";
-export async function GET(){const jar=await cookies();const id=jar.get(SESSION_COOKIE_NAME)?.value;return Response.json({data:{authenticated:Boolean(id),sessionId:id?"present":null},meta:{requestId:crypto.randomUUID()}},{headers:{"cache-control":"no-store"}})}
+import { currentSession } from "../../../../../lib/current-session";
+export const dynamic="force-dynamic";
+export async function GET(){const session=await currentSession();if(!session)return Response.json({data:{authenticated:false,user:null,organizations:[]},meta:{requestId:crypto.randomUUID()}},{headers:{"cache-control":"no-store"}});return Response.json({data:{authenticated:true,user:{id:session.user.id,email:session.user.email,displayName:session.user.displayName},organizations:session.user.memberships.map(m=>({id:m.organization.id,name:m.organization.name,slug:m.organization.slug,role:m.role})),expiresAt:session.expiresAt.toISOString()},meta:{requestId:crypto.randomUUID()}},{headers:{"cache-control":"no-store"}})}

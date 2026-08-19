@@ -1,0 +1,24 @@
+{
+  "name": "@powerchain/database",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^6.0.0"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json",
+    "lint": "echo database:lint"
+  },
+  "engines": {
+    "node": "24.19.0"
+  }
+}

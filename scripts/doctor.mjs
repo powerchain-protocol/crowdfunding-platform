@@ -1,6 +1,7 @@
-const [major] = process.versions.node.split(".").map(Number);
-if (major !== 26) {
-  console.error(`PowerChain requires Node 26.x; current runtime is ${process.version}. Node 26 is the configured runtime for this repository.`);
+const expected = "24.19.0";
+const actual = process.versions.node;
+if (actual !== expected) {
+  console.error(`PowerChain requires Node ${expected}; current runtime is v${actual}. Use corepack + the repository .nvmrc/.node-version.`);
   process.exit(1);
 }
-console.log(`Node runtime OK: ${process.version}`);
+console.log(`Node runtime OK: v${actual}`);

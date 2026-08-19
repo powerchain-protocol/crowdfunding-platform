@@ -1,0 +1,4 @@
+import { existsSync, readFileSync } from "node:fs";
+const required=["packages/database/package.json","packages/saas/package.json","apps/api/app/api/v1/saas/plans/route.ts","apps/api/app/api/v1/saas/subscription/route.ts","apps/api/app/api/v1/auth/login/route.ts","prisma/schema.prisma","infra/docker-compose.yml"];
+const missing=required.filter(p=>!existsSync(new URL(`../${p}`,import.meta.url))); if(missing.length){console.error("SaaS wiring missing:\n- "+missing.join("\n- "));process.exit(1)}
+const schema=readFileSync(new URL("../prisma/schema.prisma",import.meta.url),"utf8"); for(const model of ["User","Organization","OrganizationMembership","Session","SaaSSubscription","UsageEvent"]){if(!schema.includes(`model ${model} {`)){console.error(`Missing Prisma model: ${model}`);process.exit(1)}} console.log("SaaS wiring OK: auth, organizations, sessions, subscriptions, usage, database and local stack present.");
