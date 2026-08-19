@@ -12,7 +12,8 @@
     "lint": "echo config:lint"
   },
   "devDependencies": {
-    "typescript": "^6.0.0"
+    "typescript": "^6.0.0",
+    "@types/node": "24.13.3"
   },
   "engines": {
     "node": "24.19.0"

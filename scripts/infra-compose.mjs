@@ -7,13 +7,16 @@ const root = process.cwd();
 loadPowerChainEnv(root);
 const action = process.argv[2] ?? "status";
 const composeArgs = {
-  up: ["up", "-d"],
-  down: ["down"],
+  up: ["up", "-d", "postgres", "redis"],
+  down: ["down", "--remove-orphans"],
   logs: ["logs", "-f"],
   status: ["ps"],
+  pull: ["pull", "postgres", "redis"],
+  build: ["--profile", "app", "build", "workspace"],
+  app: ["--profile", "app", "up", "--build"],
 }[action];
 if (!composeArgs) {
-  console.error("Usage: node scripts/infra-compose.mjs <up|down|logs|status>");
+  console.error("Usage: node scripts/infra-compose.mjs <up|down|logs|status|pull|build|app>");
   process.exit(2);
 }
 
@@ -32,8 +35,9 @@ if (works("docker", ["compose", "version"])) {
   prefix = ["compose"];
 } else {
   console.warn("No Docker Compose or Podman Compose runtime was found.");
-  console.warn("Docker is optional for pnpm dev. Configure reachable PostgreSQL/Redis endpoints in .env.local, or install a container runtime before using stack:* commands.");
-  console.warn("Run `pnpm infra:check` to validate the configured endpoints, then `pnpm dev` for the application stack.");
+  console.warn("The repository contains Dockerfiles/Compose configuration, but a host container runtime cannot be bundled inside the source tree.");
+  console.warn("Run `pnpm docker:check` for platform-specific guidance.");
+  console.warn("Docker is optional for `pnpm dev`; use mock/simulated mode or configure reachable PostgreSQL/Redis endpoints in .env.local.");
   process.exit(action === "status" || action === "down" ? 0 : 2);
 }
 

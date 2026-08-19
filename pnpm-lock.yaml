@@ -5,11 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
+  turbo: 2.10.11
   next: 16.3.1
   react: 19.2.8
   react-dom: 19.2.8
-  '@types/node': ^24.0.0
-  typescript: ^6.0.0
+  '@types/node': 24.13.3
+  typescript: 6.0.3
   tailwindcss: 4.3.3
   '@tailwindcss/postcss': 4.3.3
   prisma: 6.19.3
@@ -27,7 +28,7 @@ importers:
         specifier: 4.3.3
         version: 4.3.3
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       '@types/react':
         specifier: 19.2.18
@@ -48,10 +49,62 @@ importers:
         specifier: ^4.20.0
         version: 4.23.12
       turbo:
-        specifier: 2.5.6
-        version: 2.5.6
+        specifier: 2.10.11
+        version: 2.10.11
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
+        version: 6.0.3
+
+  apps/admin:
+    dependencies:
+      '@powerchain/audit':
+        specifier: workspace:*
+        version: link:../../packages/audit
+      '@powerchain/common':
+        specifier: workspace:*
+        version: link:../../packages/common
+      '@powerchain/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@powerchain/identity':
+        specifier: workspace:*
+        version: link:../../packages/identity
+      '@powerchain/moderation':
+        specifier: workspace:*
+        version: link:../../packages/moderation
+      '@powerchain/types':
+        specifier: workspace:*
+        version: link:../../packages/types
+      '@powerchain/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      next:
+        specifier: 16.3.1
+        version: 16.3.1(@types/node@24.13.3)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react:
+        specifier: 19.2.8
+        version: 19.2.8
+      react-dom:
+        specifier: 19.2.8
+        version: 19.2.8(react@19.2.8)
+    devDependencies:
+      '@tailwindcss/postcss':
+        specifier: 4.3.3
+        version: 4.3.3
+      '@types/node':
+        specifier: 24.13.3
+        version: 24.13.3
+      '@types/react':
+        specifier: 19.2.18
+        version: 19.2.18
+      '@types/react-dom':
+        specifier: 19.2.4
+        version: 19.2.4(@types/react@19.2.18)
+      tailwindcss:
+        specifier: 4.3.3
+        version: 4.3.3
+      typescript:
+        specifier: 6.0.3
         version: 6.0.3
 
   apps/api:
@@ -77,6 +130,12 @@ importers:
       '@powerchain/config':
         specifier: workspace:*
         version: link:../../packages/config
+      '@powerchain/constants':
+        specifier: workspace:*
+        version: link:../../packages/constants
+      '@powerchain/contracts':
+        specifier: workspace:*
+        version: link:../../packages/contracts
       '@powerchain/data':
         specifier: workspace:*
         version: link:../../packages/data
@@ -142,7 +201,7 @@ importers:
         specifier: 4.3.3
         version: 4.3.3
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       '@types/react':
         specifier: 19.2.18
@@ -154,7 +213,50 @@ importers:
         specifier: 4.3.3
         version: 4.3.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
+        version: 6.0.3
+
+  apps/checkout:
+    dependencies:
+      '@powerchain/common':
+        specifier: workspace:*
+        version: link:../../packages/common
+      '@powerchain/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@powerchain/types':
+        specifier: workspace:*
+        version: link:../../packages/types
+      '@powerchain/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      next:
+        specifier: 16.3.1
+        version: 16.3.1(@types/node@24.13.3)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react:
+        specifier: 19.2.8
+        version: 19.2.8
+      react-dom:
+        specifier: 19.2.8
+        version: 19.2.8(react@19.2.8)
+    devDependencies:
+      '@tailwindcss/postcss':
+        specifier: 4.3.3
+        version: 4.3.3
+      '@types/node':
+        specifier: 24.13.3
+        version: 24.13.3
+      '@types/react':
+        specifier: 19.2.18
+        version: 19.2.18
+      '@types/react-dom':
+        specifier: 19.2.4
+        version: 19.2.4(@types/react@19.2.18)
+      tailwindcss:
+        specifier: 4.3.3
+        version: 4.3.3
+      typescript:
+        specifier: 6.0.3
         version: 6.0.3
 
   apps/crowdfunding:
@@ -168,6 +270,9 @@ importers:
       '@powerchain/config':
         specifier: workspace:*
         version: link:../../packages/config
+      '@powerchain/constants':
+        specifier: workspace:*
+        version: link:../../packages/constants
       '@powerchain/data':
         specifier: workspace:*
         version: link:../../packages/data
@@ -212,7 +317,7 @@ importers:
         specifier: 4.3.3
         version: 4.3.3
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       '@types/react':
         specifier: 19.2.18
@@ -224,7 +329,212 @@ importers:
         specifier: 4.3.3
         version: 4.3.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
+        version: 6.0.3
+
+  apps/dashboard:
+    dependencies:
+      '@powerchain/agreements':
+        specifier: workspace:*
+        version: link:../../packages/agreements
+      '@powerchain/common':
+        specifier: workspace:*
+        version: link:../../packages/common
+      '@powerchain/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@powerchain/data':
+        specifier: workspace:*
+        version: link:../../packages/data
+      '@powerchain/deal-room':
+        specifier: workspace:*
+        version: link:../../packages/deal-room
+      '@powerchain/deals':
+        specifier: workspace:*
+        version: link:../../packages/deals
+      '@powerchain/evidence':
+        specifier: workspace:*
+        version: link:../../packages/evidence
+      '@powerchain/hooks':
+        specifier: workspace:*
+        version: link:../../packages/hooks
+      '@powerchain/i18n':
+        specifier: workspace:*
+        version: link:../../packages/i18n
+      '@powerchain/identity':
+        specifier: workspace:*
+        version: link:../../packages/identity
+      '@powerchain/notifications':
+        specifier: workspace:*
+        version: link:../../packages/notifications
+      '@powerchain/proofs':
+        specifier: workspace:*
+        version: link:../../packages/proofs
+      '@powerchain/types':
+        specifier: workspace:*
+        version: link:../../packages/types
+      '@powerchain/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      next:
+        specifier: 16.3.1
+        version: 16.3.1(@types/node@24.13.3)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react:
+        specifier: 19.2.8
+        version: 19.2.8
+      react-dom:
+        specifier: 19.2.8
+        version: 19.2.8(react@19.2.8)
+    devDependencies:
+      '@tailwindcss/postcss':
+        specifier: 4.3.3
+        version: 4.3.3
+      '@types/node':
+        specifier: 24.13.3
+        version: 24.13.3
+      '@types/react':
+        specifier: 19.2.18
+        version: 19.2.18
+      '@types/react-dom':
+        specifier: 19.2.4
+        version: 19.2.4(@types/react@19.2.18)
+      tailwindcss:
+        specifier: 4.3.3
+        version: 4.3.3
+      typescript:
+        specifier: 6.0.3
+        version: 6.0.3
+
+  apps/docs:
+    dependencies:
+      '@powerchain/common':
+        specifier: workspace:*
+        version: link:../../packages/common
+      '@powerchain/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@powerchain/types':
+        specifier: workspace:*
+        version: link:../../packages/types
+      '@powerchain/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      next:
+        specifier: 16.3.1
+        version: 16.3.1(@types/node@24.13.3)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react:
+        specifier: 19.2.8
+        version: 19.2.8
+      react-dom:
+        specifier: 19.2.8
+        version: 19.2.8(react@19.2.8)
+    devDependencies:
+      '@tailwindcss/postcss':
+        specifier: 4.3.3
+        version: 4.3.3
+      '@types/node':
+        specifier: 24.13.3
+        version: 24.13.3
+      '@types/react':
+        specifier: 19.2.18
+        version: 19.2.18
+      '@types/react-dom':
+        specifier: 19.2.4
+        version: 19.2.4(@types/react@19.2.18)
+      tailwindcss:
+        specifier: 4.3.3
+        version: 4.3.3
+      typescript:
+        specifier: 6.0.3
+        version: 6.0.3
+
+  apps/donate:
+    dependencies:
+      '@powerchain/common':
+        specifier: workspace:*
+        version: link:../../packages/common
+      '@powerchain/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@powerchain/types':
+        specifier: workspace:*
+        version: link:../../packages/types
+      '@powerchain/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      next:
+        specifier: 16.3.1
+        version: 16.3.1(@types/node@24.13.3)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react:
+        specifier: 19.2.8
+        version: 19.2.8
+      react-dom:
+        specifier: 19.2.8
+        version: 19.2.8(react@19.2.8)
+    devDependencies:
+      '@tailwindcss/postcss':
+        specifier: 4.3.3
+        version: 4.3.3
+      '@types/node':
+        specifier: 24.13.3
+        version: 24.13.3
+      '@types/react':
+        specifier: 19.2.18
+        version: 19.2.18
+      '@types/react-dom':
+        specifier: 19.2.4
+        version: 19.2.4(@types/react@19.2.18)
+      tailwindcss:
+        specifier: 4.3.3
+        version: 4.3.3
+      typescript:
+        specifier: 6.0.3
+        version: 6.0.3
+
+  apps/explorer:
+    dependencies:
+      '@powerchain/activity':
+        specifier: workspace:*
+        version: link:../../packages/activity
+      '@powerchain/common':
+        specifier: workspace:*
+        version: link:../../packages/common
+      '@powerchain/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@powerchain/types':
+        specifier: workspace:*
+        version: link:../../packages/types
+      '@powerchain/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      next:
+        specifier: 16.3.1
+        version: 16.3.1(@types/node@24.13.3)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react:
+        specifier: 19.2.8
+        version: 19.2.8
+      react-dom:
+        specifier: 19.2.8
+        version: 19.2.8(react@19.2.8)
+    devDependencies:
+      '@tailwindcss/postcss':
+        specifier: 4.3.3
+        version: 4.3.3
+      '@types/node':
+        specifier: 24.13.3
+        version: 24.13.3
+      '@types/react':
+        specifier: 19.2.18
+        version: 19.2.18
+      '@types/react-dom':
+        specifier: 19.2.4
+        version: 19.2.4(@types/react@19.2.18)
+      tailwindcss:
+        specifier: 4.3.3
+        version: 4.3.3
+      typescript:
+        specifier: 6.0.3
         version: 6.0.3
 
   apps/pwa:
@@ -255,7 +565,7 @@ importers:
         specifier: 4.3.3
         version: 4.3.3
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       '@types/react':
         specifier: 19.2.18
@@ -267,7 +577,7 @@ importers:
         specifier: 4.3.3
         version: 4.3.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   apps/treasury:
@@ -310,7 +620,7 @@ importers:
         specifier: 4.3.3
         version: 4.3.3
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       '@types/react':
         specifier: 19.2.18
@@ -322,19 +632,62 @@ importers:
         specifier: 4.3.3
         version: 4.3.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
+        version: 6.0.3
+
+  apps/web:
+    dependencies:
+      '@powerchain/common':
+        specifier: workspace:*
+        version: link:../../packages/common
+      '@powerchain/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@powerchain/types':
+        specifier: workspace:*
+        version: link:../../packages/types
+      '@powerchain/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      next:
+        specifier: 16.3.1
+        version: 16.3.1(@types/node@24.13.3)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react:
+        specifier: 19.2.8
+        version: 19.2.8
+      react-dom:
+        specifier: 19.2.8
+        version: 19.2.8(react@19.2.8)
+    devDependencies:
+      '@tailwindcss/postcss':
+        specifier: 4.3.3
+        version: 4.3.3
+      '@types/node':
+        specifier: 24.13.3
+        version: 24.13.3
+      '@types/react':
+        specifier: 19.2.18
+        version: 19.2.18
+      '@types/react-dom':
+        specifier: 19.2.4
+        version: 19.2.4(@types/react@19.2.18)
+      tailwindcss:
+        specifier: 4.3.3
+        version: 4.3.3
+      typescript:
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/activity:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/agreements:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/api-core:
@@ -347,13 +700,13 @@ importers:
         version: link:../types
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/audit:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/auth:
@@ -363,10 +716,10 @@ importers:
         version: link:../database
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/campaign:
@@ -376,19 +729,31 @@ importers:
         version: link:../types
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/common:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/config:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
+        version: 6.0.3
+
+  packages/constants:
+    devDependencies:
+      typescript:
+        specifier: 6.0.3
+        version: 6.0.3
+
+  packages/contracts:
+    devDependencies:
+      typescript:
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/data:
@@ -398,7 +763,7 @@ importers:
         version: link:../types
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/database:
@@ -408,22 +773,22 @@ importers:
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/deal-room:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/deals:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/escrow:
@@ -433,19 +798,19 @@ importers:
         version: link:../evidence
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/events:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/evidence:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/funding:
@@ -455,10 +820,10 @@ importers:
         version: link:../types
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/hooks:
@@ -477,7 +842,7 @@ importers:
         version: 19.2.8
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       '@types/react':
         specifier: 19.2.18
@@ -489,37 +854,37 @@ importers:
         specifier: 19.2.8
         version: 19.2.8(react@19.2.8)
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/i18n:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/identity:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/ledger:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/moderation:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/notifications:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/payment-intent:
@@ -529,31 +894,31 @@ importers:
         version: link:../types
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/proofs:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/providers:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/realtime:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/reconciliation:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/saas:
@@ -563,10 +928,10 @@ importers:
         version: link:../database
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/sdk:
@@ -576,43 +941,43 @@ importers:
         version: link:../types
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/security-data:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/service-registry:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/storage:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/store:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/treasury:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/types:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/ui:
@@ -634,7 +999,7 @@ importers:
         version: 4.1.20(react@19.2.8)
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       '@types/react':
         specifier: 19.2.18
@@ -649,94 +1014,94 @@ importers:
         specifier: 19.2.8
         version: 19.2.8(react@19.2.8)
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   packages/zk:
     devDependencies:
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   services/agreements:
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   services/audit:
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   services/banking:
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   services/capital:
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   services/deal-room:
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   services/identity:
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   services/indexer:
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   services/moderation:
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   services/notifications:
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   services/realtime:
@@ -746,46 +1111,46 @@ importers:
         version: link:../../packages/realtime
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   services/reconciliation:
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   services/security:
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   services/webhooks:
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
   services/worker:
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.13.3
         version: 24.13.3
       typescript:
-        specifier: ^6.0.0
+        specifier: 6.0.3
         version: 6.0.3
 
 packages:
@@ -1191,7 +1556,7 @@ packages:
     engines: {node: '>=18.18'}
     peerDependencies:
       prisma: 6.19.3
-      typescript: ^6.0.0
+      typescript: 6.0.3
     peerDependenciesMeta:
       prisma:
         optional: true
@@ -1313,6 +1678,36 @@ packages:
 
   '@tailwindcss/postcss@4.3.3':
     resolution: {integrity: sha512-JTSZZGQi1AyKirbLN3azmjVzef92tcX7h+iSqPdaeStyFpGpDlKvvpxeOE8njhbUanbRwr3z8DyzhICWnMtQeg==}
+
+  '@turbo/darwin-64@2.10.11':
+    resolution: {integrity: sha512-v3R+1R/Ysozyo+p7Ri8MCIbndOvYt3DgPFrGLhrhQHfvyvbxyH3WyJj+A/2JTNmNleuAlh3JUyCV0iSVHIONTA==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@turbo/darwin-arm64@2.10.11':
+    resolution: {integrity: sha512-R0a0CvGAeYYsBgPIgFNB3agGXh6qukjduNhFlwVVX1Ss2IdBJLXmgjytNGmo084bLKS0B6UdLRwKhXMHKKaObQ==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@turbo/linux-64@2.10.11':
+    resolution: {integrity: sha512-dGlY2vg7jpsLjGS1bf9sD/cw1sGMAYbeHGQKGRFxd5Zaj+Ufbj8cNXl/vIit8ueCU97zhL/znn60ZV5iSfZAxw==}
+    cpu: [x64]
+    os: [android, linux]
+
+  '@turbo/linux-arm64@2.10.11':
+    resolution: {integrity: sha512-eSP9+jjsSCBs2x0QpJZlp49dSD1EIMwXH7PsMIhdWk7w6IThhuKJ+jL95JQ2IW7tRjRmdh8gKcKQtrHLD5R5lA==}
+    cpu: [arm64]
+    os: [android, linux]
+
+  '@turbo/windows-64@2.10.11':
+    resolution: {integrity: sha512-4aD7edogJ8arK8DOyvjTI2KKwmchD5M/WM4BZgidrtFf7aSgn8Ce2rJnDwmriw980c2cKlHnhXtlGy38VtKB8g==}
+    cpu: [x64]
+    os: [win32]
+
+  '@turbo/windows-arm64@2.10.11':
+    resolution: {integrity: sha512-m8tJkIrTrbQ9O1uHxV0GUq623Zg1678xGna8eMsy4KbygUX/wVFgdZDYV/AxyoyaW/U7nyKoBvaDVwm22p9xqA==}
+    cpu: [arm64]
+    os: [win32]
 
   '@types/node@24.13.3':
     resolution: {integrity: sha512-Dh8vAsV36ig5wa9OX4pXvMc9D3Veibfw2wix0CUwYODLD8nkj9UsLjASr49nPg+2eKzxhBV+v7L8pXvT4e639Q==}
@@ -1572,7 +1967,7 @@ packages:
     engines: {node: '>=18.18'}
     hasBin: true
     peerDependencies:
-      typescript: ^6.0.0
+      typescript: 6.0.3
     peerDependenciesMeta:
       typescript:
         optional: true
@@ -1649,38 +2044,8 @@ packages:
     engines: {node: '>=18.0.0'}
     hasBin: true
 
-  turbo-darwin-64@2.5.6:
-    resolution: {integrity: sha512-3C1xEdo4aFwMJAPvtlPqz1Sw/+cddWIOmsalHFMrsqqydcptwBfu26WW2cDm3u93bUzMbBJ8k3zNKFqxJ9ei2A==}
-    cpu: [x64]
-    os: [darwin]
-
-  turbo-darwin-arm64@2.5.6:
-    resolution: {integrity: sha512-LyiG+rD7JhMfYwLqB6k3LZQtYn8CQQUePbpA8mF/hMLPAekXdJo1g0bUPw8RZLwQXUIU/3BU7tXENvhSGz5DPA==}
-    cpu: [arm64]
-    os: [darwin]
-
-  turbo-linux-64@2.5.6:
-    resolution: {integrity: sha512-GOcUTT0xiT/pSnHL4YD6Yr3HreUhU8pUcGqcI2ksIF9b2/r/kRHwGFcsHgpG3+vtZF/kwsP0MV8FTlTObxsYIA==}
-    cpu: [x64]
-    os: [linux]
-
-  turbo-linux-arm64@2.5.6:
-    resolution: {integrity: sha512-10Tm15bruJEA3m0V7iZcnQBpObGBcOgUcO+sY7/2vk1bweW34LMhkWi8svjV9iDF68+KJDThnYDlYE/bc7/zzQ==}
-    cpu: [arm64]
-    os: [linux]
-
-  turbo-windows-64@2.5.6:
-    resolution: {integrity: sha512-FyRsVpgaj76It0ludwZsNN40ytHN+17E4PFJyeliBEbxrGTc5BexlXVpufB7XlAaoaZVxbS6KT8RofLfDRyEPg==}
-    cpu: [x64]
-    os: [win32]
-
-  turbo-windows-arm64@2.5.6:
-    resolution: {integrity: sha512-j/tWu8cMeQ7HPpKri6jvKtyXg9K1gRyhdK4tKrrchH8GNHscPX/F71zax58yYtLRWTiK04zNzPcUJuoS0+v/+Q==}
-    cpu: [arm64]
-    os: [win32]
-
-  turbo@2.5.6:
-    resolution: {integrity: sha512-gxToHmi9oTBNB05UjUsrWf0OyN5ZXtD0apOarC1KIx232Vp3WimRNy3810QzeNSgyD5rsaIDXlxlbnOzlouo+w==}
+  turbo@2.10.11:
+    resolution: {integrity: sha512-yQfwQVoRXwOuyX1LxiJFBFNg6VfuYh+/RyZLd82+isgyLkBXw3S5XRRzvcck1FAjSCG5sVyLd+O1eDMvYa3J7g==}
     hasBin: true
 
   typescript@6.0.3:
@@ -2040,6 +2405,24 @@ snapshots:
       postcss: 8.5.26
       tailwindcss: 4.3.3
 
+  '@turbo/darwin-64@2.10.11':
+    optional: true
+
+  '@turbo/darwin-arm64@2.10.11':
+    optional: true
+
+  '@turbo/linux-64@2.10.11':
+    optional: true
+
+  '@turbo/linux-arm64@2.10.11':
+    optional: true
+
+  '@turbo/windows-64@2.10.11':
+    optional: true
+
+  '@turbo/windows-arm64@2.10.11':
+    optional: true
+
   '@types/node@24.13.3':
     dependencies:
       undici-types: 7.18.2
@@ -2374,32 +2757,14 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  turbo-darwin-64@2.5.6:
-    optional: true
-
-  turbo-darwin-arm64@2.5.6:
-    optional: true
-
-  turbo-linux-64@2.5.6:
-    optional: true
-
-  turbo-linux-arm64@2.5.6:
-    optional: true
-
-  turbo-windows-64@2.5.6:
-    optional: true
-
-  turbo-windows-arm64@2.5.6:
-    optional: true
-
-  turbo@2.5.6:
+  turbo@2.10.11:
     optionalDependencies:
-      turbo-darwin-64: 2.5.6
-      turbo-darwin-arm64: 2.5.6
-      turbo-linux-64: 2.5.6
-      turbo-linux-arm64: 2.5.6
-      turbo-windows-64: 2.5.6
-      turbo-windows-arm64: 2.5.6
+      '@turbo/darwin-64': 2.10.11
+      '@turbo/darwin-arm64': 2.10.11
+      '@turbo/linux-64': 2.10.11
+      '@turbo/linux-arm64': 2.10.11
+      '@turbo/windows-64': 2.10.11
+      '@turbo/windows-arm64': 2.10.11
 
   typescript@6.0.3: {}
 

@@ -20,6 +20,14 @@ const required = [
   "env/development.env.example",
   "env/test.env.example",
   "env/production.env.example",
+  "env/docker.env.example",
+  "env/solana.env.example",
+  "env/supabase.env.example",
+  "Dockerfile",
+  ".dockerignore",
+  ".npmignore",
+  "infra/Dockerfile.dev",
+  "infra/docker-compose.yml",
 ];
 
 const problems = required.filter((file) => !existsSync(path.join(root, file))).map((file) => `Missing ${file}`);

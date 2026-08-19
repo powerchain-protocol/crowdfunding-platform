@@ -1,15 +1,22 @@
 name: powerchain-crowdfunding
 
+x-security: &default-security
+  init: true
+  security_opt:
+    - no-new-privileges:true
+
 services:
   postgres:
-    image: postgres:17-alpine
+    <<: *default-security
+    image: ${POSTGRES_IMAGE:-postgres:17-alpine}
     restart: unless-stopped
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-powerchain}
       POSTGRES_USER: ${POSTGRES_USER:-powerchain}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-powerchain_local_only}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-powerchain_local_change_me}
+      POSTGRES_INITDB_ARGS: ${POSTGRES_INITDB_ARGS:---auth-host=scram-sha-256 --auth-local=scram-sha-256}
     ports:
-      - "${POSTGRES_PORT:-5432}:5432"
+      - "${POWERCHAIN_DOCKER_BIND:-127.0.0.1}:${POSTGRES_PORT:-5432}:5432"
     volumes:
       - powerchain_postgres:/var/lib/postgresql/data
     healthcheck:
@@ -18,22 +25,67 @@ services:
       timeout: 5s
       retries: 12
       start_period: 5s
+    stop_grace_period: 20s
     networks: [powerchain]
 
   redis:
-    image: redis:7-alpine
+    <<: *default-security
+    image: ${REDIS_IMAGE:-redis:7-alpine}
     restart: unless-stopped
-    command: ["redis-server", "--appendonly", "yes", "--save", "60", "1000"]
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-powerchain_redis_local_change_me}
+    command:
+      - sh
+      - -ec
+      - exec redis-server --appendonly yes --save 60 1000 --requirepass "$${REDIS_PASSWORD}"
     ports:
-      - "${REDIS_PORT:-6379}:6379"
+      - "${POWERCHAIN_DOCKER_BIND:-127.0.0.1}:${REDIS_PORT:-6379}:6379"
     volumes:
       - powerchain_redis:/data
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: ["CMD-SHELL", "redis-cli -a \"$${REDIS_PASSWORD}\" --no-auth-warning ping | grep -q PONG"]
       interval: 5s
       timeout: 3s
       retries: 12
       start_period: 3s
+    stop_grace_period: 10s
+    networks: [powerchain]
+
+  workspace:
+    <<: *default-security
+    profiles: ["app"]
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile.dev
+      args:
+        NODE_VERSION: ${NODE_VERSION:-24.19.0}
+    working_dir: /workspace
+    environment:
+      NODE_ENV: development
+      POWERCHAIN_ENV: development
+      DATABASE_URL: postgresql://${POSTGRES_USER:-powerchain}:${POSTGRES_PASSWORD:-powerchain_local_change_me}@postgres:5432/${POSTGRES_DB:-powerchain}?schema=public
+      REDIS_URL: redis://:${REDIS_PASSWORD:-powerchain_redis_local_change_me}@redis:6379
+    volumes:
+      - ..:/workspace
+      - powerchain_node_modules:/workspace/node_modules
+      - powerchain_pnpm_store:/pnpm/store
+    ports:
+      - "127.0.0.1:3000:3000"
+      - "127.0.0.1:3001:3001"
+      - "127.0.0.1:3002:3002"
+      - "127.0.0.1:3003:3003"
+      - "127.0.0.1:3004:3004"
+      - "127.0.0.1:3005:3005"
+      - "127.0.0.1:3006:3006"
+      - "127.0.0.1:3007:3007"
+      - "127.0.0.1:3008:3008"
+      - "127.0.0.1:3009:3009"
+      - "127.0.0.1:3010:3010"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
     networks: [powerchain]
 
 networks:
@@ -43,3 +95,5 @@ networks:
 volumes:
   powerchain_postgres:
   powerchain_redis:
+  powerchain_node_modules:
+  powerchain_pnpm_store:

@@ -126,3 +126,11 @@ Protected columns include application role, verification status, verified timest
 `pnpm security:verify:production` is the real-auth negative-test harness. The repository must not claim that a target production tenant is verified until the harness and broader authorization tests are run against that tenant with disposable fixtures.
 
 ZK is selective privacy/attestation infrastructure. A valid ZK proof is still passed through application policy, RLS/resource authorization and escrow rules; it is not a replacement for those controls.
+
+## 13. Container and local infrastructure security
+
+Local Docker/Podman services bind to loopback by default and use authenticated PostgreSQL/Redis configuration. Compose applies `no-new-privileges`, health checks and named volumes. The Docker build context excludes environment files, private keys, signer JSON, local databases and generated build output through `.dockerignore`.
+
+Production containers must receive secrets at runtime from the deployment secret manager. Do not bake `.env.local`, wallet material, Supabase service-role credentials, KYC artifacts, e-signing keys or provider secrets into an image layer.
+
+Run `pnpm docker:files:check` as part of configuration validation. Host Docker installation is outside the repository boundary and is checked separately with `pnpm docker:check`.

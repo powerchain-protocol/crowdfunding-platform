@@ -28,7 +28,7 @@
     "validate:structure": "node scripts/validate-structure.mjs",
     "conformance": "node scripts/conformance.mjs",
     "version:check": "node scripts/version-lock.mjs",
-    "validate": "pnpm version:check && pnpm runtime:check && pnpm workspace:check && pnpm config:check && pnpm source:check && pnpm next:check && pnpm routes:check && pnpm skills:check && pnpm readmes:check && pnpm architecture:check && pnpm validate:structure && pnpm engine:check && pnpm saas:check && pnpm icons:check && pnpm conformance",
+    "validate": "pnpm version:check && pnpm runtime:check && pnpm workspace:check && pnpm config:check && pnpm env:check && pnpm docker:files:check && pnpm source:check && pnpm next:check && pnpm routes:check && pnpm skills:check && pnpm readmes:check && pnpm architecture:check && pnpm validate:structure && pnpm engine:check && pnpm saas:check && pnpm icons:check && pnpm conformance",
     "security:verify:production": "node scripts/verify-production-rls.mjs",
     "runtime:check": "node scripts/doctor.mjs",
     "engine:check": "node scripts/validate-crowdfunding-engine.mjs",
@@ -62,7 +62,7 @@
     "env:init": "node scripts/env-init.mjs",
     "env:reset": "node scripts/env-init.mjs --force",
     "readmes:check": "node scripts/validate-readmes.mjs",
-    "setup:check": "pnpm package-manager:check && pnpm runtime:check && pnpm prisma:schema:check && pnpm workspace:check && pnpm config:check && pnpm source:check && pnpm next:check && pnpm routes:check && pnpm skills:check && pnpm readmes:check && pnpm architecture:check",
+    "setup:check": "pnpm package-manager:check && pnpm runtime:check && pnpm prisma:schema:check && pnpm workspace:check && pnpm config:check && pnpm env:check && pnpm docker:files:check && pnpm source:check && pnpm next:check && pnpm routes:check && pnpm skills:check && pnpm readmes:check && pnpm architecture:check",
     "dev:turbo": "turbo run dev --filter=./apps/* --parallel --ui=stream",
     "source:check": "node scripts/validate-source-tree.mjs",
     "next:check": "node scripts/validate-next-install.mjs",
@@ -70,7 +70,13 @@
     "clean:deps": "node scripts/clean.mjs --deps",
     "package-manager:check": "node scripts/validate-package-manager.mjs",
     "repair:workspace": "node scripts/repair-workspace.mjs",
-    "workspace:inventory": "node scripts/workspace-inventory.mjs"
+    "workspace:inventory": "node scripts/workspace-inventory.mjs",
+    "docker:check": "node scripts/docker-doctor.mjs",
+    "docker:files:check": "node scripts/validate-docker-security.mjs",
+    "stack:build": "node scripts/infra-compose.mjs build",
+    "stack:pull": "node scripts/infra-compose.mjs pull",
+    "stack:app": "node scripts/infra-compose.mjs app",
+    "env:check": "node scripts/validate-provider-env.mjs"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",

@@ -1,0 +1,15 @@
+# syntax=docker/dockerfile:1.7
+ARG NODE_VERSION=24.19.0
+FROM node:${NODE_VERSION}-bookworm-slim
+ENV NODE_ENV=development \
+    NEXT_TELEMETRY_DISABLED=1 \
+    PNPM_HOME=/pnpm \
+    PATH=/pnpm:$PATH
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ca-certificates openssl tini git \
+    && rm -rf /var/lib/apt/lists/* \
+    && corepack enable \
+    && corepack prepare pnpm@11.22.0 --activate
+WORKDIR /workspace
+ENTRYPOINT ["/usr/bin/tini", "--"]
+CMD ["sh", "-lc", "pnpm install --frozen-lockfile && pnpm dev"]

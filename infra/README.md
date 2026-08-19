@@ -1,11 +1,20 @@
 # Local infrastructure
 
-PowerChain's optional bundled development infrastructure contains PostgreSQL 17 and Redis 7. The Compose file provides health checks, persistent volumes, restart behavior, and an isolated development network.
+PowerChain includes Docker/Podman definitions for PostgreSQL 17, Redis 7, and an optional containerized development workspace. **The repository can provide Docker configuration, but it cannot install the Docker daemon on the host.** On macOS, install and start Docker Desktop (or Podman Desktop) before using `stack:*` commands.
 
-## Docker/Podman path
+## Check the host runtime
+
+```bash
+pnpm docker:check
+```
+
+If this reports no container runtime, `pnpm dev` can still run in mock/simulated mode. Database-backed routes need reachable PostgreSQL/Redis services.
+
+## Infrastructure only
 
 ```bash
 pnpm env:init
+pnpm stack:pull
 pnpm stack:up
 pnpm stack:wait
 pnpm db:push
@@ -13,45 +22,70 @@ pnpm db:seed
 pnpm dev
 ```
 
-`stack:up` detects Docker Compose first and Podman Compose second. If neither is installed it exits with an actionable message; this is not a pnpm or application failure.
+`stack:up` starts only PostgreSQL and Redis. Their host ports are bound to `127.0.0.1` by default, so they are not exposed to the LAN.
 
-## No container runtime
-
-You can still run the UI/mock development stack:
+## Fully containerized development
 
 ```bash
 pnpm env:init
-pnpm dev
+pnpm stack:app
 ```
 
-For database-backed routes, run native PostgreSQL/Redis or configure managed services in `.env.local`, then:
+The `app` Compose profile builds `infra/Dockerfile.dev`, waits for healthy PostgreSQL/Redis, bind-mounts the repository, installs with pnpm `11.22.0`, and starts the PowerChain application supervisor. Ports `3000`–`3010` remain loopback-only.
+
+## Security defaults
+
+The development Compose stack uses:
+
+- loopback-only host bindings (`127.0.0.1`);
+- PostgreSQL SCRAM password authentication;
+- password-protected Redis;
+- `no-new-privileges` container security option;
+- health-gated service dependencies;
+- persistent named volumes rather than repository-local data directories;
+- no provider/API secrets baked into images;
+- `.dockerignore` rules for environment files, wallet signer material, keys, build output, and local databases.
+
+The committed passwords are development placeholders only. Change them before sharing a development host. Production uses managed secrets and reviewed deployment configuration; do not reuse the local Compose credentials.
+
+## No container runtime
+
+Use native or managed PostgreSQL/Redis:
 
 ```bash
+pnpm env:init
+# edit .env.local and set reachable DATABASE_URL + REDIS_URL
 pnpm infra:check
 pnpm stack:wait
 pnpm db:validate
 pnpm db:generate
+pnpm dev
 ```
 
 ## Readiness semantics
 
-`pnpm stack:wait` checks that configured PostgreSQL/Redis TCP endpoints are reachable. It does not install Docker, start native services, create databases, or validate application-level credentials.
+`pnpm stack:wait` checks configured PostgreSQL/Redis TCP reachability. It does not install Docker, create a managed database, or validate external provider credentials.
 
 The API exposes separate operational signals:
 
 ```text
-GET /api/v1/health/live   process liveness
-GET /api/v1/health/ready  dependency readiness
+GET /api/v1/health/live
+GET /api/v1/health/ready
 ```
 
-A service can be live while not ready.
+A process can be live while not ready.
 
-## Database changes
+## Production image
 
-`pnpm db:push` is a development convenience. Production database changes should use reviewed migrations and deployment-specific controls. Never run destructive development schema operations against production.
+The root `Dockerfile` builds one selected Next.js application:
 
-## Corepack and `pnpm doctor`
+```bash
+docker build \
+  --build-arg POWERCHAIN_APP=@powerchain/web \
+  --build-arg PORT=3000 \
+  -t powerchain-web:1.0.0 .
 
-The repository pins Node.js `24.19.0` and pnpm `11.22.0`. Corepack owns pnpm selection. `pnpm doctor` is pnpm's own diagnostic command; use `pnpm run doctor:project` for PowerChain-specific runtime/workspace checks.
+docker run --rm -p 127.0.0.1:3000:3000 powerchain-web:1.0.0
+```
 
-A warning that the global pnpm bin directory is not in `PATH` does not prevent workspace-local scripts from running through Corepack.
+Production deployments should inject secrets at runtime, run behind TLS/reverse proxying, and use reviewed migrations (`pnpm db:migrate:deploy`) rather than `db:push`.

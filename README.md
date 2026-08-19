@@ -59,6 +59,8 @@ Database-backed API operations will still require a reachable PostgreSQL instanc
 
 ### 2. Full local stack — Docker Compose or Podman Compose
 
+The repository now includes a production `Dockerfile`, `infra/Dockerfile.dev`, a hardened Compose stack, `.dockerignore`, and Docker validation. A container runtime still has to be installed on the host.
+
 ```bash
 nvm use 24.19.0
 corepack enable
@@ -66,6 +68,8 @@ corepack prepare pnpm@11.22.0 --activate
 
 pnpm env:init
 pnpm install
+pnpm docker:check
+pnpm stack:pull
 pnpm stack:up
 pnpm stack:wait
 pnpm db:push
@@ -73,7 +77,9 @@ pnpm db:seed
 pnpm dev
 ```
 
-`stack:up` is intentionally optional. If neither Docker Compose nor Podman Compose is installed, use mode 1 or mode 3 instead of repeatedly running `stack:up`.
+`stack:up` starts PostgreSQL and Redis only. The services bind to `127.0.0.1` by default, Redis requires a password, and PostgreSQL uses SCRAM authentication. To run the app supervisor inside the development container as well, use `pnpm stack:app`.
+
+If neither Docker Compose nor Podman Compose is installed, use mode 1 or mode 3. Source files cannot install the Docker daemon on macOS/Linux for you.
 
 ### 3. Native or managed PostgreSQL / Redis
 
@@ -123,6 +129,7 @@ The repository includes both:
 env/development.env.example
 env/test.env.example
 env/production.env.example
+env/docker.env.example
 ```
 
 Initialize local configuration with:
@@ -133,9 +140,9 @@ pnpm env:init
 
 `env:init` writes `.env.local` without overwriting an existing file. If a checkout accidentally omits the root dotfile, the script falls back to `env/development.env.example` and tells you that the checkout should be repaired.
 
-Never commit `.env.local`, service-role credentials, wallet private keys, KYC secrets, signing keys, or provider server keys.
+Never commit `.env.local`, service-role credentials, wallet private keys, KYC secrets, signing keys, or provider server keys. `NEXT_PUBLIC_*` values are browser-visible and must never contain secrets.
 
-See [`env/README.md`](env/README.md).
+See [`env/README.md`](env/README.md) and [`docs/DOCKER-SECURITY.md`](docs/DOCKER-SECURITY.md).
 
 ## Applications
 
@@ -226,6 +233,17 @@ Only run `db:push`, migrations, or seeds against a database you intend to modify
 
 See [`docs/PRISMA.md`](docs/PRISMA.md).
 
+### Solana / Helius / Supabase environment
+
+The environment templates now include separate Devnet/Mainnet Solana RPCs, Helius standard/Secure RPC configuration, canonical public Solana program IDs, the PWRC Token-2022 mainnet mint, Supabase public/server variables, and Prisma connection variables. The crowdfunding/registry/contributors program IDs are synchronized with source `declare_id!` values but remain unverified until on-chain deployment checks pass; milestone escrow remains blank until it has a real deployment ID.
+
+```bash
+pnpm env:init
+pnpm env:check
+```
+
+See [`docs/SOLANA-SUPABASE-ENV.md`](docs/SOLANA-SUPABASE-ENV.md) and the focused templates in `env/solana.env.example` and `env/supabase.env.example`.
+
 ## Infrastructure and health
 
 Optional local infrastructure is defined in `infra/docker-compose.yml` with PostgreSQL and Redis.
@@ -240,6 +258,7 @@ GET /api/v1/system
 GET /api/v1/system/services
 GET /api/v1/system/endpoints
 GET /api/v1/system/contracts
+GET /api/v1/system/providers
 ```
 
 `live` answers whether the API process is running. `ready` may depend on PostgreSQL/Redis and should not be treated as equivalent to liveness.
@@ -283,12 +302,20 @@ Re-extract the complete archive or restore those files; do not invent production
 
 ### `docker: command not found` or no Compose runtime
 
-Docker is optional. Do **not** run `stack:up` unless Docker Compose or Podman Compose is installed. Use mock/simulated mode, native PostgreSQL/Redis, or managed endpoints instead.
+The repository includes Docker support, but Docker Desktop/Engine or Podman must still be installed on the host. Check it with:
+
+```bash
+pnpm docker:check
+```
+
+If it is unavailable, Docker remains optional: use mock/simulated mode, native PostgreSQL/Redis, or managed endpoints instead.
 
 ```bash
 pnpm infra:check
 pnpm dev
 ```
+
+On macOS, install and launch Docker Desktop (or Podman Desktop), then rerun `pnpm docker:check` before `pnpm stack:up`.
 
 ### Next.js starts and then reports missing `app`, `.next/dev`, or `next/package.json`
 
