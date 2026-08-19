@@ -5,8 +5,16 @@ packages:
   - "skills/*"
 
 # pnpm v11 reads project settings from pnpm-workspace.yaml, not package.json#pnpm.
+# Supply-chain maturity policy. pnpm v11 defaults to 24 hours; keep it explicit and strict.
+minimumReleaseAge: 1440
+minimumReleaseAgeStrict: true
+minimumReleaseAgeIgnoreMissingTime: false
+minimumReleaseAgeExcludePrune: true
+trustLockfile: false
+blockExoticSubdeps: true
+
 overrides:
-  turbo: "2.10.11"
+  turbo: "2.10.10"
   next: "16.3.1"
   react: "19.2.8"
   react-dom: "19.2.8"
@@ -14,6 +22,7 @@ overrides:
   typescript: "6.0.3"
   tailwindcss: "4.3.3"
   "@tailwindcss/postcss": "4.3.3"
+  postcss: "8.5.23"
   prisma: "6.19.3"
   "@prisma/client": "6.19.3"
   "@web3icons/react": "4.1.20"

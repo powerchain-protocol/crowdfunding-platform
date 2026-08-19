@@ -415,4 +415,4 @@ pnpm dev
 
 `pnpm repair:workspace` can safely recreate generated app configuration (`next.config.mjs`, `tsconfig.json`, `next-env.d.ts`, PostCSS config) and restore `.env.example` from the tracked development template. It deliberately refuses to fabricate missing application source. If an `apps/<name>/app` tree is missing, restore it from Git or the canonical archive.
 
-The canonical toolchain is Node `24.19.0`, pnpm `11.22.0`, Next.js `16.3.1`, and Turborepo `2.10.11`.
+The canonical toolchain is Node `24.19.0`, pnpm `11.22.0`, Next.js `16.3.1`, and Turborepo `2.10.10`.

@@ -33,4 +33,4 @@ If `apps/web/app`, `apps/pwa/app`, or another application source directory is mi
 - React 19.2.8
 - TypeScript 6.0.3
 - Prisma 6.19.3
-- Turborepo 2.10.11
+- Turborepo 2.10.10

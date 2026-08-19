@@ -1,5 +1,28 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./config/typescript/base.json",
-  "files": []
+  "files": [],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@powerchain/ui": [
+        "./packages/ui/src/index.tsx"
+      ],
+      "@powerchain/ui/*": [
+        "./packages/ui/src/*"
+      ],
+      "@powerchain/hooks": [
+        "./packages/hooks/src/index.ts"
+      ],
+      "@powerchain/hooks/*": [
+        "./packages/hooks/src/*"
+      ],
+      "@powerchain/common": [
+        "./packages/common/src/index.ts"
+      ],
+      "@powerchain/common/*": [
+        "./packages/common/src/*"
+      ]
+    }
+  }
 }

@@ -12,7 +12,15 @@
     "./web3-icons": "./src/web3-icons.tsx",
     "./coin": "./src/coin.tsx",
     "./web3-static-icons": "./src/web3-static-icons.tsx",
-    "./modals": "./src/modals/index.ts"
+    "./modals": "./src/modals/index.ts",
+    "./components": "./src/components/index.ts",
+    "./components/*": "./src/components/*.tsx",
+    "./lib": "./src/lib/index.ts",
+    "./lib/*": "./src/lib/*.ts",
+    "./hooks": "./src/hooks/index.ts",
+    "./hooks/*": "./src/hooks/*.ts",
+    "./styles/globals.css": "./src/styles/globals.css",
+    "./styles/*": "./src/styles/*"
   },
   "peerDependencies": {
     "react": "19.2.8",
@@ -40,5 +48,10 @@
   },
   "engines": {
     "node": "24.19.0"
+  },
+  "imports": {
+    "#components/*": "./src/components/*.tsx",
+    "#lib/*": "./src/lib/*.ts",
+    "#hooks/*": "./src/hooks/*.ts"
   }
 }

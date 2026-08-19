@@ -4,6 +4,7 @@ import { resolve } from "node:path";
 const root = resolve(new URL("..", import.meta.url).pathname);
 const pidFile = resolve(root, ".powerchain-dev.pid");
 const removeDependencies = process.argv.includes("--deps");
+const removeLockfile = process.argv.includes("--lockfile");
 
 if (existsSync(pidFile)) {
   const pid = Number(readFileSync(pidFile, "utf8").trim());
@@ -26,6 +27,10 @@ const generatedTargets = [
 ];
 for (const target of generatedTargets) rmSync(target, { recursive: true, force: true });
 
+if (removeLockfile) {
+  rmSync(resolve(root, "pnpm-lock.yaml"), { force: true });
+}
+
 if (removeDependencies) {
   rmSync(resolve(root, "node_modules"), { recursive: true, force: true });
   for (const area of ["apps", "packages", "services", "skills"]) {
@@ -38,5 +43,5 @@ if (removeDependencies) {
   }
 }
 
-console.log(`Cleaned generated Next.js/Turborepo output${removeDependencies ? " and workspace dependencies" : ""}.`);
+console.log(`Cleaned generated Next.js/Turborepo output${removeDependencies ? " and workspace dependencies" : ""}${removeLockfile ? " and pnpm lockfile" : ""}.`);
 console.log("Source directories were not touched.");
