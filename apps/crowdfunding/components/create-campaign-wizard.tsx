@@ -2,12 +2,13 @@
 
 import { useMemo, useState } from "react";
 import { Button, Card, Icon, Input, Select, StatusBadge, Textarea } from "@powerchain/ui";
+import { CAMPAIGN_CATEGORIES, CAMPAIGN_TRANCHE_POLICY, CAMPAIGN_WIZARD_STEPS } from "@powerchain/constants/campaigns";
 
-const steps = ["Basics", "Problem", "Goal", "Beneficiaries", "Budget", "Milestones", "Participation", "Treasury", "Evidence", "Verification", "Review & publish"] as const;
+const steps = CAMPAIGN_WIZARD_STEPS;
 
 const prompts: Record<number, [string, string, string[]]> = {
   1: ["Problem Statement & Necessity", "Explain the problem, why funding is needed now, who is affected and what happens if the problem is not addressed.", ["What problem are you solving?", "Why is funding needed now?", "What evidence supports the claim?"]],
-  2: ["Funding goal", "Set the target amount, accounting currency, dates and funding model.", ["Target amount", "Flexible or all-or-nothing", "Overfunding policy"]],
+  2: ["Funding structure", `The funding goal is derived from ${CAMPAIGN_TRANCHE_POLICY.minimumCount}–${CAMPAIGN_TRANCHE_POLICY.maximumCount} milestone tranches rather than typed manually.`, ["Milestone tranche amounts", "Funding deadline", "All-or-nothing / refund policy"]],
   3: ["Beneficiaries", "Describe who benefits, estimated reach and privacy-safe verification information.", ["Beneficiary group", "Estimated reach", "Region and verification"]],
   4: ["Budget", "Allocate the target across program delivery, equipment, logistics, operations and other budget lines.", ["Budget categories", "Amounts", "Total validation"]],
   5: ["Milestones", "Define cumulative target thresholds, completion criteria, required evidence and release limits.", ["Funding threshold", "Completion criteria", "Evidence requirement"]],
@@ -34,7 +35,7 @@ export function CreateCampaignWizard() {
       <div className="grid gap-5 md:grid-cols-2">
         <label className="md:col-span-2 grid gap-2 text-sm font-semibold text-neutral-800">Campaign title *<Input value={title} onChange={(event) => setTitle(event.target.value)} placeholder="Flood Emergency Response" required /><span className="text-xs font-normal text-neutral-500">Use a clear, specific title people can understand at a glance.</span></label>
         <label className="md:col-span-2 grid gap-2 text-sm font-semibold text-neutral-800">Short description *<Textarea value={description} onChange={(event) => setDescription(event.target.value)} placeholder="Explain what is happening, who needs support and what this campaign will fund." required /><span className="text-xs font-normal text-neutral-500">Minimum 10 characters. Keep the public summary concise and factual.</span></label>
-        <label className="grid gap-2 text-sm font-semibold text-neutral-800">Category *<Select value={category} onChange={(event) => setCategory(event.target.value)} required><option value="">Select category</option><option>Humanitarian</option><option>Disaster Relief</option><option>Medical</option><option>Renewables</option><option>Environment</option><option>Energy</option><option>Education</option><option>Community</option><option>Infrastructure</option><option>Technology</option><option>Public Good</option><option>Event / Ticketed</option><option>Other</option></Select></label>
+        <label className="grid gap-2 text-sm font-semibold text-neutral-800">Category *<Select value={category} onChange={(event) => setCategory(event.target.value)} required><option value="">Select category</option>{CAMPAIGN_CATEGORIES.map((item) => <option key={item}>{item}</option>)}</Select></label>
         <label className="grid gap-2 text-sm font-semibold text-neutral-800">Country / region<Input value={region} onChange={(event) => setRegion(event.target.value)} placeholder="Finland / Northern Europe" /></label>
         <label className="md:col-span-2 grid gap-2 text-sm font-semibold text-neutral-800">Cover image URL<Input type="url" value={cover} onChange={(event) => setCover(event.target.value)} placeholder="https://example.org/campaign-cover.jpg" /><span className="text-xs font-normal text-neutral-500">Recommended 16:9 image. Only approved remote image domains should be enabled in production.</span></label>
       </div>

@@ -1,1 +1,0 @@
-import {success} from "@powerchain/api-core"; export async function GET(_r:Request,{params}:{params:Promise<{id:string}>}){const {id}=await params;return Response.json(success({campaignId:id,goalBaseUnits:"250000000000",fundedBaseUnits:"147200000000",percent:58.88,contributorCount:284,recognitionState:"RECONCILED",deadline:"2026-09-30T20:00:00Z"}))}

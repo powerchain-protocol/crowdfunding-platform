@@ -1,0 +1,23 @@
+{
+  "name": "@powerchain/contracts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./deployments": "./src/deployments.ts",
+    "./solana": "./src/solana.ts",
+    "./evm": "./src/evm.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json",
+    "lint": "echo contracts:lint"
+  },
+  "devDependencies": {
+    "typescript": "6.0.3"
+  },
+  "engines": {
+    "node": "24.19.0"
+  }
+}

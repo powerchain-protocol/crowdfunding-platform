@@ -35,7 +35,10 @@
     "@powerchain/funding": "workspace:*",
     "@powerchain/realtime": "workspace:*",
     "@powerchain/database": "workspace:*",
-    "@powerchain/saas": "workspace:*"
+    "@powerchain/saas": "workspace:*",
+    "@powerchain/service-registry": "workspace:*",
+    "@powerchain/constants": "workspace:*",
+    "@powerchain/contracts": "workspace:*"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",

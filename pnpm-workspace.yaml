@@ -6,11 +6,12 @@ packages:
 
 # pnpm v11 reads project settings from pnpm-workspace.yaml, not package.json#pnpm.
 overrides:
+  turbo: "2.10.11"
   next: "16.3.1"
   react: "19.2.8"
   react-dom: "19.2.8"
-  "@types/node": "^24.0.0"
-  typescript: "^6.0.0"
+  "@types/node": "24.13.3"
+  typescript: "6.0.3"
   tailwindcss: "4.3.3"
   "@tailwindcss/postcss": "4.3.3"
   prisma: "6.19.3"

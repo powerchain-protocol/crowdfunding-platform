@@ -39,6 +39,18 @@ This documentation set defines the PowerChain v1 production contract for goal-ba
 28. [Authentication](AUTH.md)
 29. [Design system](DESIGN-SYSTEM.md)
 
+
+## Repository operator indexes
+
+- [`../apps/README.md`](../apps/README.md) — deployable application ownership and ports.
+- [`../packages/README.md`](../packages/README.md) — shared package boundaries and dependency rules.
+- [`../services/README.md`](../services/README.md) — provider/background service contracts.
+- [`../env/README.md`](../env/README.md) — environment files, secrets and local modes.
+- [`../infra/README.md`](../infra/README.md) — optional PostgreSQL/Redis infrastructure.
+- [`PNPM.md`](PNPM.md) — Node 24.19.0 + pnpm 11.22.0/Corepack contract.
+- [`PRISMA.md`](PRISMA.md) — schema/client generation and database workflow.
+- [`INFRA-SERVICES-ENDPOINTS.md`](INFRA-SERVICES-ENDPOINTS.md) — readiness and service discovery.
+
 ## Non-negotiable invariants
 
 1. A QR scan is not a payment.
@@ -84,3 +96,6 @@ This documentation set defines the PowerChain v1 production contract for goal-ba
 - [`COMPANY-INVOICES.md`](COMPANY-INVOICES.md) — organization profiles, foundation fields, branding and invoice architecture.
 
 - [`WEB3-ICONS.md`](WEB3-ICONS.md) — token, network and wallet icon integration.
+- [`DEV-STABILITY.md`](DEV-STABILITY.md) — safe Next.js/pnpm development and live-workspace mutation recovery.
+- [`CONSTANTS-CONTRACTS-COMMON.md`](CONSTANTS-CONTRACTS-COMMON.md) — canonical shared code boundaries and deployment metadata.
+- [`STABILITY-UPGRADE.md`](STABILITY-UPGRADE.md) — fixes and shared-boundary upgrade notes for canonical v1.0.0.

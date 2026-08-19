@@ -109,3 +109,5 @@ export function FeatureIcon({ name }: { name: IconName }) {
 export { Counter } from "./counter";
 export { Countdown } from "./countdown";
 export { FundingProgress } from "./funding-progress";
+
+export { Modal, ConfirmationModal, TransactionReviewModal, type ModalProps, type ModalSize, type TransactionReviewItem } from "./modals";

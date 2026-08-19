@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "deployments": [
+    {
+      "key": "crowdfunding",
+      "family": "SOLANA_PROGRAM",
+      "network": "devnet",
+      "address": null,
+      "status": "UNCONFIGURED"
+    },
+    {
+      "key": "registry",
+      "family": "SOLANA_PROGRAM",
+      "network": "devnet",
+      "address": null,
+      "status": "UNCONFIGURED"
+    },
+    {
+      "key": "contributors",
+      "family": "SOLANA_PROGRAM",
+      "network": "devnet",
+      "address": null,
+      "status": "UNCONFIGURED"
+    },
+    {
+      "key": "milestone-escrow",
+      "family": "SOLANA_PROGRAM",
+      "network": "devnet",
+      "address": null,
+      "status": "UNCONFIGURED"
+    },
+    {
+      "key": "campaign-safe",
+      "family": "SAFE_ACCOUNT",
+      "network": "configured-evm",
+      "address": null,
+      "status": "UNCONFIGURED"
+    }
+  ]
+}

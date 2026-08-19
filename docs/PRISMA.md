@@ -30,9 +30,10 @@ generator client { provider = "prisma-client-js" }
 
 `pnpm install` runs `scripts/prisma-install.mjs` which:
 
-1. performs a dependency-free schema preflight;
-2. runs `prisma generate` using the root schema;
-3. supplies a non-connecting placeholder `DATABASE_URL` only when schema tooling runs without a local `.env`.
+1. performs a dependency-free schema and version preflight;
+2. verifies the root `@prisma/client@6.19.3` link exists;
+3. runs `prisma generate` using the root schema with `PRISMA_GENERATE_SKIP_AUTOINSTALL=1`;
+4. supplies a non-connecting placeholder `DATABASE_URL` only when schema tooling runs without a local `.env`.
 
 The placeholder is **not** available to the application, migrations, `db push`, or runtime database connections.
 
@@ -56,4 +57,4 @@ pnpm db:migrate
 
 ## Version alignment
 
-`prisma` and `@prisma/client` are pinned to the exact same `6.19.3` release at the workspace level. Upgrade them together and regenerate the client after every schema change.
+`prisma` and `@prisma/client` are pinned to the exact same `6.19.3` release. The root declares both packages because root postinstall owns client generation; `@powerchain/database` also declares `@prisma/client` for runtime imports. This prevents Prisma from trying to run a nested `pnpm add @prisma/client` during installation. Upgrade CLI and Client together and regenerate after every schema change.

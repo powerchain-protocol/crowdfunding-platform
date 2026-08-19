@@ -1,29 +1,44 @@
-# pnpm v11 workspace configuration
+# pnpm / Corepack
 
-PowerChain uses pnpm 11.21.0. pnpm v11 no longer reads project settings from `package.json#pnpm`; dependency overrides and build-script permissions live in the root `pnpm-workspace.yaml`.
+PowerChain pins **pnpm 11.22.0** through the root `packageManager` field and requires **Node.js 24.19.0**.
 
-## Required local runtime
+## Activate
 
 ```bash
-node --version   # v24.19.0
+nvm use 24.19.0
 corepack enable
-corepack prepare pnpm@11.21.0 --activate
-pnpm --version   # 11.21.0
+corepack prepare pnpm@11.22.0 --activate
+node --version   # v24.19.0
+pnpm --version   # 11.22.0
 ```
 
-## Clean reinstall after workspace metadata changes
+Corepack may select the repository's `packageManager` version even if another pnpm version exists globally. Run version checks from the repository root.
+
+## Workspace settings
+
+pnpm 11 project settings such as dependency overrides and build permissions live in `pnpm-workspace.yaml`; do not add a legacy root `package.json#pnpm` configuration block.
+
+The repository uses `allowBuilds` for approved native/build-script dependencies and centralized overrides for toolchain packages.
+
+## Install contract
 
 ```bash
-rm -rf node_modules
-find apps packages services skills -name node_modules -type d -prune -exec rm -rf '{}' +
-rm -f pnpm-lock.yaml
 pnpm install
-pnpm workspace:check
-pnpm dev
 ```
 
-Deleting the lockfile is appropriate here because the previous install failed while the workspace graph itself was invalid. Once a clean lockfile is generated, commit it and use frozen lockfiles in CI.
+Preinstall validates the Prisma schema and workspace `workspace:*` references. Postinstall generates Prisma Client using already-declared dependencies and must not recursively invoke `pnpm add`.
 
-## Build scripts
+## Diagnostics
 
-`allowBuilds` is intentionally allow-listed in `pnpm-workspace.yaml` for Prisma, esbuild, and sharp. Review new dependency install scripts before expanding this map.
+`pnpm doctor` is pnpm's own command. PowerChain project diagnostics are:
+
+```bash
+pnpm run doctor:project
+pnpm workspace:check
+pnpm config:check
+pnpm routes:check
+pnpm skills:check
+pnpm readmes:check
+```
+
+A Corepack warning about `pnpm self-update` or a missing global pnpm bin directory is not, by itself, a workspace install failure.

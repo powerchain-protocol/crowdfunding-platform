@@ -1,30 +1,3 @@
 import { createPowerChainNextConfig } from "../../config/next/shared.mjs";
 
-export default createPowerChainNextConfig({
-  appDir: import.meta.dirname,
-  transpilePackages: [
-    "@powerchain/activity",
-    "@powerchain/agreements",
-    "@powerchain/api-core",
-    "@powerchain/audit",
-    "@powerchain/auth",
-    "@powerchain/common",
-    "@powerchain/config",
-    "@powerchain/data",
-    "@powerchain/database",
-    "@powerchain/deal-room",
-    "@powerchain/deals",
-    "@powerchain/escrow",
-    "@powerchain/funding",
-    "@powerchain/identity",
-    "@powerchain/moderation",
-    "@powerchain/notifications",
-    "@powerchain/proofs",
-    "@powerchain/realtime",
-    "@powerchain/saas",
-    "@powerchain/security-data",
-    "@powerchain/types",
-    "@powerchain/ui",
-    "@powerchain/zk",
-  ],
-});
+export default createPowerChainNextConfig({ appDir: import.meta.dirname });

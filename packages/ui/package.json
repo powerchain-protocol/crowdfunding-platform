@@ -11,7 +11,8 @@
     "./icons": "./src/icons.tsx",
     "./web3-icons": "./src/web3-icons.tsx",
     "./coin": "./src/coin.tsx",
-    "./web3-static-icons": "./src/web3-static-icons.tsx"
+    "./web3-static-icons": "./src/web3-static-icons.tsx",
+    "./modals": "./src/modals/index.ts"
   },
   "peerDependencies": {
     "react": "19.2.8",

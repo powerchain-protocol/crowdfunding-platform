@@ -1,0 +1,95 @@
+{
+  "version": "1.0.0",
+  "skills": [
+    {
+      "name": "campaign",
+      "description": "Campaign lifecycle and publishing",
+      "risk": "medium",
+      "allowedScopes": [
+        "campaign.read",
+        "campaign.draft"
+      ]
+    },
+    {
+      "name": "payments",
+      "description": "Payment-intent and contribution analysis",
+      "risk": "high",
+      "allowedScopes": [
+        "payments.read",
+        "payment-intent.draft"
+      ]
+    },
+    {
+      "name": "reconciliation",
+      "description": "Settlement matching and exception analysis",
+      "risk": "high",
+      "allowedScopes": [
+        "reconciliation.read",
+        "exception.draft"
+      ]
+    },
+    {
+      "name": "reporting",
+      "description": "Operational and impact reporting",
+      "risk": "medium",
+      "allowedScopes": [
+        "reporting.read",
+        "reporting.draft"
+      ]
+    },
+    {
+      "name": "treasury",
+      "description": "Treasury proposal preparation",
+      "risk": "high",
+      "allowedScopes": [
+        "treasury.read",
+        "treasury.proposal.draft"
+      ]
+    },
+    {
+      "name": "identity",
+      "description": "KYC and business-verification workflow assistance",
+      "risk": "high",
+      "allowedScopes": [
+        "identity.read",
+        "identity.check.draft"
+      ]
+    },
+    {
+      "name": "milestones",
+      "description": "Milestone evidence and release-gate analysis",
+      "risk": "high",
+      "allowedScopes": [
+        "milestones.read",
+        "evidence.review.draft"
+      ]
+    },
+    {
+      "name": "moderation",
+      "description": "Report triage and moderation recommendations",
+      "risk": "medium",
+      "allowedScopes": [
+        "moderation.read",
+        "moderation.recommend"
+      ]
+    },
+    {
+      "name": "deal-room",
+      "description": "Deal-room summaries, diligence and negotiation drafts",
+      "risk": "medium",
+      "allowedScopes": [
+        "deal-room.read",
+        "deal-room.draft"
+      ]
+    },
+    {
+      "name": "notifications",
+      "description": "Notification drafting and delivery planning",
+      "risk": "medium",
+      "allowedScopes": [
+        "notifications.read",
+        "notifications.draft"
+      ]
+    }
+  ]
+}
