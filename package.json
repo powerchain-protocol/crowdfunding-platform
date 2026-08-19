@@ -9,7 +9,7 @@
   "packageManager": "pnpm@11.22.0",
   "scripts": {
     "dev": "node scripts/dev.mjs",
-    "build": "turbo build",
+    "build": "node scripts/assert-dev-stopped.mjs build && pnpm build:check && turbo build",
     "typecheck": "turbo typecheck",
     "lint": "turbo lint",
     "clean": "node scripts/clean.mjs",
@@ -50,7 +50,7 @@
     "db:format": "node scripts/prisma-cli.mjs format",
     "prisma:schema:check": "node scripts/validate-prisma-schema.mjs",
     "prisma:check": "pnpm prisma:schema:check && pnpm db:validate",
-    "preinstall": "node scripts/validate-package-manager.mjs && node scripts/validate-prisma-schema.mjs && node scripts/validate-workspace-deps.mjs",
+    "preinstall": "node scripts/assert-dev-stopped.mjs install && node scripts/validate-package-manager.mjs && node scripts/validate-prisma-schema.mjs && node scripts/validate-workspace-deps.mjs",
     "icons:check": "node scripts/validate-web3-icons.mjs",
     "doctor:project": "node scripts/doctor.mjs",
     "routes:check": "node scripts/validate-api-routes.mjs",
@@ -86,7 +86,10 @@
     "shadcn:add": "pnpm dlx shadcn@latest add -c apps/crowdfunding",
     "shadcn:add:ui": "pnpm dlx shadcn@latest add -c packages/ui",
     "ui:check": "node scripts/validate-shared-ui.mjs",
-    "postcss:check": "node scripts/validate-postcss.mjs"
+    "postcss:check": "node scripts/validate-postcss.mjs",
+    "build:check": "pnpm source:check && pnpm config:check && pnpm routes:check && pnpm shadcn:check && pnpm ui:check && pnpm postcss:check && node scripts/validate-build-surface.mjs",
+    "ci:check": "pnpm validate && pnpm build:check && pnpm typecheck",
+    "build:verified": "pnpm ci:check && pnpm build"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",

@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, readdirSync, rmSync } from "node:fs";
 import { resolve } from "node:path";
+import { POWERCHAIN_APPS } from "../config/workspace/apps.mjs";
 
 const root = resolve(new URL("..", import.meta.url).pathname);
 const pidFile = resolve(root, ".powerchain-dev.pid");
@@ -20,10 +21,9 @@ if (existsSync(pidFile)) {
   rmSync(pidFile, { force: true });
 }
 
-const apps = ["web","crowdfunding","donate","checkout","dashboard","treasury","admin","explorer","docs","pwa","api"];
 const generatedTargets = [
   resolve(root, ".turbo"),
-  ...apps.map((app) => resolve(root, "apps", app, ".next")),
+  ...POWERCHAIN_APPS.map((app) => resolve(root, "apps", app.dir, ".next")),
 ];
 for (const target of generatedTargets) rmSync(target, { recursive: true, force: true });
 

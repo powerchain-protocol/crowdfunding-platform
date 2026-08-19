@@ -22,7 +22,7 @@ export function assertDeploymentConfigured(deployment: ContractDeployment): asse
   }
 }
 
-export function deploymentFromEnv(input: Omit<ContractDeployment, "address" | "status"> & { envValue?: string }): ContractDeployment {
+export function deploymentFromEnv(input: Omit<ContractDeployment, "address" | "status"> & { envValue?: string | undefined }): ContractDeployment {
   const address = input.envValue?.trim() || null;
   return {
     key: input.key,

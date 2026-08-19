@@ -20,7 +20,7 @@ function tcp(urlText: string, timeoutMs = 900): Promise<void> {
     const socket = createConnection({ host: url.hostname, port });
     const timer = setTimeout(() => socket.destroy(new Error("timeout")), timeoutMs);
     socket.once("connect", () => { clearTimeout(timer); socket.end(); resolve(); });
-    socket.once("error", (error) => { clearTimeout(timer); reject(error); });
+    socket.once("error", (error: Error) => { clearTimeout(timer); reject(error); });
   });
 }
 

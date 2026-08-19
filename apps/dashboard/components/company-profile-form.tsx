@@ -46,7 +46,7 @@ const socialOptions: Array<{ value: SocialNetwork; label: string }> = [
   { value: "OTHER", label: "Other" }
 ];
 
-function Input({ label, value, onChange, placeholder, type = "text", required = false }: { label: string; value?: string; onChange: (value: string) => void; placeholder?: string; type?: string; required?: boolean }) {
+function Input({ label, value, onChange, placeholder, type = "text", required = false }: { label: string; value?: string | undefined; onChange: (value: string) => void; placeholder?: string | undefined; type?: string | undefined; required?: boolean | undefined }) {
   return <label className="grid gap-2 text-sm font-semibold text-neutral-800 dark:text-neutral-100"><span>{label}{required ? " *" : ""}</span><input type={type} value={value ?? ""} onChange={(event) => onChange(event.target.value)} placeholder={placeholder} className="h-11 rounded-xl border border-neutral-200 bg-white px-3 font-normal outline-none transition focus:border-emerald-800 focus:ring-2 focus:ring-emerald-900/10 dark:border-neutral-700 dark:bg-neutral-950" /></label>;
 }
 

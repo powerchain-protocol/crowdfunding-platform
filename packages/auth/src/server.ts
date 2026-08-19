@@ -1,6 +1,7 @@
 import { createHash, randomBytes, scrypt as scryptCallback, timingSafeEqual } from "node:crypto";
 import { promisify } from "node:util";
 import { prisma } from "@powerchain/database";
+import type { Prisma } from "@prisma/client";
 import { normalizeEmail, validatePassword, type PlatformRole } from "./index";
 
 const scrypt = promisify(scryptCallback);
@@ -30,8 +31,8 @@ export async function revokeSessionToken(token:string){await prisma.session.upda
 export async function registerUser(input:{email:string;password:string;displayName?:string;organizationName?:string}){
   const email=normalizeEmail(input.email); const passwordHash=await hashPassword(input.password);
   const slugBase=(input.organizationName||input.displayName||email.split("@")[0]||"workspace").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"workspace";
-  return prisma.$transaction(async tx=>{
-    const user=await tx.user.create({data:{email,passwordHash,displayName:input.displayName}});
+  return prisma.$transaction(async (tx: Prisma.TransactionClient)=>{
+    const user=await tx.user.create({data:{email,passwordHash,...(input.displayName !== undefined ? {displayName:input.displayName} : {})}});
     const org=await tx.organization.create({data:{name:input.organizationName||`${input.displayName||"My"} Workspace`,slug:`${slugBase}-${randomBytes(3).toString("hex")}`}});
     await tx.organizationMembership.create({data:{userId:user.id,organizationId:org.id,role:"OWNER"}});
     const days=Number(process.env.SAAS_TRIAL_DAYS||14); const start=new Date(); const end=new Date(start.getTime()+days*86400000);
@@ -40,7 +41,7 @@ export async function registerUser(input:{email:string;password:string;displayNa
   });
 }
 export async function authenticateUser(email:string,password:string){const user=await prisma.user.findUnique({where:{email:normalizeEmail(email)}}); if(!user||user.status!=="ACTIVE"||!(await verifyPassword(password,user.passwordHash))) return null; return user;}
-export function membershipRoles(session:Awaited<ReturnType<typeof getSessionByToken>>):PlatformRole[]{if(!session)return[];return session.user.memberships.map(m=>m.role as PlatformRole)}
+export function membershipRoles(session:Awaited<ReturnType<typeof getSessionByToken>>):PlatformRole[]{if(!session)return[];return session.user.memberships.map((m: (typeof session.user.memberships)[number])=>m.role as PlatformRole)}
 
 
 export async function createPasswordReset(email:string){

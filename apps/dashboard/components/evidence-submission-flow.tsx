@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { canReleaseMilestoneFunds, getMilestoneReleaseBlockers, type EvidenceKind } from "@powerchain/evidence";
+import { canReleaseMilestoneFunds, getMilestoneReleaseBlockers, type EvidenceKind, type MilestoneReleaseGate } from "@powerchain/evidence";
 import { Button, Card, Icon, Input, Select, StatusBadge, Textarea } from "@powerchain/ui";
 
 type FileEvidence = {
@@ -31,7 +31,7 @@ export function EvidenceSubmissionFlow() {
   const [treasuryPolicyApproved, setTreasuryPolicyApproved] = useState(false);
   const [proposalPrepared, setProposalPrepared] = useState(false);
 
-  const releaseGate = useMemo(() => ({
+  const releaseGate = useMemo<MilestoneReleaseGate>(() => ({
     milestoneId: "m2",
     requiredEvidenceCount: 1,
     milestoneApproved,
