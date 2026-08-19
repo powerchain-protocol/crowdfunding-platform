@@ -177,3 +177,30 @@ pnpm dev
 ```
 
 Provider-specific financial rails still require their real credentials and deployment manifests; the platform does not fabricate blockchain, banking, KYC, e-signature or payment-provider confirmations when those integrations are absent.
+
+## TypeScript / VS Code monorepo setup
+
+The workspace uses explicit ambient type profiles under `config/typescript/`. This prevents pnpm's isolated dependency layout from causing editor-only `Cannot find type definition file for 'node'` / `'react'` errors.
+
+After extracting or pulling a dependency/config fix, run:
+
+```bash
+corepack enable
+corepack prepare pnpm@11.21.0 --activate
+pnpm install
+pnpm config:check
+pnpm workspace:check
+```
+
+Then in VS Code run **TypeScript: Select TypeScript Version → Use Workspace Version**, followed by **TypeScript: Restart TS Server**. `.vscode/settings.json` is included so the workspace TypeScript SDK is preferred.
+
+Every Next app now extends `config/typescript/nextjs.json`, uses a small `next.config.mjs` backed by `config/next/shared.mjs`, and the API uses the Next.js 16 `proxy.ts` convention for CORS/security headers.
+
+## Prisma / PostgreSQL
+
+The root Prisma schema is validated before client generation. Prisma 6.19.3 and `@prisma/client` 6.19.3 are pinned together. See [`docs/PRISMA.md`](docs/PRISMA.md).
+
+
+## Web3 icon system
+
+Token, network and wallet identities are centralized through `@powerchain/ui/web3-icons` using `@web3icons/react`. See [`docs/WEB3-ICONS.md`](docs/WEB3-ICONS.md).

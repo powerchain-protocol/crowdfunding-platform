@@ -28,13 +28,13 @@
     "validate:structure": "node scripts/validate-structure.mjs",
     "conformance": "node scripts/conformance.mjs",
     "version:check": "node scripts/version-lock.mjs",
-    "validate": "pnpm version:check && pnpm runtime:check && pnpm workspace:check && pnpm validate:structure && pnpm engine:check && pnpm saas:check && pnpm conformance",
+    "validate": "pnpm version:check && pnpm runtime:check && pnpm workspace:check && pnpm config:check && pnpm validate:structure && pnpm engine:check && pnpm saas:check && pnpm icons:check && pnpm conformance",
     "security:verify:production": "node scripts/verify-production-rls.mjs",
     "runtime:check": "node scripts/doctor.mjs",
     "engine:check": "node scripts/validate-crowdfunding-engine.mjs",
-    "postinstall": "prisma generate",
-    "db:generate": "prisma generate",
-    "db:validate": "prisma validate",
+    "postinstall": "node scripts/prisma-install.mjs",
+    "db:generate": "node scripts/prisma-cli.mjs generate",
+    "db:validate": "node scripts/prisma-cli.mjs validate",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",
     "db:migrate:deploy": "prisma migrate deploy",
@@ -44,7 +44,14 @@
     "stack:logs": "docker compose -f infra/docker-compose.yml logs -f",
     "saas:check": "node scripts/validate-saas.mjs",
     "approve-builds": "pnpm approve-builds",
-    "workspace:check": "node scripts/validate-workspace-deps.mjs"
+    "workspace:check": "node scripts/validate-workspace-deps.mjs",
+    "config:check": "node scripts/validate-config.mjs",
+    "predev": "pnpm runtime:check && pnpm prisma:schema:check",
+    "db:format": "node scripts/prisma-cli.mjs format",
+    "prisma:schema:check": "node scripts/validate-prisma-schema.mjs",
+    "prisma:check": "pnpm prisma:schema:check && pnpm db:validate",
+    "preinstall": "node scripts/validate-prisma-schema.mjs && node scripts/validate-workspace-deps.mjs",
+    "icons:check": "node scripts/validate-web3-icons.mjs"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",
@@ -55,7 +62,7 @@
     "tailwindcss": "4.3.3",
     "turbo": "2.5.6",
     "typescript": "^6.0.0",
-    "prisma": "^6.19.0",
+    "prisma": "6.19.3",
     "tsx": "^4.20.0"
   }
 }

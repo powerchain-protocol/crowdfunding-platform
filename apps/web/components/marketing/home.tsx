@@ -1,4 +1,5 @@
 import { AppShell, Card, FeatureIcon, Icon, ProgressBar, Section, StatusBadge } from "@powerchain/ui";
+import { PowerChainWeb3Rail } from "@powerchain/ui/web3-icons";
 
 const features = [
   { icon: "briefcase" as const, title: "Founder raises", copy: "Build investor-ready listings with pitch materials, team bios, deal terms and a raise derived from 3–5 milestone tranches." },
@@ -41,7 +42,7 @@ export function MarketingHome() {
       </div>
     </section>
 
-    <div className="mt-6 flex flex-wrap items-center gap-2 border-y border-neutral-200 py-4"><span className="mr-2 text-[10px] font-bold uppercase tracking-[.14em] text-neutral-400">Campaign types</span>{categories.map((category)=><span key={category} className="rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-neutral-600 shadow-sm ring-1 ring-neutral-200">{category}</span>)}</div>
+    <div className="mt-6 grid gap-4 border-y border-neutral-200 py-4 lg:grid-cols-[1fr_auto] lg:items-center"><div className="flex flex-wrap items-center gap-2"><span className="mr-2 text-[10px] font-bold uppercase tracking-[.14em] text-neutral-400">Campaign types</span>{categories.map((category)=><span key={category} className="rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-neutral-600 shadow-sm ring-1 ring-neutral-200">{category}</span>)}</div><div><div className="mb-2 text-[10px] font-bold uppercase tracking-[.14em] text-neutral-400 lg:text-right">Supported settlement infrastructure</div><PowerChainWeb3Rail/></div></div>
 
     <Section title="Built for accountable funding" description="The supporter journey stays familiar while treasury controls, evidence and reconciliation become more visible after payment.">
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">{features.map(({icon,title,copy})=><Card key={title} className="group p-5 transition duration-200 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(0,0,0,.08)]"><FeatureIcon name={icon}/><h3 className="mt-5 font-bold tracking-tight">{title}</h3><p className="mt-2 text-sm leading-6 text-neutral-600">{copy}</p></Card>)}</div>

@@ -8,7 +8,10 @@
     "./theme.css": "./src/theme.css",
     "./theme-provider": "./src/theme-provider.tsx",
     "./locale-provider": "./src/locale-provider.tsx",
-    "./icons": "./src/icons.tsx"
+    "./icons": "./src/icons.tsx",
+    "./web3-icons": "./src/web3-icons.tsx",
+    "./coin": "./src/coin.tsx",
+    "./web3-static-icons": "./src/web3-static-icons.tsx"
   },
   "peerDependencies": {
     "react": "19.2.8",
@@ -18,7 +21,8 @@
     "@powerchain/common": "workspace:*",
     "@powerchain/config": "workspace:*",
     "@powerchain/i18n": "workspace:*",
-    "@powerchain/hooks": "workspace:*"
+    "@powerchain/hooks": "workspace:*",
+    "@web3icons/react": "4.1.20"
   },
   "scripts": {
     "typecheck": "tsc -p tsconfig.json",
@@ -26,8 +30,11 @@
     "lint": "echo ui:lint"
   },
   "devDependencies": {
+    "@types/node": "^24.0.0",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
     "typescript": "^6.0.0"
   },
   "engines": {

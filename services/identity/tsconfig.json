@@ -1,1 +1,11 @@
-{"extends":"../../tsconfig.base.json","include":["src/**/*.ts"]}
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "../../config/typescript/node-library.json",
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

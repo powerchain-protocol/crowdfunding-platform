@@ -1,8 +1,54 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { allowedOrigins } from "./lib/request-security";
-export function proxy(request:NextRequest){
-  const origin=request.headers.get("origin"); const allowed=origin&&allowedOrigins().includes(origin);
-  if(request.method==="OPTIONS") return new NextResponse(null,{status:204,headers:{...(allowed?{"access-control-allow-origin":origin,"access-control-allow-credentials":"true"}:{}),"access-control-allow-methods":"GET,POST,PUT,PATCH,DELETE,OPTIONS","access-control-allow-headers":"content-type,idempotency-key,x-request-id","access-control-max-age":"600","vary":"Origin"}});
-  const response=NextResponse.next(); if(allowed&&origin){response.headers.set("access-control-allow-origin",origin);response.headers.set("access-control-allow-credentials","true");response.headers.set("vary","Origin")} response.headers.set("x-content-type-options","nosniff");response.headers.set("referrer-policy","strict-origin-when-cross-origin"); return response;
+
+import {
+  API_ALLOWED_HEADERS,
+  API_ALLOWED_METHODS,
+  API_EXPOSED_HEADERS,
+  SECURITY_HEADERS,
+} from "../../config/security/headers";
+import { isAllowedOrigin } from "./lib/request-security";
+
+function applySecurityHeaders(headers: Headers): void {
+  for (const [name, value] of SECURITY_HEADERS) headers.set(name, value);
 }
-export const config={matcher:["/api/:path*"]};
+
+function applyCors(headers: Headers, origin: string): void {
+  headers.set("access-control-allow-origin", origin);
+  headers.set("access-control-allow-credentials", "true");
+  headers.set("access-control-expose-headers", API_EXPOSED_HEADERS);
+  headers.set("vary", "Origin");
+}
+
+export function proxy(request: NextRequest): NextResponse {
+  const origin = request.headers.get("origin");
+  const allowed = isAllowedOrigin(origin);
+
+  if (request.method === "OPTIONS") {
+    if (origin && !allowed) {
+      const denied = NextResponse.json(
+        { error: { code: "CORS_ORIGIN_DENIED", message: "Origin is not allowed." } },
+        { status: 403 },
+      );
+      applySecurityHeaders(denied.headers);
+      denied.headers.set("vary", "Origin");
+      return denied;
+    }
+
+    const preflight = new NextResponse(null, { status: 204 });
+    if (allowed) applyCors(preflight.headers, origin);
+    preflight.headers.set("access-control-allow-methods", API_ALLOWED_METHODS);
+    preflight.headers.set("access-control-allow-headers", API_ALLOWED_HEADERS);
+    preflight.headers.set("access-control-max-age", "600");
+    applySecurityHeaders(preflight.headers);
+    return preflight;
+  }
+
+  const response = NextResponse.next();
+  if (allowed) applyCors(response.headers, origin);
+  applySecurityHeaders(response.headers);
+  return response;
+}
+
+export const config = {
+  matcher: ["/api/:path*"],
+};

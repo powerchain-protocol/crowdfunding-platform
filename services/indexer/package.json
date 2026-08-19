@@ -9,6 +9,7 @@
     "lint": "echo service-indexer:lint"
   },
   "devDependencies": {
+    "@types/node": "^24.0.0",
     "typescript": "^6.0.0"
   },
   "engines": {

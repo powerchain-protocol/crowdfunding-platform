@@ -82,3 +82,5 @@ This documentation set defines the PowerChain v1 production contract for goal-ba
 - [`PAYMENTS-MIDTRANS.md`](PAYMENTS-MIDTRANS.md) — hosted checkout, webhook verification and demo fallback.
 
 - [`COMPANY-INVOICES.md`](COMPANY-INVOICES.md) — organization profiles, foundation fields, branding and invoice architecture.
+
+- [`WEB3-ICONS.md`](WEB3-ICONS.md) — token, network and wallet icon integration.
