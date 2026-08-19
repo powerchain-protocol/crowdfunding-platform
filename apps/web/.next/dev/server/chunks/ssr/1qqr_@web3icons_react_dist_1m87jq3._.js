@@ -1,0 +1,154 @@
+module.exports = [
+"[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/createWeb3Icon.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "createWeb3Icon",
+    ()=>createWeb3Icon
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/next@16.3.1_@types+node@24.13.3_react-dom@19.2.8_react@19.2.8__react@19.2.8/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$BaseIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/BaseIcon.js [app-ssr] (ecmascript)");
+;
+;
+/**
+ * factory function to create icon components from data structures.
+ *
+ * @param name - component display name
+ * @param variants - icon data for each variant (branded/mono/background)
+ * @returns react component with forwardRef support
+ */ const createWeb3Icon = (name, variants)=>{
+    const availableVariants = Object.keys(variants);
+    const defaultVariant = availableVariants[0];
+    if (!defaultVariant) {
+        throw new Error(`Icon "${name}" must have at least one variant`);
+    }
+    const Component = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"])(({ variant = defaultVariant, fallback, ...props }, ref)=>{
+        const iconData = variants[variant];
+        if (!iconData) {
+            console.warn(`Icon "${name}" does not have variant "${variant}". ` + `Available variants: ${availableVariants.join(', ')}`);
+            return null;
+        }
+        return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createElement"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$BaseIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["BaseIcon"], {
+            fallback,
+            ...props,
+            ref
+        }, renderIconNode(iconData));
+    });
+    Component.displayName = name;
+    return Component;
+};
+/**
+ * recursively render IconNode data structure to react elements.
+ *
+ * @param nodes array of IconNode elements to render
+ * @returns array of react elements
+ */ function renderIconNode(nodes) {
+    return nodes.map((node, index)=>{
+        const [element, attrs, children] = node;
+        const { style, ...restAttrs } = attrs || {};
+        const elementProps = {
+            key: index,
+            ...restAttrs,
+            ...style && {
+                style
+            }
+        };
+        // check if this is a 3-element tuple with children (element, attributes, children)
+        const childElements = children ? renderIconNode(children) : undefined;
+        return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createElement"])(element, elementProps, childElements);
+    });
+}
+;
+}),
+"[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/icons/tokens/TokenCFG.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "__iconNode",
+    ()=>__iconNode,
+    "default",
+    ()=>TokenCFG
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$createWeb3Icon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/createWeb3Icon.js [app-ssr] (ecmascript)");
+;
+const __iconNode = {
+    branded: [
+        [
+            'path',
+            {
+                fill: '#000',
+                d: 'M3.973 17.775A10.135 10.135 0 0 1 21 7.049l-.892.741a8.977 8.977 0 0 0-15.087 9.498zm14.803-8.867a7.24 7.24 0 1 0-5.896 11.786v-1.159a6.08 6.08 0 1 1 5.004-9.886zm-2.224 1.853a4.337 4.337 0 0 0-7.749 2.7 4.344 4.344 0 0 0 7.471 3.01l-.73-.909a3.18 3.18 0 0 1-5.582-2.102 3.186 3.186 0 0 1 5.704-1.952l.886-.74z'
+            }
+        ]
+    ],
+    mono: [
+        [
+            'path',
+            {
+                fill: 'currentColor',
+                d: 'M3.973 17.775A10.135 10.135 0 0 1 21 7.049l-.892.741a8.976 8.976 0 0 0-15.087 9.498zm14.803-8.867a7.24 7.24 0 1 0-5.895 11.786v-1.159a6.08 6.08 0 1 1 5.003-9.886zm-2.224 1.854a4.337 4.337 0 0 0-7.749 2.698 4.344 4.344 0 0 0 7.471 3.012l-.73-.91a3.182 3.182 0 0 1-5.023-.28 3.2 3.2 0 0 1-.56-1.822 3.187 3.187 0 0 1 5.705-1.952l.886-.74z'
+            }
+        ]
+    ],
+    background: [
+        [
+            'g',
+            {
+                clipPath: 'url(#CFG__a)'
+            },
+            [
+                [
+                    'path',
+                    {
+                        fill: '#000',
+                        d: 'M24 0H0v24h24z'
+                    }
+                ],
+                [
+                    'path',
+                    {
+                        fill: '#fff',
+                        d: 'M4.865 17.133A9.009 9.009 0 0 1 20 7.6l-.793.66a7.979 7.979 0 0 0-13.41 8.44zm13.158-7.881a6.435 6.435 0 1 0-5.24 10.476v-1.03a5.406 5.406 0 1 1 4.447-8.787zm-1.977 1.647a3.855 3.855 0 0 0-6.888 2.399 3.861 3.861 0 0 0 6.641 2.677l-.648-.808a2.826 2.826 0 0 1-4.963-1.87 2.832 2.832 0 0 1 5.07-1.734l.788-.659z'
+                    }
+                ]
+            ]
+        ],
+        [
+            'defs',
+            {},
+            [
+                [
+                    'clipPath',
+                    {
+                        id: 'CFG__a'
+                    },
+                    [
+                        [
+                            'path',
+                            {
+                                fill: '#fff',
+                                d: 'M0 0h24v24H0z'
+                            }
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+};
+/**
+ * @component @name TokenCFG
+ * @description Web3Icon for TokenCFG
+ *
+ * @preview (branded, mono, background)
+ * @preview ![branded](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxwYXRoIGZpbGw9IiMwMDAiIGQ9Ik0zLjk3MyAxNy43NzVBMTAuMTM1IDEwLjEzNSAwIDAgMSAyMSA3LjA0OWwtLjg5Mi43NDFhOC45NzcgOC45NzcgMCAwIDAtMTUuMDg3IDkuNDk4em0xNC44MDMtOC44NjdhNy4yNCA3LjI0IDAgMSAwLTUuODk2IDExLjc4NnYtMS4xNTlhNi4wOCA2LjA4IDAgMSAxIDUuMDA0LTkuODg2em0tMi4yMjQgMS44NTNhNC4zMzcgNC4zMzcgMCAwIDAtNy43NDkgMi43IDQuMzQ0IDQuMzQ0IDAgMCAwIDcuNDcxIDMuMDFsLS43My0uOTA5YTMuMTggMy4xOCAwIDAgMS01LjU4Mi0yLjEwMiAzLjE4NiAzLjE4NiAwIDAgMSA1LjcwNC0xLjk1MmwuODg2LS43NHoiLz4KPC9zdmc+Cg==) ![mono](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0zLjk3MyAxNy43NzVBMTAuMTM1IDEwLjEzNSAwIDAgMSAyMSA3LjA0OWwtLjg5Mi43NDFhOC45NzYgOC45NzYgMCAwIDAtMTUuMDg3IDkuNDk4em0xNC44MDMtOC44NjdhNy4yNCA3LjI0IDAgMSAwLTUuODk1IDExLjc4NnYtMS4xNTlhNi4wOCA2LjA4IDAgMSAxIDUuMDAzLTkuODg2em0tMi4yMjQgMS44NTRhNC4zMzcgNC4zMzcgMCAwIDAtNy43NDkgMi42OTggNC4zNDQgNC4zNDQgMCAwIDAgNy40NzEgMy4wMTJsLS43My0uOTFhMy4xODIgMy4xODIgMCAwIDEtNS4wMjMtLjI4IDMuMiAzLjIgMCAwIDEtLjU2LTEuODIyIDMuMTg3IDMuMTg3IDAgMCAxIDUuNzA1LTEuOTUybC44ODYtLjc0eiIvPgo8L3N2Zz4K) ![background](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxnIGNsaXAtcGF0aD0idXJsKCNDRkdfX2EpIj4KICAgICAgICA8cGF0aCBmaWxsPSIjMDAwIiBkPSJNMjQgMEgwdjI0aDI0eiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik00Ljg2NSAxNy4xMzNBOS4wMDkgOS4wMDkgMCAwIDEgMjAgNy42bC0uNzkzLjY2YTcuOTc5IDcuOTc5IDAgMCAwLTEzLjQxIDguNDR6bTEzLjE1OC03Ljg4MWE2LjQzNSA2LjQzNSAwIDEgMC01LjI0IDEwLjQ3NnYtMS4wM2E1LjQwNiA1LjQwNiAwIDEgMSA0LjQ0Ny04Ljc4N3ptLTEuOTc3IDEuNjQ3YTMuODU1IDMuODU1IDAgMCAwLTYuODg4IDIuMzk5IDMuODYxIDMuODYxIDAgMCAwIDYuNjQxIDIuNjc3bC0uNjQ4LS44MDhhMi44MjYgMi44MjYgMCAwIDEtNC45NjMtMS44NyAyLjgzMiAyLjgzMiAwIDAgMSA1LjA3LTEuNzM0bC43ODgtLjY1OXoiLz4KICAgIDwvZz4KICAgIDxkZWZzPgogICAgICAgIDxjbGlwUGF0aCBpZD0iQ0ZHX19hIj4KICAgICAgICAgICAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTAgMGgyNHYyNEgweiIvPgogICAgICAgIDwvY2xpcFBhdGg+CiAgICA8L2RlZnM+Cjwvc3ZnPgo=)
+ * @see https://web3icons.io/tokens/CFG
+ * @param props - Web3Icon component props
+ * @returns {JSX.Element} JSX Element
+ *
+ */ const TokenCFG = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$createWeb3Icon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createWeb3Icon"])('TokenCFG', __iconNode);
+;
+}),
+];
+
+//# sourceMappingURL=1qqr_%40web3icons_react_dist_1m87jq3._.js.map

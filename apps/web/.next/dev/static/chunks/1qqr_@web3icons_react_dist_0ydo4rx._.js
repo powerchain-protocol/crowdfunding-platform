@@ -1,0 +1,160 @@
+(globalThis["TURBOPACK"] || (globalThis["TURBOPACK"] = [])).push([typeof document === "object" ? document.currentScript : undefined,
+"[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/createWeb3Icon.js [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "createWeb3Icon",
+    ()=>createWeb3Icon
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/next@16.3.1_@types+node@24.13.3_react-dom@19.2.8_react@19.2.8__react@19.2.8/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$BaseIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/BaseIcon.js [app-client] (ecmascript)");
+;
+;
+/**
+ * factory function to create icon components from data structures.
+ *
+ * @param name - component display name
+ * @param variants - icon data for each variant (branded/mono/background)
+ * @returns react component with forwardRef support
+ */ const createWeb3Icon = (name, variants)=>{
+    const availableVariants = Object.keys(variants);
+    const defaultVariant = availableVariants[0];
+    if (!defaultVariant) {
+        throw new Error(`Icon "${name}" must have at least one variant`);
+    }
+    const Component = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"])(({ variant = defaultVariant, fallback, ...props }, ref)=>{
+        const iconData = variants[variant];
+        if (!iconData) {
+            console.warn(`Icon "${name}" does not have variant "${variant}". ` + `Available variants: ${availableVariants.join(', ')}`);
+            return null;
+        }
+        return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createElement"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$BaseIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BaseIcon"], {
+            fallback,
+            ...props,
+            ref
+        }, renderIconNode(iconData));
+    });
+    Component.displayName = name;
+    return Component;
+};
+/**
+ * recursively render IconNode data structure to react elements.
+ *
+ * @param nodes array of IconNode elements to render
+ * @returns array of react elements
+ */ function renderIconNode(nodes) {
+    return nodes.map((node, index)=>{
+        const [element, attrs, children] = node;
+        const { style, ...restAttrs } = attrs || {};
+        const elementProps = {
+            key: index,
+            ...restAttrs,
+            ...style && {
+                style
+            }
+        };
+        // check if this is a 3-element tuple with children (element, attributes, children)
+        const childElements = children ? renderIconNode(children) : undefined;
+        return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createElement"])(element, elementProps, childElements);
+    });
+}
+;
+}),
+"[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/icons/networks/NetworkNeonEvm.js [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "__iconNode",
+    ()=>__iconNode,
+    "default",
+    ()=>NetworkNeonEvm
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$createWeb3Icon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/createWeb3Icon.js [app-client] (ecmascript)");
+;
+const __iconNode = {
+    branded: [
+        [
+            'path',
+            {
+                fill: '#DF42AB',
+                d: 'M12 21c4.97 0 9-4.027 9-8.994C21.013 7.026 16.97 3 12 3s-9 4.027-9 8.994S7.03 21 12 21M8.517 8.17l3.369 3.366V8.348c0-.026 0-.064.012-.089a.3.3 0 0 1 .051-.076c.026-.026.051-.038.076-.051s.064-.013.09-.013h3.813c.025 0 .063.013.089.013.025.013.05.025.076.05s.038.052.051.077a.2.2 0 0 1 .013.089v7.571c0 .038 0 .063-.013.089a.3.3 0 0 1-.05.076.3.3 0 0 1-.077.05c-.025.014-.064.014-.09.014-.037 0-.063 0-.1-.013-.026-.013-.064-.026-.077-.051l-3.369-3.366v3.2c0 .026 0 .064-.012.09a.3.3 0 0 1-.051.076.3.3 0 0 1-.076.05c-.026.014-.064.014-.09.014H8.34c-.025 0-.064-.013-.089-.013a.3.3 0 0 1-.076-.051.3.3 0 0 1-.051-.076c-.013-.026-.013-.064-.013-.09v-3.785c0-.025 0-.038.013-.063V8.348a.3.3 0 0 1 .038-.14.2.2 0 0 1 .114-.089c.039-.012.09-.025.14-.012a.4.4 0 0 1 .102.063',
+                fillRule: 'evenodd',
+                clipRule: 'evenodd'
+            }
+        ]
+    ],
+    mono: [
+        [
+            'path',
+            {
+                fill: 'currentColor',
+                d: 'M12 21c4.97 0 9-4.027 9-8.994C21.013 7.026 16.97 3 12 3s-9 4.027-9 8.994S7.03 21 12 21M8.517 8.17l3.369 3.366V8.348c0-.026 0-.064.012-.089a.3.3 0 0 1 .051-.076c.026-.026.051-.038.076-.051s.064-.013.09-.013h3.813c.025 0 .063.013.089.013.025.013.05.025.076.05s.038.052.051.077a.2.2 0 0 1 .013.089v7.571c0 .038 0 .063-.013.089a.3.3 0 0 1-.05.076.3.3 0 0 1-.077.05c-.025.014-.064.014-.09.014-.037 0-.063 0-.1-.013-.026-.013-.064-.026-.077-.051l-3.369-3.366v3.2c0 .026 0 .064-.012.09a.3.3 0 0 1-.051.076.3.3 0 0 1-.076.05c-.026.014-.064.014-.09.014H8.34c-.025 0-.064-.013-.089-.013a.3.3 0 0 1-.076-.051.3.3 0 0 1-.051-.076c-.013-.026-.013-.064-.013-.09v-3.785c0-.025 0-.038.013-.063V8.348a.3.3 0 0 1 .038-.14.2.2 0 0 1 .114-.089c.039-.012.09-.025.14-.012a.4.4 0 0 1 .102.063',
+                fillRule: 'evenodd',
+                clipRule: 'evenodd'
+            }
+        ]
+    ],
+    background: [
+        [
+            'g',
+            {
+                clipPath: 'url(#neon-evm__a)'
+            },
+            [
+                [
+                    'path',
+                    {
+                        fill: '#DF42AB',
+                        d: 'M24 0H0v24h24z'
+                    }
+                ],
+                [
+                    'path',
+                    {
+                        fill: '#fff',
+                        d: 'M12 20c4.418 0 8-3.58 8-7.994C20.011 7.579 16.418 4 12 4s-8 3.58-8 7.994C4 16.41 7.582 20 12 20M8.904 8.596l2.994 2.992V8.754c0-.023 0-.057.012-.08a.2.2 0 0 1 .113-.112c.022-.012.056-.012.079-.012h3.389c.023 0 .057.012.08.012a.2.2 0 0 1 .067.045.2.2 0 0 1 .046.068.2.2 0 0 1 .01.079v6.729c0 .034 0 .057-.01.08-.012.022-.023.045-.046.067a.2.2 0 0 1-.068.045.2.2 0 0 1-.079.012c-.033 0-.056 0-.09-.012-.022-.01-.056-.022-.068-.045l-2.994-2.992v2.845c0 .023 0 .057-.011.08-.012.022-.023.045-.045.067a.2.2 0 0 1-.068.045c-.023.012-.057.012-.08.012H8.747c-.023 0-.057-.012-.08-.012a.2.2 0 0 1-.067-.045.2.2 0 0 1-.045-.068c-.012-.022-.012-.056-.012-.079v-3.365c0-.022 0-.033.012-.056V8.754c0-.045.01-.08.034-.125a.18.18 0 0 1 .101-.079.23.23 0 0 1 .125-.01c.022.01.067.033.09.056',
+                        fillRule: 'evenodd',
+                        clipRule: 'evenodd'
+                    }
+                ]
+            ]
+        ],
+        [
+            'defs',
+            {},
+            [
+                [
+                    'clipPath',
+                    {
+                        id: 'neon-evm__a'
+                    },
+                    [
+                        [
+                            'path',
+                            {
+                                fill: '#fff',
+                                d: 'M0 0h24v24H0z'
+                            }
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+};
+/**
+ * @component @name NetworkNeonEvm
+ * @description Web3Icon for NetworkNeonEvm
+ *
+ * @preview (branded, mono, background)
+ * @preview ![branded](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxwYXRoIGZpbGw9IiNERjQyQUIiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEyIDIxYzQuOTcgMCA5LTQuMDI3IDktOC45OTRDMjEuMDEzIDcuMDI2IDE2Ljk3IDMgMTIgM3MtOSA0LjAyNy05IDguOTk0UzcuMDMgMjEgMTIgMjFNOC41MTcgOC4xN2wzLjM2OSAzLjM2NlY4LjM0OGMwLS4wMjYgMC0uMDY0LjAxMi0uMDg5YS4zLjMgMCAwIDEgLjA1MS0uMDc2Yy4wMjYtLjAyNi4wNTEtLjAzOC4wNzYtLjA1MXMuMDY0LS4wMTMuMDktLjAxM2gzLjgxM2MuMDI1IDAgLjA2My4wMTMuMDg5LjAxMy4wMjUuMDEzLjA1LjAyNS4wNzYuMDVzLjAzOC4wNTIuMDUxLjA3N2EuMi4yIDAgMCAxIC4wMTMuMDg5djcuNTcxYzAgLjAzOCAwIC4wNjMtLjAxMy4wODlhLjMuMyAwIDAgMS0uMDUuMDc2LjMuMyAwIDAgMS0uMDc3LjA1Yy0uMDI1LjAxNC0uMDY0LjAxNC0uMDkuMDE0LS4wMzcgMC0uMDYzIDAtLjEtLjAxMy0uMDI2LS4wMTMtLjA2NC0uMDI2LS4wNzctLjA1MWwtMy4zNjktMy4zNjZ2My4yYzAgLjAyNiAwIC4wNjQtLjAxMi4wOWEuMy4zIDAgMCAxLS4wNTEuMDc2LjMuMyAwIDAgMS0uMDc2LjA1Yy0uMDI2LjAxNC0uMDY0LjAxNC0uMDkuMDE0SDguMzRjLS4wMjUgMC0uMDY0LS4wMTMtLjA4OS0uMDEzYS4zLjMgMCAwIDEtLjA3Ni0uMDUxLjMuMyAwIDAgMS0uMDUxLS4wNzZjLS4wMTMtLjAyNi0uMDEzLS4wNjQtLjAxMy0uMDl2LTMuNzg1YzAtLjAyNSAwLS4wMzguMDEzLS4wNjNWOC4zNDhhLjMuMyAwIDAgMSAuMDM4LS4xNC4yLjIgMCAwIDEgLjExNC0uMDg5Yy4wMzktLjAxMi4wOS0uMDI1LjE0LS4wMTJhLjQuNCAwIDAgMSAuMTAyLjA2MyIgY2xpcC1ydWxlPSJldmVub2RkIi8+Cjwvc3ZnPgo=) ![mono](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEyIDIxYzQuOTcgMCA5LTQuMDI3IDktOC45OTRDMjEuMDEzIDcuMDI2IDE2Ljk3IDMgMTIgM3MtOSA0LjAyNy05IDguOTk0UzcuMDMgMjEgMTIgMjFNOC41MTcgOC4xN2wzLjM2OSAzLjM2NlY4LjM0OGMwLS4wMjYgMC0uMDY0LjAxMi0uMDg5YS4zLjMgMCAwIDEgLjA1MS0uMDc2Yy4wMjYtLjAyNi4wNTEtLjAzOC4wNzYtLjA1MXMuMDY0LS4wMTMuMDktLjAxM2gzLjgxM2MuMDI1IDAgLjA2My4wMTMuMDg5LjAxMy4wMjUuMDEzLjA1LjAyNS4wNzYuMDVzLjAzOC4wNTIuMDUxLjA3N2EuMi4yIDAgMCAxIC4wMTMuMDg5djcuNTcxYzAgLjAzOCAwIC4wNjMtLjAxMy4wODlhLjMuMyAwIDAgMS0uMDUuMDc2LjMuMyAwIDAgMS0uMDc3LjA1Yy0uMDI1LjAxNC0uMDY0LjAxNC0uMDkuMDE0LS4wMzcgMC0uMDYzIDAtLjEtLjAxMy0uMDI2LS4wMTMtLjA2NC0uMDI2LS4wNzctLjA1MWwtMy4zNjktMy4zNjZ2My4yYzAgLjAyNiAwIC4wNjQtLjAxMi4wOWEuMy4zIDAgMCAxLS4wNTEuMDc2LjMuMyAwIDAgMS0uMDc2LjA1Yy0uMDI2LjAxNC0uMDY0LjAxNC0uMDkuMDE0SDguMzRjLS4wMjUgMC0uMDY0LS4wMTMtLjA4OS0uMDEzYS4zLjMgMCAwIDEtLjA3Ni0uMDUxLjMuMyAwIDAgMS0uMDUxLS4wNzZjLS4wMTMtLjAyNi0uMDEzLS4wNjQtLjAxMy0uMDl2LTMuNzg1YzAtLjAyNSAwLS4wMzguMDEzLS4wNjNWOC4zNDhhLjMuMyAwIDAgMSAuMDM4LS4xNC4yLjIgMCAwIDEgLjExNC0uMDg5Yy4wMzktLjAxMi4wOS0uMDI1LjE0LS4wMTJhLjQuNCAwIDAgMSAuMTAyLjA2MyIgY2xpcC1ydWxlPSJldmVub2RkIi8+Cjwvc3ZnPgo=) ![background](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxnIGNsaXAtcGF0aD0idXJsKCNuZW9uLWV2bV9fYSkiPgogICAgICAgIDxwYXRoIGZpbGw9IiNERjQyQUIiIGQ9Ik0yNCAwSDB2MjRoMjR6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTIgMjBjNC40MTggMCA4LTMuNTggOC03Ljk5NEMyMC4wMTEgNy41NzkgMTYuNDE4IDQgMTIgNHMtOCAzLjU4LTggNy45OTRDNCAxNi40MSA3LjU4MiAyMCAxMiAyME04LjkwNCA4LjU5NmwyLjk5NCAyLjk5MlY4Ljc1NGMwLS4wMjMgMC0uMDU3LjAxMi0uMDhhLjIuMiAwIDAgMSAuMTEzLS4xMTJjLjAyMi0uMDEyLjA1Ni0uMDEyLjA3OS0uMDEyaDMuMzg5Yy4wMjMgMCAuMDU3LjAxMi4wOC4wMTJhLjIuMiAwIDAgMSAuMDY3LjA0NS4yLjIgMCAwIDEgLjA0Ni4wNjguMi4yIDAgMCAxIC4wMS4wNzl2Ni43MjljMCAuMDM0IDAgLjA1Ny0uMDEuMDgtLjAxMi4wMjItLjAyMy4wNDUtLjA0Ni4wNjdhLjIuMiAwIDAgMS0uMDY4LjA0NS4yLjIgMCAwIDEtLjA3OS4wMTJjLS4wMzMgMC0uMDU2IDAtLjA5LS4wMTItLjAyMi0uMDEtLjA1Ni0uMDIyLS4wNjgtLjA0NWwtMi45OTQtMi45OTJ2Mi44NDVjMCAuMDIzIDAgLjA1Ny0uMDExLjA4LS4wMTIuMDIyLS4wMjMuMDQ1LS4wNDUuMDY3YS4yLjIgMCAwIDEtLjA2OC4wNDVjLS4wMjMuMDEyLS4wNTcuMDEyLS4wOC4wMTJIOC43NDdjLS4wMjMgMC0uMDU3LS4wMTItLjA4LS4wMTJhLjIuMiAwIDAgMS0uMDY3LS4wNDUuMi4yIDAgMCAxLS4wNDUtLjA2OGMtLjAxMi0uMDIyLS4wMTItLjA1Ni0uMDEyLS4wNzl2LTMuMzY1YzAtLjAyMiAwLS4wMzMuMDEyLS4wNTZWOC43NTRjMC0uMDQ1LjAxLS4wOC4wMzQtLjEyNWEuMTguMTggMCAwIDEgLjEwMS0uMDc5LjIzLjIzIDAgMCAxIC4xMjUtLjAxYy4wMjIuMDEuMDY3LjAzMy4wOS4wNTYiIGNsaXAtcnVsZT0iZXZlbm9kZCIvPgogICAgPC9nPgogICAgPGRlZnM+CiAgICAgICAgPGNsaXBQYXRoIGlkPSJuZW9uLWV2bV9fYSI+CiAgICAgICAgICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0wIDBoMjR2MjRIMHoiLz4KICAgICAgICA8L2NsaXBQYXRoPgogICAgPC9kZWZzPgo8L3N2Zz4K)
+ * @see https://web3icons.io/networks/neon-evm
+ * @param props - Web3Icon component props
+ * @returns {JSX.Element} JSX Element
+ *
+ */ const NetworkNeonEvm = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$createWeb3Icon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createWeb3Icon"])('NetworkNeonEvm', __iconNode);
+;
+}),
+]);
+
+//# sourceMappingURL=1qqr_%40web3icons_react_dist_0ydo4rx._.js.map

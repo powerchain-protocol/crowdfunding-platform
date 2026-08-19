@@ -1,0 +1,154 @@
+module.exports = [
+"[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/createWeb3Icon.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "createWeb3Icon",
+    ()=>createWeb3Icon
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/next@16.3.1_@types+node@24.13.3_react-dom@19.2.8_react@19.2.8__react@19.2.8/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$BaseIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/BaseIcon.js [app-ssr] (ecmascript)");
+;
+;
+/**
+ * factory function to create icon components from data structures.
+ *
+ * @param name - component display name
+ * @param variants - icon data for each variant (branded/mono/background)
+ * @returns react component with forwardRef support
+ */ const createWeb3Icon = (name, variants)=>{
+    const availableVariants = Object.keys(variants);
+    const defaultVariant = availableVariants[0];
+    if (!defaultVariant) {
+        throw new Error(`Icon "${name}" must have at least one variant`);
+    }
+    const Component = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"])(({ variant = defaultVariant, fallback, ...props }, ref)=>{
+        const iconData = variants[variant];
+        if (!iconData) {
+            console.warn(`Icon "${name}" does not have variant "${variant}". ` + `Available variants: ${availableVariants.join(', ')}`);
+            return null;
+        }
+        return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createElement"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$BaseIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["BaseIcon"], {
+            fallback,
+            ...props,
+            ref
+        }, renderIconNode(iconData));
+    });
+    Component.displayName = name;
+    return Component;
+};
+/**
+ * recursively render IconNode data structure to react elements.
+ *
+ * @param nodes array of IconNode elements to render
+ * @returns array of react elements
+ */ function renderIconNode(nodes) {
+    return nodes.map((node, index)=>{
+        const [element, attrs, children] = node;
+        const { style, ...restAttrs } = attrs || {};
+        const elementProps = {
+            key: index,
+            ...restAttrs,
+            ...style && {
+                style
+            }
+        };
+        // check if this is a 3-element tuple with children (element, attributes, children)
+        const childElements = children ? renderIconNode(children) : undefined;
+        return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createElement"])(element, elementProps, childElements);
+    });
+}
+;
+}),
+"[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/icons/tokens/TokenCANTO.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "__iconNode",
+    ()=>__iconNode,
+    "default",
+    ()=>TokenCANTO
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$createWeb3Icon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/createWeb3Icon.js [app-ssr] (ecmascript)");
+;
+const __iconNode = {
+    branded: [
+        [
+            'path',
+            {
+                fill: '#74F8A2',
+                d: 'M6.536 3h14.142v18H6.536v-3.214H3.32V6.214h3.215zm10.928 3.214H9.75V9.43H6.536v5.143H9.75v3.214h7.714V14.57H9.75V9.43h7.714z'
+            }
+        ]
+    ],
+    mono: [
+        [
+            'path',
+            {
+                fill: 'currentColor',
+                d: 'M6.536 3h14.142v18H6.536v-3.214H3.32V6.214h3.215zm10.928 3.214H9.75V9.43H6.536v5.143H9.75v3.214h7.714V14.57H9.75V9.43h7.714z'
+            }
+        ]
+    ],
+    background: [
+        [
+            'g',
+            {
+                clipPath: 'url(#CANTO__a)'
+            },
+            [
+                [
+                    'path',
+                    {
+                        fill: '#74F8A2',
+                        d: 'M24 0H0v24h24z'
+                    }
+                ],
+                [
+                    'path',
+                    {
+                        fill: '#000',
+                        d: 'M7.143 4h12.571v16H7.143v-2.857H4.286V6.857h2.857zm9.714 2.857H10v2.857H7.143v4.572H10v2.857h6.857v-2.857H10V9.714h6.857z'
+                    }
+                ]
+            ]
+        ],
+        [
+            'defs',
+            {},
+            [
+                [
+                    'clipPath',
+                    {
+                        id: 'CANTO__a'
+                    },
+                    [
+                        [
+                            'path',
+                            {
+                                fill: '#fff',
+                                d: 'M0 0h24v24H0z'
+                            }
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+};
+/**
+ * @component @name TokenCANTO
+ * @description Web3Icon for TokenCANTO
+ *
+ * @preview (branded, mono, background)
+ * @preview ![branded](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxwYXRoIGZpbGw9IiM3NEY4QTIiIGQ9Ik02LjUzNiAzaDE0LjE0MnYxOEg2LjUzNnYtMy4yMTRIMy4zMlY2LjIxNGgzLjIxNXptMTAuOTI4IDMuMjE0SDkuNzVWOS40M0g2LjUzNnY1LjE0M0g5Ljc1djMuMjE0aDcuNzE0VjE0LjU3SDkuNzVWOS40M2g3LjcxNHoiLz4KPC9zdmc+Cg==) ![mono](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik02LjUzNiAzaDE0LjE0MnYxOEg2LjUzNnYtMy4yMTRIMy4zMlY2LjIxNGgzLjIxNXptMTAuOTI4IDMuMjE0SDkuNzVWOS40M0g2LjUzNnY1LjE0M0g5Ljc1djMuMjE0aDcuNzE0VjE0LjU3SDkuNzVWOS40M2g3LjcxNHoiLz4KPC9zdmc+Cg==) ![background](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxnIGNsaXAtcGF0aD0idXJsKCNDQU5UT19fYSkiPgogICAgICAgIDxwYXRoIGZpbGw9IiM3NEY4QTIiIGQ9Ik0yNCAwSDB2MjRoMjR6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iIzAwMCIgZD0iTTcuMTQzIDRoMTIuNTcxdjE2SDcuMTQzdi0yLjg1N0g0LjI4NlY2Ljg1N2gyLjg1N3ptOS43MTQgMi44NTdIMTB2Mi44NTdINy4xNDN2NC41NzJIMTB2Mi44NTdoNi44NTd2LTIuODU3SDEwVjkuNzE0aDYuODU3eiIvPgogICAgPC9nPgogICAgPGRlZnM+CiAgICAgICAgPGNsaXBQYXRoIGlkPSJDQU5UT19fYSI+CiAgICAgICAgICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0wIDBoMjR2MjRIMHoiLz4KICAgICAgICA8L2NsaXBQYXRoPgogICAgPC9kZWZzPgo8L3N2Zz4K)
+ * @see https://web3icons.io/tokens/CANTO
+ * @param props - Web3Icon component props
+ * @returns {JSX.Element} JSX Element
+ *
+ */ const TokenCANTO = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$createWeb3Icon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createWeb3Icon"])('TokenCANTO', __iconNode);
+;
+}),
+];
+
+//# sourceMappingURL=1qqr_%40web3icons_react_dist_1r3jgwf._.js.map

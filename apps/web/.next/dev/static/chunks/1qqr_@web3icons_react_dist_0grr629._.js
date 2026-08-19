@@ -1,0 +1,181 @@
+(globalThis["TURBOPACK"] || (globalThis["TURBOPACK"] = [])).push([typeof document === "object" ? document.currentScript : undefined,
+"[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/createWeb3Icon.js [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "createWeb3Icon",
+    ()=>createWeb3Icon
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/next@16.3.1_@types+node@24.13.3_react-dom@19.2.8_react@19.2.8__react@19.2.8/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$BaseIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/BaseIcon.js [app-client] (ecmascript)");
+;
+;
+/**
+ * factory function to create icon components from data structures.
+ *
+ * @param name - component display name
+ * @param variants - icon data for each variant (branded/mono/background)
+ * @returns react component with forwardRef support
+ */ const createWeb3Icon = (name, variants)=>{
+    const availableVariants = Object.keys(variants);
+    const defaultVariant = availableVariants[0];
+    if (!defaultVariant) {
+        throw new Error(`Icon "${name}" must have at least one variant`);
+    }
+    const Component = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"])(({ variant = defaultVariant, fallback, ...props }, ref)=>{
+        const iconData = variants[variant];
+        if (!iconData) {
+            console.warn(`Icon "${name}" does not have variant "${variant}". ` + `Available variants: ${availableVariants.join(', ')}`);
+            return null;
+        }
+        return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createElement"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$BaseIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BaseIcon"], {
+            fallback,
+            ...props,
+            ref
+        }, renderIconNode(iconData));
+    });
+    Component.displayName = name;
+    return Component;
+};
+/**
+ * recursively render IconNode data structure to react elements.
+ *
+ * @param nodes array of IconNode elements to render
+ * @returns array of react elements
+ */ function renderIconNode(nodes) {
+    return nodes.map((node, index)=>{
+        const [element, attrs, children] = node;
+        const { style, ...restAttrs } = attrs || {};
+        const elementProps = {
+            key: index,
+            ...restAttrs,
+            ...style && {
+                style
+            }
+        };
+        // check if this is a 3-element tuple with children (element, attributes, children)
+        const childElements = children ? renderIconNode(children) : undefined;
+        return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createElement"])(element, elementProps, childElements);
+    });
+}
+;
+}),
+"[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/icons/wallets/WalletKeplr.js [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "__iconNode",
+    ()=>__iconNode,
+    "default",
+    ()=>WalletKeplr
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$createWeb3Icon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/createWeb3Icon.js [app-client] (ecmascript)");
+;
+const __iconNode = {
+    branded: [
+        [
+            'path',
+            {
+                fill: '#14AFEB',
+                d: 'M12.48 7.922c.13 1.336.196 2.004.546 2.494.15.21.336.393.547.54.495.343 1.164.4 2.502.512l.566.048v.968l-.566.048c-1.338.112-2.007.169-2.501.512-.212.147-.397.33-.548.54-.35.49-.415 1.158-.546 2.494h-.96c-.13-1.336-.196-2.004-.546-2.494a2.3 2.3 0 0 0-.547-.54c-.495-.343-1.164-.4-2.502-.512l-.566-.048v-.968l.566-.048c1.338-.112 2.007-.169 2.502-.512a2.3 2.3 0 0 0 .547-.54c.35-.49.415-1.158.546-2.494z'
+            }
+        ],
+        [
+            'path',
+            {
+                fill: '#14AFEB',
+                d: 'M12 3c7.411 0 9 1.588 9 9 0 7.411-1.589 9-9 9s-9-1.589-9-9 1.588-9 9-9m5.882 3.11C15.702 3.93 11.3 4.8 8.05 8.05s-4.12 7.652-1.94 9.832 6.582 1.312 9.833-1.939c3.25-3.25 4.119-7.653 1.94-9.833',
+                fillRule: 'evenodd',
+                clipRule: 'evenodd'
+            }
+        ]
+    ],
+    mono: [
+        [
+            'path',
+            {
+                fill: 'currentColor',
+                d: 'M12.48 7.922c.13 1.336.196 2.004.546 2.494.15.21.336.393.547.54.495.343 1.164.4 2.502.512l.566.048v.968l-.566.048c-1.338.112-2.007.169-2.501.512-.212.147-.397.33-.548.54-.35.49-.415 1.158-.546 2.494h-.96c-.13-1.336-.196-2.004-.546-2.494a2.3 2.3 0 0 0-.547-.54c-.495-.343-1.164-.4-2.502-.512l-.566-.048v-.968l.566-.048c1.338-.112 2.007-.169 2.502-.512a2.3 2.3 0 0 0 .547-.54c.35-.49.415-1.158.546-2.494z'
+            }
+        ],
+        [
+            'path',
+            {
+                fill: 'currentColor',
+                d: 'M12 3c7.411 0 9 1.588 9 9 0 7.411-1.589 9-9 9s-9-1.589-9-9 1.588-9 9-9m5.882 3.11C15.702 3.93 11.3 4.8 8.05 8.05s-4.12 7.652-1.94 9.832 6.582 1.312 9.833-1.939c3.25-3.25 4.119-7.653 1.94-9.833',
+                fillRule: 'evenodd',
+                clipRule: 'evenodd'
+            }
+        ]
+    ],
+    background: [
+        [
+            'g',
+            {
+                clipPath: 'url(#keplr__a)'
+            },
+            [
+                [
+                    'path',
+                    {
+                        fill: '#14AFEB',
+                        d: 'M24 0H0v24h24z'
+                    }
+                ],
+                [
+                    'path',
+                    {
+                        fill: '#fff',
+                        d: 'M12.427 8.375c.116 1.188.174 1.782.485 2.217.134.187.298.35.487.48.44.305 1.034.355 2.223.455l.503.043v.86l-.503.043c-1.189.1-1.784.15-2.223.455-.189.13-.353.293-.487.48-.311.435-.369 1.03-.485 2.217h-.854c-.116-1.188-.174-1.782-.485-2.217a2 2 0 0 0-.487-.48c-.44-.305-1.034-.355-2.223-.455l-.503-.043v-.86l.503-.043c1.189-.1 1.784-.15 2.223-.455.189-.13.353-.293.487-.48.31-.435.369-1.03.485-2.217z'
+                    }
+                ],
+                [
+                    'path',
+                    {
+                        fill: '#fff',
+                        d: 'M12 4c6.588 0 8 1.412 8 8s-1.412 8-8 8-8-1.412-8-8 1.412-8 8-8m5.229 2.765c-1.938-1.938-5.851-1.166-8.74 1.723s-3.662 6.803-1.724 8.74 5.85 1.166 8.74-1.723 3.661-6.803 1.723-8.74',
+                        fillRule: 'evenodd',
+                        clipRule: 'evenodd'
+                    }
+                ]
+            ]
+        ],
+        [
+            'defs',
+            {},
+            [
+                [
+                    'clipPath',
+                    {
+                        id: 'keplr__a'
+                    },
+                    [
+                        [
+                            'path',
+                            {
+                                fill: '#fff',
+                                d: 'M0 0h24v24H0z'
+                            }
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+};
+/**
+ * @component @name WalletKeplr
+ * @description Web3Icon for WalletKeplr
+ *
+ * @preview (branded, mono, background)
+ * @preview ![branded](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxwYXRoIGZpbGw9IiMxNEFGRUIiIGQ9Ik0xMi40OCA3LjkyMmMuMTMgMS4zMzYuMTk2IDIuMDA0LjU0NiAyLjQ5NC4xNS4yMS4zMzYuMzkzLjU0Ny41NC40OTUuMzQzIDEuMTY0LjQgMi41MDIuNTEybC41NjYuMDQ4di45NjhsLS41NjYuMDQ4Yy0xLjMzOC4xMTItMi4wMDcuMTY5LTIuNTAxLjUxMi0uMjEyLjE0Ny0uMzk3LjMzLS41NDguNTQtLjM1LjQ5LS40MTUgMS4xNTgtLjU0NiAyLjQ5NGgtLjk2Yy0uMTMtMS4zMzYtLjE5Ni0yLjAwNC0uNTQ2LTIuNDk0YTIuMyAyLjMgMCAwIDAtLjU0Ny0uNTRjLS40OTUtLjM0My0xLjE2NC0uNC0yLjUwMi0uNTEybC0uNTY2LS4wNDh2LS45NjhsLjU2Ni0uMDQ4YzEuMzM4LS4xMTIgMi4wMDctLjE2OSAyLjUwMi0uNTEyYTIuMyAyLjMgMCAwIDAgLjU0Ny0uNTRjLjM1LS40OS40MTUtMS4xNTguNTQ2LTIuNDk0eiIvPgogICAgPHBhdGggZmlsbD0iIzE0QUZFQiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTIgM2M3LjQxMSAwIDkgMS41ODggOSA5IDAgNy40MTEtMS41ODkgOS05IDlzLTktMS41ODktOS05IDEuNTg4LTkgOS05bTUuODgyIDMuMTFDMTUuNzAyIDMuOTMgMTEuMyA0LjggOC4wNSA4LjA1cy00LjEyIDcuNjUyLTEuOTQgOS44MzIgNi41ODIgMS4zMTIgOS44MzMtMS45MzljMy4yNS0zLjI1IDQuMTE5LTcuNjUzIDEuOTQtOS44MzMiIGNsaXAtcnVsZT0iZXZlbm9kZCIvPgo8L3N2Zz4K) ![mono](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0xMi40OCA3LjkyMmMuMTMgMS4zMzYuMTk2IDIuMDA0LjU0NiAyLjQ5NC4xNS4yMS4zMzYuMzkzLjU0Ny41NC40OTUuMzQzIDEuMTY0LjQgMi41MDIuNTEybC41NjYuMDQ4di45NjhsLS41NjYuMDQ4Yy0xLjMzOC4xMTItMi4wMDcuMTY5LTIuNTAxLjUxMi0uMjEyLjE0Ny0uMzk3LjMzLS41NDguNTQtLjM1LjQ5LS40MTUgMS4xNTgtLjU0NiAyLjQ5NGgtLjk2Yy0uMTMtMS4zMzYtLjE5Ni0yLjAwNC0uNTQ2LTIuNDk0YTIuMyAyLjMgMCAwIDAtLjU0Ny0uNTRjLS40OTUtLjM0My0xLjE2NC0uNC0yLjUwMi0uNTEybC0uNTY2LS4wNDh2LS45NjhsLjU2Ni0uMDQ4YzEuMzM4LS4xMTIgMi4wMDctLjE2OSAyLjUwMi0uNTEyYTIuMyAyLjMgMCAwIDAgLjU0Ny0uNTRjLjM1LS40OS40MTUtMS4xNTguNTQ2LTIuNDk0eiIvPgogICAgPHBhdGggZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTIgM2M3LjQxMSAwIDkgMS41ODggOSA5IDAgNy40MTEtMS41ODkgOS05IDlzLTktMS41ODktOS05IDEuNTg4LTkgOS05bTUuODgyIDMuMTFDMTUuNzAyIDMuOTMgMTEuMyA0LjggOC4wNSA4LjA1cy00LjEyIDcuNjUyLTEuOTQgOS44MzIgNi41ODIgMS4zMTIgOS44MzMtMS45MzljMy4yNS0zLjI1IDQuMTE5LTcuNjUzIDEuOTQtOS44MzMiIGNsaXAtcnVsZT0iZXZlbm9kZCIvPgo8L3N2Zz4K) ![background](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxnIGNsaXAtcGF0aD0idXJsKCNrZXBscl9fYSkiPgogICAgICAgIDxwYXRoIGZpbGw9IiMxNEFGRUIiIGQ9Ik0yNCAwSDB2MjRoMjR6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTEyLjQyNyA4LjM3NWMuMTE2IDEuMTg4LjE3NCAxLjc4Mi40ODUgMi4yMTcuMTM0LjE4Ny4yOTguMzUuNDg3LjQ4LjQ0LjMwNSAxLjAzNC4zNTUgMi4yMjMuNDU1bC41MDMuMDQzdi44NmwtLjUwMy4wNDNjLTEuMTg5LjEtMS43ODQuMTUtMi4yMjMuNDU1LS4xODkuMTMtLjM1My4yOTMtLjQ4Ny40OC0uMzExLjQzNS0uMzY5IDEuMDMtLjQ4NSAyLjIxN2gtLjg1NGMtLjExNi0xLjE4OC0uMTc0LTEuNzgyLS40ODUtMi4yMTdhMiAyIDAgMCAwLS40ODctLjQ4Yy0uNDQtLjMwNS0xLjAzNC0uMzU1LTIuMjIzLS40NTVsLS41MDMtLjA0M3YtLjg2bC41MDMtLjA0M2MxLjE4OS0uMSAxLjc4NC0uMTUgMi4yMjMtLjQ1NS4xODktLjEzLjM1My0uMjkzLjQ4Ny0uNDguMzEtLjQzNS4zNjktMS4wMy40ODUtMi4yMTd6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTIgNGM2LjU4OCAwIDggMS40MTIgOCA4cy0xLjQxMiA4LTggOC04LTEuNDEyLTgtOCAxLjQxMi04IDgtOG01LjIyOSAyLjc2NWMtMS45MzgtMS45MzgtNS44NTEtMS4xNjYtOC43NCAxLjcyM3MtMy42NjIgNi44MDMtMS43MjQgOC43NCA1Ljg1IDEuMTY2IDguNzQtMS43MjMgMy42NjEtNi44MDMgMS43MjMtOC43NCIgY2xpcC1ydWxlPSJldmVub2RkIi8+CiAgICA8L2c+CiAgICA8ZGVmcz4KICAgICAgICA8Y2xpcFBhdGggaWQ9ImtlcGxyX19hIj4KICAgICAgICAgICAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTAgMGgyNHYyNEgweiIvPgogICAgICAgIDwvY2xpcFBhdGg+CiAgICA8L2RlZnM+Cjwvc3ZnPgo=)
+ * @see https://web3icons.io/wallets/keplr
+ * @param props - Web3Icon component props
+ * @returns {JSX.Element} JSX Element
+ *
+ */ const WalletKeplr = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$createWeb3Icon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createWeb3Icon"])('WalletKeplr', __iconNode);
+;
+}),
+]);
+
+//# sourceMappingURL=1qqr_%40web3icons_react_dist_0grr629._.js.map

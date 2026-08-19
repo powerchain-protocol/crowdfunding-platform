@@ -1,0 +1,212 @@
+module.exports = [
+"[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/createWeb3Icon.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "createWeb3Icon",
+    ()=>createWeb3Icon
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/next@16.3.1_@types+node@24.13.3_react-dom@19.2.8_react@19.2.8__react@19.2.8/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$BaseIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/BaseIcon.js [app-ssr] (ecmascript)");
+;
+;
+/**
+ * factory function to create icon components from data structures.
+ *
+ * @param name - component display name
+ * @param variants - icon data for each variant (branded/mono/background)
+ * @returns react component with forwardRef support
+ */ const createWeb3Icon = (name, variants)=>{
+    const availableVariants = Object.keys(variants);
+    const defaultVariant = availableVariants[0];
+    if (!defaultVariant) {
+        throw new Error(`Icon "${name}" must have at least one variant`);
+    }
+    const Component = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"])(({ variant = defaultVariant, fallback, ...props }, ref)=>{
+        const iconData = variants[variant];
+        if (!iconData) {
+            console.warn(`Icon "${name}" does not have variant "${variant}". ` + `Available variants: ${availableVariants.join(', ')}`);
+            return null;
+        }
+        return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createElement"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$BaseIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["BaseIcon"], {
+            fallback,
+            ...props,
+            ref
+        }, renderIconNode(iconData));
+    });
+    Component.displayName = name;
+    return Component;
+};
+/**
+ * recursively render IconNode data structure to react elements.
+ *
+ * @param nodes array of IconNode elements to render
+ * @returns array of react elements
+ */ function renderIconNode(nodes) {
+    return nodes.map((node, index)=>{
+        const [element, attrs, children] = node;
+        const { style, ...restAttrs } = attrs || {};
+        const elementProps = {
+            key: index,
+            ...restAttrs,
+            ...style && {
+                style
+            }
+        };
+        // check if this is a 3-element tuple with children (element, attributes, children)
+        const childElements = children ? renderIconNode(children) : undefined;
+        return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createElement"])(element, elementProps, childElements);
+    });
+}
+;
+}),
+"[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/icons/tokens/TokenBERRY.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "__iconNode",
+    ()=>__iconNode,
+    "default",
+    ()=>TokenBERRY
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$createWeb3Icon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/createWeb3Icon.js [app-ssr] (ecmascript)");
+;
+const __iconNode = {
+    branded: [
+        [
+            'path',
+            {
+                fill: 'url(#BERRY__a)',
+                d: 'M18.677 20.997c-2.538-.128-4.538-2.107-4.538-4.483 0-.156.1-.312.234-.405.868-.499 1.436-1.37 1.436-2.4 0-1.557-1.336-2.834-3.007-2.834H9.895c-.702 0-1.27.53-1.27 1.215V21H5.449A2.45 2.45 0 0 1 3 18.554V9.82a2.44 2.44 0 0 1 1.081-2.032l6.552-4.383a2.51 2.51 0 0 1 2.735 0l6.551 4.383A2.44 2.44 0 0 1 21 9.82v8.702c0 1.325-1.016 2.41-2.323 2.475'
+            }
+        ],
+        [
+            'defs',
+            {},
+            [
+                [
+                    'linearGradient',
+                    {
+                        id: 'BERRY__a',
+                        x1: '8.586',
+                        x2: '14.888',
+                        y1: '3.632',
+                        y2: '21',
+                        gradientUnits: 'userSpaceOnUse'
+                    },
+                    [
+                        [
+                            'stop',
+                            {
+                                stopColor: '#28D0FA'
+                            }
+                        ],
+                        [
+                            'stop',
+                            {
+                                offset: '1',
+                                stopColor: '#635BD7'
+                            }
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ],
+    mono: [
+        [
+            'path',
+            {
+                fill: 'currentColor',
+                d: 'M18.677 20.997c-2.538-.128-4.538-2.107-4.538-4.483 0-.156.1-.312.234-.405.868-.498 1.436-1.37 1.436-2.4 0-1.557-1.336-2.834-3.007-2.834H9.895c-.702 0-1.27.53-1.27 1.215V21H5.449A2.45 2.45 0 0 1 3 18.554V9.82a2.44 2.44 0 0 1 1.081-2.032l6.552-4.383a2.51 2.51 0 0 1 2.735 0l6.551 4.383A2.44 2.44 0 0 1 21 9.82v8.702c0 1.325-1.016 2.41-2.323 2.475'
+            }
+        ]
+    ],
+    background: [
+        [
+            'g',
+            {
+                clipPath: 'url(#BERRY__a)'
+            },
+            [
+                [
+                    'path',
+                    {
+                        fill: 'url(#BERRY__b)',
+                        d: 'M24 0H0v24h24z'
+                    }
+                ],
+                [
+                    'path',
+                    {
+                        fill: '#fff',
+                        d: 'M17.935 19.997c-2.256-.114-4.034-1.872-4.034-3.985 0-.138.089-.277.208-.36.772-.443 1.277-1.218 1.277-2.132 0-1.385-1.188-2.52-2.673-2.52h-2.584C9.505 11 9 11.47 9 12.08V20H6.176A2.177 2.177 0 0 1 4 17.826v-7.764c0-.734.367-1.411.961-1.806l5.824-3.896a2.23 2.23 0 0 1 2.431 0l5.824 3.896a2.17 2.17 0 0 1 .96 1.806v7.735a2.183 2.183 0 0 1-2.065 2.2'
+                    }
+                ]
+            ]
+        ],
+        [
+            'defs',
+            {},
+            [
+                [
+                    'linearGradient',
+                    {
+                        id: 'BERRY__b',
+                        x1: '8.965',
+                        x2: '14.567',
+                        y1: '4.562',
+                        y2: '20',
+                        gradientUnits: 'userSpaceOnUse'
+                    },
+                    [
+                        [
+                            'stop',
+                            {
+                                stopColor: '#28D0FA'
+                            }
+                        ],
+                        [
+                            'stop',
+                            {
+                                offset: '1',
+                                stopColor: '#635BD7'
+                            }
+                        ]
+                    ]
+                ],
+                [
+                    'clipPath',
+                    {
+                        id: 'BERRY__a'
+                    },
+                    [
+                        [
+                            'path',
+                            {
+                                fill: '#fff',
+                                d: 'M0 0h24v24H0z'
+                            }
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+};
+/**
+ * @component @name TokenBERRY
+ * @description Web3Icon for TokenBERRY
+ *
+ * @preview (branded, mono, background)
+ * @preview ![branded](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxwYXRoIGZpbGw9InVybCgjQkVSUllfX2EpIiBkPSJNMTguNjc3IDIwLjk5N2MtMi41MzgtLjEyOC00LjUzOC0yLjEwNy00LjUzOC00LjQ4MyAwLS4xNTYuMS0uMzEyLjIzNC0uNDA1Ljg2OC0uNDk5IDEuNDM2LTEuMzcgMS40MzYtMi40IDAtMS41NTctMS4zMzYtMi44MzQtMy4wMDctMi44MzRIOS44OTVjLS43MDIgMC0xLjI3LjUzLTEuMjcgMS4yMTVWMjFINS40NDlBMi40NSAyLjQ1IDAgMCAxIDMgMTguNTU0VjkuODJhMi40NCAyLjQ0IDAgMCAxIDEuMDgxLTIuMDMybDYuNTUyLTQuMzgzYTIuNTEgMi41MSAwIDAgMSAyLjczNSAwbDYuNTUxIDQuMzgzQTIuNDQgMi40NCAwIDAgMSAyMSA5LjgydjguNzAyYzAgMS4zMjUtMS4wMTYgMi40MS0yLjMyMyAyLjQ3NSIvPgogICAgPGRlZnM+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJCRVJSWV9fYSIgeDE9IjguNTg2IiB4Mj0iMTQuODg4IiB5MT0iMy42MzIiIHkyPSIyMSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMjhEMEZBIi8+CiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzYzNUJENyIvPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+Cjwvc3ZnPgo=) ![mono](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0xOC42NzcgMjAuOTk3Yy0yLjUzOC0uMTI4LTQuNTM4LTIuMTA3LTQuNTM4LTQuNDgzIDAtLjE1Ni4xLS4zMTIuMjM0LS40MDUuODY4LS40OTggMS40MzYtMS4zNyAxLjQzNi0yLjQgMC0xLjU1Ny0xLjMzNi0yLjgzNC0zLjAwNy0yLjgzNEg5Ljg5NWMtLjcwMiAwLTEuMjcuNTMtMS4yNyAxLjIxNVYyMUg1LjQ0OUEyLjQ1IDIuNDUgMCAwIDEgMyAxOC41NTRWOS44MmEyLjQ0IDIuNDQgMCAwIDEgMS4wODEtMi4wMzJsNi41NTItNC4zODNhMi41MSAyLjUxIDAgMCAxIDIuNzM1IDBsNi41NTEgNC4zODNBMi40NCAyLjQ0IDAgMCAxIDIxIDkuODJ2OC43MDJjMCAxLjMyNS0xLjAxNiAyLjQxLTIuMzIzIDIuNDc1Ii8+Cjwvc3ZnPgo=) ![background](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxnIGNsaXAtcGF0aD0idXJsKCNCRVJSWV9fYSkiPgogICAgICAgIDxwYXRoIGZpbGw9InVybCgjQkVSUllfX2IpIiBkPSJNMjQgMEgwdjI0aDI0eiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0xNy45MzUgMTkuOTk3Yy0yLjI1Ni0uMTE0LTQuMDM0LTEuODcyLTQuMDM0LTMuOTg1IDAtLjEzOC4wODktLjI3Ny4yMDgtLjM2Ljc3Mi0uNDQzIDEuMjc3LTEuMjE4IDEuMjc3LTIuMTMyIDAtMS4zODUtMS4xODgtMi41Mi0yLjY3My0yLjUyaC0yLjU4NEM5LjUwNSAxMSA5IDExLjQ3IDkgMTIuMDhWMjBINi4xNzZBMi4xNzcgMi4xNzcgMCAwIDEgNCAxNy44MjZ2LTcuNzY0YzAtLjczNC4zNjctMS40MTEuOTYxLTEuODA2bDUuODI0LTMuODk2YTIuMjMgMi4yMyAwIDAgMSAyLjQzMSAwbDUuODI0IDMuODk2YTIuMTcgMi4xNyAwIDAgMSAuOTYgMS44MDZ2Ny43MzVhMi4xODMgMi4xODMgMCAwIDEtMi4wNjUgMi4yIi8+CiAgICA8L2c+CiAgICA8ZGVmcz4KICAgICAgICA8bGluZWFyR3JhZGllbnQgaWQ9IkJFUlJZX19iIiB4MT0iOC45NjUiIHgyPSIxNC41NjciIHkxPSI0LjU2MiIgeTI9IjIwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMyOEQwRkEiLz4KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNjM1QkQ3Ii8+CiAgICAgICAgPC9saW5lYXJHcmFkaWVudD4KICAgICAgICA8Y2xpcFBhdGggaWQ9IkJFUlJZX19hIj4KICAgICAgICAgICAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTAgMGgyNHYyNEgweiIvPgogICAgICAgIDwvY2xpcFBhdGg+CiAgICA8L2RlZnM+Cjwvc3ZnPgo=)
+ * @see https://web3icons.io/tokens/BERRY
+ * @param props - Web3Icon component props
+ * @returns {JSX.Element} JSX Element
+ *
+ */ const TokenBERRY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$createWeb3Icon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createWeb3Icon"])('TokenBERRY', __iconNode);
+;
+}),
+];
+
+//# sourceMappingURL=1qqr_%40web3icons_react_dist_1ex8ko1._.js.map

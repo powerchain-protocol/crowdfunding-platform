@@ -1,0 +1,21 @@
+[2m$ tsc -p tsconfig.json[22m
+[96msrc/server.ts[0m:[93m15[0m:[93m90[0m - [91merror[0m[90m TS2375: [0mType '{ metadata?: Record<string, unknown>; userId?: string; organizationId: string; metric: string; quantity: number; idempotencyKey: string; }' is not assignable to type '(Without<UsageEventCreateInput, UsageEventUncheckedCreateInput> & UsageEventUncheckedCreateInput) | (Without<...> & UsageEventCreateInput)' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type '{ metadata?: Record<string, unknown>; userId?: string; organizationId: string; metric: string; quantity: number; idempotencyKey: string; }' is not assignable to type 'Without<UsageEventCreateInput, UsageEventUncheckedCreateInput> & UsageEventUncheckedCreateInput' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Type '{ metadata?: Record<string, unknown>; userId?: string; organizationId: string; metric: string; quantity: number; idempotencyKey: string; }' is not assignable to type 'UsageEventUncheckedCreateInput' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Types of property 'metadata' are incompatible.
+        Type 'Record<string, unknown>' is not assignable to type 'NullableJsonNullValueInput | InputJsonValue'.
+          Type 'Record<string, unknown>' is missing the following properties from type 'readonly (InputJsonValue | null)[]': length, concat, join, slice, and 26 more.
+
+[7m15[0m   return prisma.usageEvent.upsert({where:{idempotencyKey:input.idempotencyKey},update:{},create:{organizationId:input.organizationId,metric:input.metric,quantity:input.quantity??1,idempotencyKey:input.idempotencyKey,...(input.userId?{userId:input.userId}:{}),...(input.metadata?{metadata:input.metadata}:{})}})
+[7m  [0m [91m                                                                                         ~~~~~~[0m
+
+  [96m../../node_modules/.pnpm/@prisma+client@6.19.3_prisma@6.19.3_typescript@6.0.3__typescript@6.0.3/node_modules/.prisma/client/index.d.ts[0m:[93m37537[0m:[93m5[0m
+    [7m37537[0m     create: XOR<UsageEventCreateInput, UsageEventUncheckedCreateInput>
+    [7m     [0m [96m    ~~~~~~[0m
+    The expected type comes from property 'create' which is declared here on type '{ select?: UsageEventSelect<DefaultArgs> | null; omit?: UsageEventOmit<DefaultArgs> | null; include?: UsageEventInclude<DefaultArgs> | null; where: UsageEventWhereUniqueInput; create: (Without<...> & UsageEventUncheckedCreateInput) | (Without<...> & UsageEventCreateInput); update: (Without<...> & UsageEventUnchecked...'
+
+
+Found 1 error in src/server.ts[90m:15[0m
+
+[41m[31m[[39m[49m[41m[30mELIFECYCLE[39m[49m[41m[31m][39m[49m [31mCommand failed with exit code 2.[39m
+[K[0J

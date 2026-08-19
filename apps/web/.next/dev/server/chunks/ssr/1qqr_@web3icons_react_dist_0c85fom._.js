@@ -1,0 +1,154 @@
+module.exports = [
+"[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/createWeb3Icon.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "createWeb3Icon",
+    ()=>createWeb3Icon
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/next@16.3.1_@types+node@24.13.3_react-dom@19.2.8_react@19.2.8__react@19.2.8/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$BaseIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/BaseIcon.js [app-ssr] (ecmascript)");
+;
+;
+/**
+ * factory function to create icon components from data structures.
+ *
+ * @param name - component display name
+ * @param variants - icon data for each variant (branded/mono/background)
+ * @returns react component with forwardRef support
+ */ const createWeb3Icon = (name, variants)=>{
+    const availableVariants = Object.keys(variants);
+    const defaultVariant = availableVariants[0];
+    if (!defaultVariant) {
+        throw new Error(`Icon "${name}" must have at least one variant`);
+    }
+    const Component = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"])(({ variant = defaultVariant, fallback, ...props }, ref)=>{
+        const iconData = variants[variant];
+        if (!iconData) {
+            console.warn(`Icon "${name}" does not have variant "${variant}". ` + `Available variants: ${availableVariants.join(', ')}`);
+            return null;
+        }
+        return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createElement"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$BaseIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["BaseIcon"], {
+            fallback,
+            ...props,
+            ref
+        }, renderIconNode(iconData));
+    });
+    Component.displayName = name;
+    return Component;
+};
+/**
+ * recursively render IconNode data structure to react elements.
+ *
+ * @param nodes array of IconNode elements to render
+ * @returns array of react elements
+ */ function renderIconNode(nodes) {
+    return nodes.map((node, index)=>{
+        const [element, attrs, children] = node;
+        const { style, ...restAttrs } = attrs || {};
+        const elementProps = {
+            key: index,
+            ...restAttrs,
+            ...style && {
+                style
+            }
+        };
+        // check if this is a 3-element tuple with children (element, attributes, children)
+        const childElements = children ? renderIconNode(children) : undefined;
+        return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createElement"])(element, elementProps, childElements);
+    });
+}
+;
+}),
+"[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/icons/networks/NetworkCodex.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "__iconNode",
+    ()=>__iconNode,
+    "default",
+    ()=>NetworkCodex
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$createWeb3Icon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/createWeb3Icon.js [app-ssr] (ecmascript)");
+;
+const __iconNode = {
+    branded: [
+        [
+            'path',
+            {
+                fill: '#F8E6B6',
+                d: 'M11.794 3c0 2.74-.985 4.814-2.298 6.329 1.626-.992 3.303-2.355 4.71-4.124l1.004.75c-1.531 1.925-3.353 3.395-5.11 4.457 2.36-.554 4.699-1.339 6.203-2.383l.738 1c-1.5 1.04-3.636 1.805-5.752 2.357h8.55L20 12.594c-2.181.556-6.527 3.02-6.527 8.406h-1.267c0-2.74.985-4.814 2.298-6.329-1.626.992-3.303 2.355-4.71 4.124l-1.004-.75c1.531-1.925 3.353-3.395 5.11-4.457-2.36.554-4.699 1.339-6.203 2.383l-.738-1c1.5-1.04 3.636-1.805 5.752-2.357h-8.55L4 11.406c2.181-.555 6.527-3.02 6.527-8.406z'
+            }
+        ]
+    ],
+    mono: [
+        [
+            'path',
+            {
+                fill: 'currentColor',
+                d: 'M11.794 3c0 2.74-.985 4.814-2.298 6.329 1.626-.992 3.303-2.355 4.71-4.124l1.004.75c-1.531 1.925-3.353 3.395-5.11 4.457 2.36-.554 4.699-1.339 6.203-2.383l.738 1c-1.5 1.04-3.636 1.805-5.752 2.357h8.55L20 12.594c-2.181.556-6.527 3.02-6.527 8.406h-1.267c0-2.74.985-4.814 2.298-6.329-1.626.992-3.303 2.355-4.71 4.124l-1.004-.75c1.531-1.925 3.353-3.395 5.11-4.457-2.36.554-4.699 1.339-6.203 2.383l-.738-1c1.5-1.04 3.636-1.805 5.752-2.357h-8.55L4 11.406c2.181-.555 6.527-3.02 6.527-8.406z'
+            }
+        ]
+    ],
+    background: [
+        [
+            'g',
+            {
+                clipPath: 'url(#codex__a)'
+            },
+            [
+                [
+                    'path',
+                    {
+                        fill: '#161B14',
+                        d: 'M24 0H0v24h24z'
+                    }
+                ],
+                [
+                    'path',
+                    {
+                        fill: '#F8E6B6',
+                        d: 'M11.82 4c0 2.435-.862 4.279-2.01 5.626a15.9 15.9 0 0 0 4.12-3.666l.879.667a17 17 0 0 1-4.471 3.961c2.064-.492 4.111-1.19 5.427-2.117l.645.888c-1.312.925-3.18 1.605-5.032 2.095h7.481L19 12.528c-1.909.494-5.711 2.684-5.711 7.472H12.18c0-2.435.862-4.279 2.01-5.626a15.9 15.9 0 0 0-4.12 3.666l-.878-.667a17 17 0 0 1 4.47-3.961c-2.064.492-4.111 1.19-5.427 2.117l-.645-.888c1.312-.925 3.18-1.605 5.032-2.095H5.141L5 11.472c1.909-.494 5.711-2.684 5.711-7.472z'
+                    }
+                ]
+            ]
+        ],
+        [
+            'defs',
+            {},
+            [
+                [
+                    'clipPath',
+                    {
+                        id: 'codex__a'
+                    },
+                    [
+                        [
+                            'path',
+                            {
+                                fill: '#fff',
+                                d: 'M0 0h24v24H0z'
+                            }
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+};
+/**
+ * @component @name NetworkCodex
+ * @description Web3Icon for NetworkCodex
+ *
+ * @preview (branded, mono, background)
+ * @preview ![branded](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxwYXRoIGZpbGw9IiNGOEU2QjYiIGQ9Ik0xMS43OTQgM2MwIDIuNzQtLjk4NSA0LjgxNC0yLjI5OCA2LjMyOSAxLjYyNi0uOTkyIDMuMzAzLTIuMzU1IDQuNzEtNC4xMjRsMS4wMDQuNzVjLTEuNTMxIDEuOTI1LTMuMzUzIDMuMzk1LTUuMTEgNC40NTcgMi4zNi0uNTU0IDQuNjk5LTEuMzM5IDYuMjAzLTIuMzgzbC43MzggMWMtMS41IDEuMDQtMy42MzYgMS44MDUtNS43NTIgMi4zNTdoOC41NUwyMCAxMi41OTRjLTIuMTgxLjU1Ni02LjUyNyAzLjAyLTYuNTI3IDguNDA2aC0xLjI2N2MwLTIuNzQuOTg1LTQuODE0IDIuMjk4LTYuMzI5LTEuNjI2Ljk5Mi0zLjMwMyAyLjM1NS00LjcxIDQuMTI0bC0xLjAwNC0uNzVjMS41MzEtMS45MjUgMy4zNTMtMy4zOTUgNS4xMS00LjQ1Ny0yLjM2LjU1NC00LjY5OSAxLjMzOS02LjIwMyAyLjM4M2wtLjczOC0xYzEuNS0xLjA0IDMuNjM2LTEuODA1IDUuNzUyLTIuMzU3aC04LjU1TDQgMTEuNDA2YzIuMTgxLS41NTUgNi41MjctMy4wMiA2LjUyNy04LjQwNnoiLz4KPC9zdmc+Cg==) ![mono](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0xMS43OTQgM2MwIDIuNzQtLjk4NSA0LjgxNC0yLjI5OCA2LjMyOSAxLjYyNi0uOTkyIDMuMzAzLTIuMzU1IDQuNzEtNC4xMjRsMS4wMDQuNzVjLTEuNTMxIDEuOTI1LTMuMzUzIDMuMzk1LTUuMTEgNC40NTcgMi4zNi0uNTU0IDQuNjk5LTEuMzM5IDYuMjAzLTIuMzgzbC43MzggMWMtMS41IDEuMDQtMy42MzYgMS44MDUtNS43NTIgMi4zNTdoOC41NUwyMCAxMi41OTRjLTIuMTgxLjU1Ni02LjUyNyAzLjAyLTYuNTI3IDguNDA2aC0xLjI2N2MwLTIuNzQuOTg1LTQuODE0IDIuMjk4LTYuMzI5LTEuNjI2Ljk5Mi0zLjMwMyAyLjM1NS00LjcxIDQuMTI0bC0xLjAwNC0uNzVjMS41MzEtMS45MjUgMy4zNTMtMy4zOTUgNS4xMS00LjQ1Ny0yLjM2LjU1NC00LjY5OSAxLjMzOS02LjIwMyAyLjM4M2wtLjczOC0xYzEuNS0xLjA0IDMuNjM2LTEuODA1IDUuNzUyLTIuMzU3aC04LjU1TDQgMTEuNDA2YzIuMTgxLS41NTUgNi41MjctMy4wMiA2LjUyNy04LjQwNnoiLz4KPC9zdmc+Cg==) ![background](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxnIGNsaXAtcGF0aD0idXJsKCNjb2RleF9fYSkiPgogICAgICAgIDxwYXRoIGZpbGw9IiMxNjFCMTQiIGQ9Ik0yNCAwSDB2MjRoMjR6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI0Y4RTZCNiIgZD0iTTExLjgyIDRjMCAyLjQzNS0uODYyIDQuMjc5LTIuMDEgNS42MjZhMTUuOSAxNS45IDAgMCAwIDQuMTItMy42NjZsLjg3OS42NjdhMTcgMTcgMCAwIDEtNC40NzEgMy45NjFjMi4wNjQtLjQ5MiA0LjExMS0xLjE5IDUuNDI3LTIuMTE3bC42NDUuODg4Yy0xLjMxMi45MjUtMy4xOCAxLjYwNS01LjAzMiAyLjA5NWg3LjQ4MUwxOSAxMi41MjhjLTEuOTA5LjQ5NC01LjcxMSAyLjY4NC01LjcxMSA3LjQ3MkgxMi4xOGMwLTIuNDM1Ljg2Mi00LjI3OSAyLjAxLTUuNjI2YTE1LjkgMTUuOSAwIDAgMC00LjEyIDMuNjY2bC0uODc4LS42NjdhMTcgMTcgMCAwIDEgNC40Ny0zLjk2MWMtMi4wNjQuNDkyLTQuMTExIDEuMTktNS40MjcgMi4xMTdsLS42NDUtLjg4OGMxLjMxMi0uOTI1IDMuMTgtMS42MDUgNS4wMzItMi4wOTVINS4xNDFMNSAxMS40NzJjMS45MDktLjQ5NCA1LjcxMS0yLjY4NCA1LjcxMS03LjQ3MnoiLz4KICAgIDwvZz4KICAgIDxkZWZzPgogICAgICAgIDxjbGlwUGF0aCBpZD0iY29kZXhfX2EiPgogICAgICAgICAgICA8cGF0aCBmaWxsPSIjZmZmIiBkPSJNMCAwaDI0djI0SDB6Ii8+CiAgICAgICAgPC9jbGlwUGF0aD4KICAgIDwvZGVmcz4KPC9zdmc+Cg==)
+ * @see https://web3icons.io/networks/codex
+ * @param props - Web3Icon component props
+ * @returns {JSX.Element} JSX Element
+ *
+ */ const NetworkCodex = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$createWeb3Icon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createWeb3Icon"])('NetworkCodex', __iconNode);
+;
+}),
+];
+
+//# sourceMappingURL=1qqr_%40web3icons_react_dist_0c85fom._.js.map

@@ -1,0 +1,259 @@
+module.exports = [
+"[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/createWeb3Icon.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "createWeb3Icon",
+    ()=>createWeb3Icon
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/next@16.3.1_@types+node@24.13.3_react-dom@19.2.8_react@19.2.8__react@19.2.8/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$BaseIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/BaseIcon.js [app-ssr] (ecmascript)");
+;
+;
+/**
+ * factory function to create icon components from data structures.
+ *
+ * @param name - component display name
+ * @param variants - icon data for each variant (branded/mono/background)
+ * @returns react component with forwardRef support
+ */ const createWeb3Icon = (name, variants)=>{
+    const availableVariants = Object.keys(variants);
+    const defaultVariant = availableVariants[0];
+    if (!defaultVariant) {
+        throw new Error(`Icon "${name}" must have at least one variant`);
+    }
+    const Component = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"])(({ variant = defaultVariant, fallback, ...props }, ref)=>{
+        const iconData = variants[variant];
+        if (!iconData) {
+            console.warn(`Icon "${name}" does not have variant "${variant}". ` + `Available variants: ${availableVariants.join(', ')}`);
+            return null;
+        }
+        return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createElement"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$BaseIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["BaseIcon"], {
+            fallback,
+            ...props,
+            ref
+        }, renderIconNode(iconData));
+    });
+    Component.displayName = name;
+    return Component;
+};
+/**
+ * recursively render IconNode data structure to react elements.
+ *
+ * @param nodes array of IconNode elements to render
+ * @returns array of react elements
+ */ function renderIconNode(nodes) {
+    return nodes.map((node, index)=>{
+        const [element, attrs, children] = node;
+        const { style, ...restAttrs } = attrs || {};
+        const elementProps = {
+            key: index,
+            ...restAttrs,
+            ...style && {
+                style
+            }
+        };
+        // check if this is a 3-element tuple with children (element, attributes, children)
+        const childElements = children ? renderIconNode(children) : undefined;
+        return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$3$2e$1_$40$types$2b$node$40$24$2e$13$2e$3_react$2d$dom$40$19$2e$2$2e$8_react$40$19$2e$2$2e$8_$5f$react$40$19$2e$2$2e$8$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createElement"])(element, elementProps, childElements);
+    });
+}
+;
+}),
+"[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/icons/tokens/TokenBNX.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "__iconNode",
+    ()=>__iconNode,
+    "default",
+    ()=>TokenBNX
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$createWeb3Icon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@web3icons+react@4.1.20_react@19.2.8/node_modules/@web3icons/react/dist/createWeb3Icon.js [app-ssr] (ecmascript)");
+;
+const __iconNode = {
+    branded: [
+        [
+            'path',
+            {
+                fill: 'url(#BNX__a)',
+                d: 'm11.45 3.565-7.13 7.03c-.41.4-.575.9-.57 1.405a2 2 0 0 0 .57 1.405l7.13 7.035c.405.4.915.56 1.425.56s1.02-.16 1.425-.565l4.55-4.48c-1.17-.105-1.565.15-2.03.44-.305.195-.645.41-1.25.55-.305.07-.56.115-.77.115-.515 0-.77-.175-.995-.33-.175-.125-.325-.23-.565-.23h-2.65c.43-.66.14-.87.14-.87s-.92-.22-.705-2.505c-1.875-2.045-1.71-4.5-1.71-4.5s.625 2.02 3.42 3.095c-.12-1.54.305-2.15.5-2.42l.07-.115.095.2c.255.56.61 1.34 2.47 1.77.6-.75.835-.935 1.335-1.33l.095-.075c-.43-1.43-.355-2.225 0-2.815l.12.3c.4 1 1.04 2.61 3.83 2.195L14.3 3.565A1.98 1.98 0 0 0 12.875 3c-.51 0-1.02.16-1.425.565'
+            }
+        ],
+        [
+            'path',
+            {
+                fill: 'url(#BNX__b)',
+                d: 'M13.72 12.975c-.1.055-.2.1-.275.15 1.1.935 2.21-.815 1.71-1.125a6.1 6.1 0 0 1-1.435.975'
+            }
+        ],
+        [
+            'defs',
+            {},
+            [
+                [
+                    'linearGradient',
+                    {
+                        id: 'BNX__a',
+                        x1: '12.59',
+                        x2: '12.87',
+                        y1: '2.72',
+                        y2: '21.565',
+                        gradientUnits: 'userSpaceOnUse'
+                    },
+                    [
+                        [
+                            'stop',
+                            {
+                                stopColor: '#F15F3E'
+                            }
+                        ],
+                        [
+                            'stop',
+                            {
+                                offset: '1',
+                                stopColor: '#EF2357'
+                            }
+                        ]
+                    ]
+                ],
+                [
+                    'linearGradient',
+                    {
+                        id: 'BNX__b',
+                        x1: '12.59',
+                        x2: '12.87',
+                        y1: '2.72',
+                        y2: '21.565',
+                        gradientUnits: 'userSpaceOnUse'
+                    },
+                    [
+                        [
+                            'stop',
+                            {
+                                stopColor: '#F15F3E'
+                            }
+                        ],
+                        [
+                            'stop',
+                            {
+                                offset: '1',
+                                stopColor: '#EF2357'
+                            }
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ],
+    mono: [
+        [
+            'path',
+            {
+                fill: 'currentColor',
+                d: 'm11.45 3.565-7.13 7.03c-.41.4-.575.9-.57 1.405a2 2 0 0 0 .57 1.405l7.13 7.035c.405.4.915.56 1.425.56s1.02-.16 1.425-.565l4.55-4.48c-1.17-.105-1.565.15-2.03.44-.305.195-.645.41-1.25.55-.305.07-.56.115-.77.115-.515 0-.77-.175-.995-.33-.175-.125-.325-.23-.565-.23h-2.65c.43-.66.14-.87.14-.87s-.92-.22-.705-2.505c-1.875-2.045-1.71-4.5-1.71-4.5s.625 2.02 3.42 3.095c-.12-1.54.305-2.15.5-2.42l.07-.115.095.2c.255.56.61 1.34 2.47 1.77.6-.75.835-.935 1.335-1.33l.095-.075c-.43-1.43-.355-2.225 0-2.815l.12.3c.4 1 1.04 2.61 3.83 2.195L14.3 3.565A1.98 1.98 0 0 0 12.875 3c-.51 0-1.02.16-1.425.565'
+            }
+        ],
+        [
+            'path',
+            {
+                fill: 'currentColor',
+                d: 'M13.72 12.975c-.1.055-.2.1-.276.15 1.1.935 2.21-.815 1.71-1.125-.43.392-.912.72-1.434.975'
+            }
+        ]
+    ],
+    background: [
+        [
+            'g',
+            {
+                clipPath: 'url(#BNX__a)'
+            },
+            [
+                [
+                    'path',
+                    {
+                        fill: 'url(#BNX__b)',
+                        d: 'M24 0H0v24h24z'
+                    }
+                ],
+                [
+                    'path',
+                    {
+                        fill: '#fff',
+                        d: 'M11.511 4.503 5.174 10.75c-.365.356-.512.8-.507 1.25-.002.466.18.914.507 1.248l6.337 6.253c.36.356.813.498 1.267.498s.906-.142 1.266-.502l4.045-3.982c-1.04-.094-1.391.133-1.805.39-.27.174-.573.365-1.11.49a3.2 3.2 0 0 1-.685.102c-.458 0-.685-.156-.885-.293-.155-.112-.288-.205-.502-.205h-2.355c.382-.586.124-.773.124-.773s-.818-.196-.626-2.227c-1.667-1.818-1.52-4-1.52-4s.555 1.796 3.04 2.751c-.107-1.369.27-1.91.444-2.15l.062-.103.085.178c.226.498.542 1.19 2.195 1.573.533-.667.742-.831 1.187-1.182l.084-.067c-.382-1.27-.315-1.978 0-2.502l.107.267c.355.889.924 2.32 3.404 1.95l-5.289-5.212A1.76 1.76 0 0 0 12.778 4c-.454 0-.907.143-1.267.503'
+                    }
+                ],
+                [
+                    'path',
+                    {
+                        fill: '#fff',
+                        d: 'M13.528 12.867c-.088.049-.177.089-.244.133.978.831 1.964-.724 1.52-1-.382.348-.811.64-1.276.867'
+                    }
+                ]
+            ]
+        ],
+        [
+            'defs',
+            {},
+            [
+                [
+                    'linearGradient',
+                    {
+                        id: 'BNX__b',
+                        x1: '12.524',
+                        x2: '12.773',
+                        y1: '3.751',
+                        y2: '20.502',
+                        gradientUnits: 'userSpaceOnUse'
+                    },
+                    [
+                        [
+                            'stop',
+                            {
+                                stopColor: '#F15F3E'
+                            }
+                        ],
+                        [
+                            'stop',
+                            {
+                                offset: '1',
+                                stopColor: '#EF2357'
+                            }
+                        ]
+                    ]
+                ],
+                [
+                    'clipPath',
+                    {
+                        id: 'BNX__a'
+                    },
+                    [
+                        [
+                            'path',
+                            {
+                                fill: '#fff',
+                                d: 'M0 0h24v24H0z'
+                            }
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+};
+/**
+ * @component @name TokenBNX
+ * @description Web3Icon for TokenBNX
+ *
+ * @preview (branded, mono, background)
+ * @preview ![branded](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxwYXRoIGZpbGw9InVybCgjQk5YX19hKSIgZD0ibTExLjQ1IDMuNTY1LTcuMTMgNy4wM2MtLjQxLjQtLjU3NS45LS41NyAxLjQwNWEyIDIgMCAwIDAgLjU3IDEuNDA1bDcuMTMgNy4wMzVjLjQwNS40LjkxNS41NiAxLjQyNS41NnMxLjAyLS4xNiAxLjQyNS0uNTY1bDQuNTUtNC40OGMtMS4xNy0uMTA1LTEuNTY1LjE1LTIuMDMuNDQtLjMwNS4xOTUtLjY0NS40MS0xLjI1LjU1LS4zMDUuMDctLjU2LjExNS0uNzcuMTE1LS41MTUgMC0uNzctLjE3NS0uOTk1LS4zMy0uMTc1LS4xMjUtLjMyNS0uMjMtLjU2NS0uMjNoLTIuNjVjLjQzLS42Ni4xNC0uODcuMTQtLjg3cy0uOTItLjIyLS43MDUtMi41MDVjLTEuODc1LTIuMDQ1LTEuNzEtNC41LTEuNzEtNC41cy42MjUgMi4wMiAzLjQyIDMuMDk1Yy0uMTItMS41NC4zMDUtMi4xNS41LTIuNDJsLjA3LS4xMTUuMDk1LjJjLjI1NS41Ni42MSAxLjM0IDIuNDcgMS43Ny42LS43NS44MzUtLjkzNSAxLjMzNS0xLjMzbC4wOTUtLjA3NWMtLjQzLTEuNDMtLjM1NS0yLjIyNSAwLTIuODE1bC4xMi4zYy40IDEgMS4wNCAyLjYxIDMuODMgMi4xOTVMMTQuMyAzLjU2NUExLjk4IDEuOTggMCAwIDAgMTIuODc1IDNjLS41MSAwLTEuMDIuMTYtMS40MjUuNTY1Ii8+CiAgICA8cGF0aCBmaWxsPSJ1cmwoI0JOWF9fYikiIGQ9Ik0xMy43MiAxMi45NzVjLS4xLjA1NS0uMi4xLS4yNzUuMTUgMS4xLjkzNSAyLjIxLS44MTUgMS43MS0xLjEyNWE2LjEgNi4xIDAgMCAxLTEuNDM1Ljk3NSIvPgogICAgPGRlZnM+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJCTlhfX2EiIHgxPSIxMi41OSIgeDI9IjEyLjg3IiB5MT0iMi43MiIgeTI9IjIxLjU2NSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRjE1RjNFIi8+CiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0VGMjM1NyIvPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJCTlhfX2IiIHgxPSIxMi41OSIgeDI9IjEyLjg3IiB5MT0iMi43MiIgeTI9IjIxLjU2NSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRjE1RjNFIi8+CiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0VGMjM1NyIvPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+Cjwvc3ZnPgo=) ![mono](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Im0xMS40NSAzLjU2NS03LjEzIDcuMDNjLS40MS40LS41NzUuOS0uNTcgMS40MDVhMiAyIDAgMCAwIC41NyAxLjQwNWw3LjEzIDcuMDM1Yy40MDUuNC45MTUuNTYgMS40MjUuNTZzMS4wMi0uMTYgMS40MjUtLjU2NWw0LjU1LTQuNDhjLTEuMTctLjEwNS0xLjU2NS4xNS0yLjAzLjQ0LS4zMDUuMTk1LS42NDUuNDEtMS4yNS41NS0uMzA1LjA3LS41Ni4xMTUtLjc3LjExNS0uNTE1IDAtLjc3LS4xNzUtLjk5NS0uMzMtLjE3NS0uMTI1LS4zMjUtLjIzLS41NjUtLjIzaC0yLjY1Yy40My0uNjYuMTQtLjg3LjE0LS44N3MtLjkyLS4yMi0uNzA1LTIuNTA1Yy0xLjg3NS0yLjA0NS0xLjcxLTQuNS0xLjcxLTQuNXMuNjI1IDIuMDIgMy40MiAzLjA5NWMtLjEyLTEuNTQuMzA1LTIuMTUuNS0yLjQybC4wNy0uMTE1LjA5NS4yYy4yNTUuNTYuNjEgMS4zNCAyLjQ3IDEuNzcuNi0uNzUuODM1LS45MzUgMS4zMzUtMS4zM2wuMDk1LS4wNzVjLS40My0xLjQzLS4zNTUtMi4yMjUgMC0yLjgxNWwuMTIuM2MuNCAxIDEuMDQgMi42MSAzLjgzIDIuMTk1TDE0LjMgMy41NjVBMS45OCAxLjk4IDAgMCAwIDEyLjg3NSAzYy0uNTEgMC0xLjAyLjE2LTEuNDI1LjU2NSIvPgogICAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTEzLjcyIDEyLjk3NWMtLjEuMDU1LS4yLjEtLjI3Ni4xNSAxLjEuOTM1IDIuMjEtLjgxNSAxLjcxLTEuMTI1LS40My4zOTItLjkxMi43Mi0xLjQzNC45NzUiLz4KPC9zdmc+Cg==) ![background](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0id2ViM2ljb25zIj4KICAgIDxnIGNsaXAtcGF0aD0idXJsKCNCTlhfX2EpIj4KICAgICAgICA8cGF0aCBmaWxsPSJ1cmwoI0JOWF9fYikiIGQ9Ik0yNCAwSDB2MjRoMjR6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTExLjUxMSA0LjUwMyA1LjE3NCAxMC43NWMtLjM2NS4zNTYtLjUxMi44LS41MDcgMS4yNS0uMDAyLjQ2Ni4xOC45MTQuNTA3IDEuMjQ4bDYuMzM3IDYuMjUzYy4zNi4zNTYuODEzLjQ5OCAxLjI2Ny40OThzLjkwNi0uMTQyIDEuMjY2LS41MDJsNC4wNDUtMy45ODJjLTEuMDQtLjA5NC0xLjM5MS4xMzMtMS44MDUuMzktLjI3LjE3NC0uNTczLjM2NS0xLjExLjQ5YTMuMiAzLjIgMCAwIDEtLjY4NS4xMDJjLS40NTggMC0uNjg1LS4xNTYtLjg4NS0uMjkzLS4xNTUtLjExMi0uMjg4LS4yMDUtLjUwMi0uMjA1aC0yLjM1NWMuMzgyLS41ODYuMTI0LS43NzMuMTI0LS43NzNzLS44MTgtLjE5Ni0uNjI2LTIuMjI3Yy0xLjY2Ny0xLjgxOC0xLjUyLTQtMS41Mi00cy41NTUgMS43OTYgMy4wNCAyLjc1MWMtLjEwNy0xLjM2OS4yNy0xLjkxLjQ0NC0yLjE1bC4wNjItLjEwMy4wODUuMTc4Yy4yMjYuNDk4LjU0MiAxLjE5IDIuMTk1IDEuNTczLjUzMy0uNjY3Ljc0Mi0uODMxIDEuMTg3LTEuMTgybC4wODQtLjA2N2MtLjM4Mi0xLjI3LS4zMTUtMS45NzggMC0yLjUwMmwuMTA3LjI2N2MuMzU1Ljg4OS45MjQgMi4zMiAzLjQwNCAxLjk1bC01LjI4OS01LjIxMkExLjc2IDEuNzYgMCAwIDAgMTIuNzc4IDRjLS40NTQgMC0uOTA3LjE0My0xLjI2Ny41MDMiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTMuNTI4IDEyLjg2N2MtLjA4OC4wNDktLjE3Ny4wODktLjI0NC4xMzMuOTc4LjgzMSAxLjk2NC0uNzI0IDEuNTItMS0uMzgyLjM0OC0uODExLjY0LTEuMjc2Ljg2NyIvPgogICAgPC9nPgogICAgPGRlZnM+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJCTlhfX2IiIHgxPSIxMi41MjQiIHgyPSIxMi43NzMiIHkxPSIzLjc1MSIgeTI9IjIwLjUwMiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRjE1RjNFIi8+CiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0VGMjM1NyIvPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAgICAgPGNsaXBQYXRoIGlkPSJCTlhfX2EiPgogICAgICAgICAgICA8cGF0aCBmaWxsPSIjZmZmIiBkPSJNMCAwaDI0djI0SDB6Ii8+CiAgICAgICAgPC9jbGlwUGF0aD4KICAgIDwvZGVmcz4KPC9zdmc+Cg==)
+ * @see https://web3icons.io/tokens/BNX
+ * @param props - Web3Icon component props
+ * @returns {JSX.Element} JSX Element
+ *
+ */ const TokenBNX = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$web3icons$2b$react$40$4$2e$1$2e$20_react$40$19$2e$2$2e$8$2f$node_modules$2f40$web3icons$2f$react$2f$dist$2f$createWeb3Icon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createWeb3Icon"])('TokenBNX', __iconNode);
+;
+}),
+];
+
+//# sourceMappingURL=1qqr_%40web3icons_react_dist_1xziy5e._.js.map
