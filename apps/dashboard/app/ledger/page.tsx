@@ -1,0 +1,3 @@
+import { AppShell, PageHeader, StatusBadge } from "@powerchain/ui";
+import { LedgerClient } from "./ledger-client";
+export default function Page(){return <AppShell accountMode="dashboard" appName="Ledger" nav={[{label:"Dashboard",href:"/"},{label:"Wallet",href:"/wallet"},{label:"Settings",href:"/settings"},{label:"Help",href:"/help"}]}><PageHeader eyebrow="User-owned accounting view" title="Ledger" description="Review journal entries created from verified provider settlement or explicitly self-reported activity. Self-reported entries are labeled and never treated as authoritative escrow settlement." action={<StatusBadge tone="success">Double-entry</StatusBadge>}/><div className="mt-7"><LedgerClient/></div></AppShell>}

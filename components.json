@@ -5,16 +5,17 @@
   "tsx": true,
   "tailwind": {
     "config": "",
-    "css": "apps/crowdfunding/app/globals.css",
+    "css": "packages/ui/src/styles/globals.css",
     "baseColor": "neutral",
     "cssVariables": true
   },
+  "iconLibrary": "lucide",
   "aliases": {
-    "components": "@powerchain/ui",
-    "utils": "@powerchain/common",
-    "ui": "@powerchain/ui",
-    "lib": "@powerchain/common",
-    "hooks": "@powerchain/ui/hooks"
+    "components": "@powerchain/ui/components",
+    "ui": "@powerchain/ui/components",
+    "lib": "@powerchain/ui/lib",
+    "hooks": "@powerchain/ui/hooks",
+    "utils": "@powerchain/ui/lib/utils"
   },
   "rtl": true
 }

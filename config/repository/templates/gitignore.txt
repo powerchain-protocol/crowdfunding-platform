@@ -1,0 +1,61 @@
+# Dependencies / package managers
+node_modules/
+**/node_modules/
+.pnpm-store/
+
+# Next.js / Turborepo / build output
+.next/
+**/.next/
+.turbo/
+**/.turbo/
+dist/
+**/dist/
+build/
+**/build/
+coverage/
+**/coverage/
+*.tsbuildinfo
+
+# Environment and secrets — examples are intentionally tracked
+.env
+.env.*
+!.env.example
+!env/*.env.example
+!**/.env.example
+secrets/
+**/secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.secret
+id.json
+**/id.json
+
+# Local databases / generated state
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+prisma/dev.db*
+supabase/.temp/
+.anchor/
+target/
+.powerchain-dev.pid
+
+# Editors / OS / logs
+.DS_Store
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.log
+logs/
+.tmp/
+tmp/
+
+# Deployment providers
+.vercel/
+.netlify/

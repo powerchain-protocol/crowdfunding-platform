@@ -1,38 +1,29 @@
 # Shared packages
 
-`packages/` contains reusable UI, domain rules, persistence access, client SDKs, realtime helpers, security contracts, and infrastructure abstractions. Packages should expose narrow typed interfaces and avoid importing deployable apps.
+`packages/` contains reusable UI, domain, security, persistence, SDK, realtime and provider abstractions. Packages must not import deployable apps.
 
-## Major groups
+## Key boundaries
 
-**Experience:** `ui`, `i18n`, `hooks`, `store`, `storage`, `data`, `activity`, `realtime`.
+- `@powerchain/ui` — shared Tailwind v4/shadcn UI, icons, Web3 icons, modals and themes.
+- `@powerchain/common` — runtime-safe IDs, money, date, URL, result and error helpers.
+- `@powerchain/constants` — canonical product/domain constants.
+- `@powerchain/contracts` — fail-closed Solana/EVM/Safe deployment references.
+- `@powerchain/config` — runtime/provider configuration and RPC resolution.
+- `@powerchain/database` — Prisma client boundary.
+- `@powerchain/auth`, `@powerchain/identity`, `@powerchain/saas` — identity/access/SaaS rules.
+- `@powerchain/campaign`, `@powerchain/escrow`, `@powerchain/treasury`, `@powerchain/ledger`, `@powerchain/reconciliation` — crowdfunding/finance rules.
 
-**Identity and collaboration:** `auth`, `identity`, `agreements`, `deal-room`, `deals`, `notifications`, `moderation`, `audit`.
+## Rules
 
-**Crowdfunding and finance:** `campaign`, `payment-intent`, `funding`, `escrow`, `treasury`, `ledger`, `reconciliation`, `evidence`, `proofs`.
-
-**Platform:** `api-core`, `sdk`, `providers`, `database`, `saas`, `security-data`, `service-registry`, `config`, `common`, `types`, `events`, `zk`.
-
-## Package rules
-
-- Use `workspace:*` only with the exact scoped package name declared by the target workspace package.
-- Every package declares the direct dependencies it imports; do not depend on accidental hoisting.
-- TypeScript ambient types are explicit via canonical profiles under `config/typescript/`.
-- Domain packages contain deterministic validation/policy logic where possible; provider I/O belongs behind adapters.
-- Money, token amounts and fees should use exact integer/base-unit or decimal-safe representations at authoritative boundaries.
-- Public client packages must not import server secrets, Prisma clients, or private signing material.
+- `workspace:*` must use the exact scoped package name.
+- Every imported package is declared directly; do not rely on hoisting.
+- Framework-neutral packages do not inherit ambient Node/React types accidentally.
+- Authoritative money/fees use exact integer/base-unit or decimal-safe representations.
+- Browser packages do not import Prisma, secrets, private signing material, or server-only adapters.
 
 Validate package wiring with:
 
 ```bash
 pnpm workspace:check
-pnpm config:check
+pnpm typecheck
 ```
-
-## Core infrastructure-neutral packages
-
-- `@powerchain/common` — generic runtime-safe utilities.
-- `@powerchain/constants` — canonical cross-app/domain constants; avoid duplicated literals in apps.
-- `@powerchain/contracts` — deployment metadata and fail-closed program/contract references; no invented production addresses.
-- `@powerchain/config` — application/environment configuration and public registry.
-
-Apps must declare workspace dependencies directly. Do not reach into another package's source directory with relative imports.

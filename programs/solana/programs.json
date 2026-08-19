@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "supportedNetworks": ["devnet", "mainnet-beta"],
+  "programs": [
+    { "key": "crowdfunding", "path": "crowdfunding-engine", "instructions": ["contribute", "withdraw", "refund_single", "claim_milestone"], "deploymentStatus": "UNVERIFIED" },
+    { "key": "registry", "path": "registry", "instructions": ["register", "set_active"], "deploymentStatus": "UNVERIFIED" },
+    { "key": "contributors", "path": "contributors", "instructions": ["record"], "deploymentStatus": "UNVERIFIED" },
+    { "key": "milestone-escrow", "path": "milestone-escrow", "instructions": ["claim_milestone"], "deploymentStatus": "UNCONFIGURED" }
+  ]
+}

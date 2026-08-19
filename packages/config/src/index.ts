@@ -40,6 +40,12 @@ export const ASSETS = {
   pwrc: { symbol: "PWRC", issuer: "PowerChain", decimals: 9, settlementRail: "SOLANA" },
 } as const;
 
+
+export const PLATFORM_DEFAULTS = {
+  displayCurrency: "USD",
+  solanaNetwork: "devnet",
+} as const;
+
 /** Canonical PowerChain Crowdfunding product version. Architecture may evolve without a semver bump. */
 export const PLATFORM_VERSION = "1.0.0" as const;
 export const API_VERSION = "v1" as const;

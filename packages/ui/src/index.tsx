@@ -3,7 +3,10 @@ import { cn } from "@powerchain/common";
 import { PLATFORM_VERSION } from "@powerchain/config";
 import { ThemeToggle } from "./theme-provider";
 import { NotificationBell } from "./notification-bell";
+import { DashboardWalletControl, WalletSignInButton } from "./wallet-session";
+import { DashboardAccountControl, DashboardHelpRail } from "./account-controls";
 import { LanguageToggle, LocalizedText } from "./locale-provider";
+import { CurrencySelector, NetworkSelector } from "./shared/components/provider/wallet-provider";
 export { LanguageToggle, LocalizedText, useLocale } from "./locale-provider";
 
 import { Icon, type IconName } from "./icons";
@@ -71,22 +74,27 @@ export function PageHeader({ eyebrow, title, description, action }: { eyebrow?: 
   );
 }
 
-export function AppShell({ appName, nav = [], children, notificationCount = 0, notificationHref = "http://localhost:3004/notifications" }: { appName: ReactNode; nav?: Array<{ label: ReactNode; href: string }>; children: ReactNode; notificationCount?: number; notificationHref?: string }) {
+export function AppShell({ appName, nav = [], children, notificationCount = 0, notificationHref = "http://localhost:3004/notifications", accountMode = "none", authHref = "http://localhost:3000/auth/login", homeHref, dashboardHref = "http://localhost:3004" }: { appName: ReactNode; nav?: Array<{ label: ReactNode; href: string }>; children: ReactNode; notificationCount?: number; notificationHref?: string; accountMode?: "none" | "website" | "dashboard"; authHref?: string; homeHref?: string; dashboardHref?: string }) {
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-950">
-      <header className="sticky top-0 z-40 border-b border-neutral-200 bg-white shadow-[0_1px_0_rgba(0,0,0,.02)] backdrop-blur-xl">
-        <div className="mx-auto flex h-[68px] max-w-[1440px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-          <div className="flex min-w-0 items-center gap-3.5"><Logo /><span className="hidden h-5 w-px bg-neutral-200 sm:block" /><span className="hidden max-w-48 truncate rounded-full bg-neutral-100 px-2.5 py-1 text-[11px] font-semibold text-neutral-600 sm:block">{appName}</span></div>
-          <div className="flex items-center gap-2">
-            <nav className="hidden items-center gap-1 lg:flex">{nav.map((item) => <a key={item.href} href={item.href} className="rounded-lg px-3 py-2 text-sm font-semibold text-neutral-600 transition hover:bg-neutral-100 hover:text-neutral-950">{item.label}</a>)}</nav>
-            <div className="mx-1 hidden h-5 w-px bg-neutral-200 lg:block" />
+      <header className="sticky top-0 z-40 border-b border-neutral-200 bg-white shadow-[0_1px_0_rgba(0,0,0,.02)] backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-950/95 dark:text-white">
+        <div className="mx-auto grid min-h-[68px] max-w-[1440px] grid-cols-[1fr_auto] items-center gap-3 px-4 py-2 sm:px-6 xl:grid-cols-[1fr_auto_1fr] lg:px-8">
+          <div className="flex min-w-0 items-center gap-3.5 justify-self-start"><Logo /><span className="hidden h-5 w-px bg-neutral-200 dark:bg-neutral-800 sm:block" /><span className="hidden max-w-40 truncate rounded-full bg-neutral-100 px-2.5 py-1 text-[11px] font-semibold text-neutral-600 dark:bg-neutral-900 dark:text-neutral-300 2xl:block">{appName}</span></div>
+          <nav aria-label="Primary" className="hidden max-w-[720px] items-center justify-center gap-1 xl:flex">{nav.map((item) => <a key={item.href} href={item.href} className="rounded-lg px-3 py-2 text-sm font-semibold text-neutral-600 transition hover:bg-neutral-100 hover:text-neutral-950 dark:text-neutral-300 dark:hover:bg-neutral-900 dark:hover:text-white">{item.label}</a>)}</nav>
+          <div className="flex min-w-0 items-center justify-self-end gap-2">
+            <div className="hidden items-center gap-2 lg:flex"><NetworkSelector compact /><CurrencySelector compact /></div>
+            {accountMode === "website" ? <div className="hidden items-center gap-2 sm:flex"><a href={authHref} className="inline-flex h-10 items-center justify-center rounded-xl bg-emerald-950 px-4 text-sm font-bold text-white shadow-sm transition hover:-translate-y-px hover:bg-emerald-900 hover:shadow-md">Sign in</a><WalletSignInButton compact redirectOnConnect={dashboardHref} /></div> : null}
+            {accountMode === "dashboard" ? <><DashboardWalletControl homeHref={homeHref} /><DashboardAccountControl homeHref={homeHref} /></> : null}
+            {accountMode === "website" ? <div className="sm:hidden"><WalletSignInButton compact redirectOnConnect={dashboardHref} /></div> : null}
             <NotificationBell href={notificationHref} unread={notificationCount} />
             <LanguageToggle />
             <ThemeToggle />
           </div>
         </div>
+        <div className="flex items-center justify-between gap-2 border-t border-neutral-200 px-4 py-2 dark:border-neutral-800 lg:hidden"><NetworkSelector compact /><CurrencySelector compact /></div>
+        {accountMode === "website" ? <div className="border-t border-neutral-200 px-4 py-2 dark:border-neutral-800 sm:hidden"><a href={authHref} className="inline-flex h-9 w-full items-center justify-center rounded-xl bg-emerald-950 px-4 text-sm font-bold text-white">Sign in</a></div> : null}
       </header>
-      <main className="mx-auto min-h-[calc(100vh-260px)] max-w-[1440px] px-4 py-8 sm:px-6 lg:px-8 lg:py-10">{children}</main>
+      <main className="mx-auto min-h-[calc(100vh-260px)] max-w-[1600px] px-4 py-8 sm:px-6 lg:px-8 lg:py-10">{accountMode === "dashboard" ? <div className="flex gap-6"><DashboardHelpRail/><div className="min-w-0 flex-1">{children}</div></div> : children}</main>
       <footer className="mt-16 border-t border-neutral-200 bg-white">
         <div className="mx-auto grid max-w-[1440px] gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[1.25fr_.75fr] lg:px-8">
           <div><Logo /><p className="mt-4 max-w-xl text-xs leading-5 text-neutral-500"><LocalizedText en="Goal-based crowdfunding and founder capital workflows built around verified identity, milestone escrow, controlled releases and evidence-backed accountability." es="Crowdfunding por objetivos y financiación para fundadores con identidad verificada, escrow por hitos, liberaciones controladas y rendición de cuentas basada en evidencia." /></p><div className="mt-4 flex flex-wrap gap-2"><StatusBadge tone="success"><LocalizedText en="Verified trust checks" es="Verificaciones de confianza" /></StatusBadge><StatusBadge><LocalizedText en="Evidence-gated releases" es="Liberación según evidencia" /></StatusBadge><StatusBadge><LocalizedText en="Hash-linked audit" es="Auditoría enlazada por hash" /></StatusBadge><StatusBadge>v{PLATFORM_VERSION}</StatusBadge></div></div>
@@ -106,8 +114,21 @@ export function FeatureIcon({ name }: { name: IconName }) {
   return <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-emerald-900/10 bg-emerald-50 text-emerald-950"><Icon name={name} className="h-5 w-5" /></span>;
 }
 
+export { WalletConnectModal, WalletSignInButton, DashboardWalletControl, useWalletSession, shortWalletAddress, type WalletSession, type WalletProviderName } from "./wallet-session";
+
 export { Counter } from "./counter";
 export { Countdown } from "./countdown";
 export { FundingProgress } from "./funding-progress";
 
 export { Modal, ConfirmationModal, TransactionReviewModal, type ModalProps, type ModalSize, type TransactionReviewItem } from "./modals";
+
+export { CurrencySelector, NetworkSelector, WalletProvider, useWalletPreferences, type DisplayCurrency, type SolanaNetworkMode } from "./shared/components/provider/wallet-provider";
+export { PlatformProviders } from "./shared/components/provider/platform-provider";
+export { CardAction, CardIcon, CardStatusDot } from "./components/card";
+
+export { SolanaConnectorProvider, useSolanaConnector } from "./shared/components/provider/solana-connector-provider";
+
+export { CookiePreferencesProvider, CookieBanner, useCookiePreferences } from "./cookies";
+export { SavedPrompts, MessagesWorkspace } from "./components/messages";
+
+export { DashboardAccountControl, DashboardHelpRail } from "./account-controls";

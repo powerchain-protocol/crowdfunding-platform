@@ -26,7 +26,8 @@
     "@powerchain/hooks": "workspace:*",
     "@powerchain/funding": "workspace:*",
     "@powerchain/realtime": "workspace:*",
-    "@powerchain/constants": "workspace:*"
+    "@powerchain/constants": "workspace:*",
+    "@powerchain/utils": "workspace:*"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",

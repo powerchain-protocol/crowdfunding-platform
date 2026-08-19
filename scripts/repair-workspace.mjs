@@ -1,10 +1,15 @@
 import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { POWERCHAIN_APPS } from "../config/workspace/apps.mjs";
+import { repairRepositoryFiles } from "./lib/repository-files.mjs";
 
 const root = resolve(new URL("..", import.meta.url).pathname);
 const repaired = [];
 const fatal = [];
+
+const rootRepair = repairRepositoryFiles(root, { log: false });
+for (const item of rootRepair.repaired) repaired.push(item);
+for (const template of rootRepair.missingTemplates) fatal.push(`canonical repository template ${template} is missing`);
 
 const envExample = resolve(root, ".env.example");
 const envFallback = resolve(root, "env/development.env.example");

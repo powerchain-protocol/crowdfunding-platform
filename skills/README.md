@@ -1,14 +1,10 @@
 # PowerChain skills
 
-Skills are policy-constrained assistance contracts, not autonomous financial or administrative authorities.
+Skills are policy-constrained assistance contracts, not autonomous financial, moderation, verification, or treasury authorities.
 
-The registry currently covers campaign, payments, reconciliation, reporting, treasury, identity, milestones, moderation, deal-room and notification workflows. `skills/registry.json` is the machine-readable inventory; each skill directory contains a `SKILL.md` contract.
+`skills/registry.json` is the machine-readable inventory. Each skill directory contains a `SKILL.md` defining allowed scope, required inputs, expected outputs, forbidden actions, authority boundaries, and audit requirements.
 
-## Required skill contract
-
-Each skill defines allowed scopes, required inputs, expected output, forbidden actions, authority boundaries, and audit requirements.
-
-Skills may read authoritative data, summarize, analyze, classify, prepare drafts, suggest actions and assemble proposals. They must not hold private keys, sign wallet transactions, mark KYC/business checks verified, fabricate settlement, rewrite escrow amounts, self-promote roles, execute treasury releases, or mutate append-only audit history.
+Skills may summarize, analyze, classify, prepare drafts, suggest actions, and assemble proposals. They must not hold private keys, sign transactions, forge KYC/business verification, fabricate settlement, rewrite escrow amounts, self-promote roles, release treasury funds, or mutate append-only audit history.
 
 Validate the registry with:
 

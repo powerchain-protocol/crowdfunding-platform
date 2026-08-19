@@ -52,3 +52,4 @@ export interface SolanaContributorsDataProvider {
 export interface MilestoneEscrowProgramProvider {
   prepareClaimMilestone(input: { campaign: string; milestoneId: string; proofCommitment: string; owner: string }): Promise<{ serializedTransaction: string; reviewHash: string }>;
 }
+export * from "./embedded-wallets";

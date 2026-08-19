@@ -1,7 +1,9 @@
 import { copyFileSync, existsSync } from "node:fs";
 import { relative, resolve } from "node:path";
+import { repairRepositoryFiles } from "./lib/repository-files.mjs";
 
 const root = process.cwd();
+repairRepositoryFiles(root, { log: false });
 const candidates = [
   resolve(root, ".env.example"),
   resolve(root, "env/development.env.example"),

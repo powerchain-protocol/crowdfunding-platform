@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "network": "devnet",
+  "programs": {
+    "crowdfunding": { "programId": null, "verified": false },
+    "registry": { "programId": null, "verified": false },
+    "contributors": { "programId": null, "verified": false },
+    "milestoneEscrow": { "programId": null, "verified": false }
+  }
+}

@@ -1,28 +1,36 @@
 # Applications
 
-`apps/` contains the deployable Next.js surfaces. Shared domain logic belongs in `packages/`; provider/background processing belongs in `services/`. Apps should compose those layers instead of duplicating business rules.
+`apps/` contains the 11 deployable Next.js surfaces. Shared business/UI logic belongs in `packages/`; provider and background processing belongs in `services/`.
 
-| App | Port | Primary users | Responsibility |
-|---|---:|---|---|
-| `web` | 3000 | public | Marketing, product navigation and authentication entry |
-| `crowdfunding` | 3001 | supporters/investors | Discovery, filtering, campaign/listing detail and campaign creation |
-| `donate` | 3002 | contributors | Donation/contribution entry and payment handoff |
-| `checkout` | 3003 | contributors/investors | Exact review, provider/wallet approval and settlement status |
-| `dashboard` | 3004 | founders/organizers | Company profile, campaigns, invoices, evidence, agreements and notifications |
-| `treasury` | 3005 | treasury approvers | Escrow, tranche release gates, Safe/multisig proposals and reconciliation |
-| `admin` | 3006 | platform operators | Identity verification, moderation, policy, audit and operations |
-| `explorer` | 3007 | public/auditors | Public campaign, transaction and on-chain transparency views |
-| `docs` | 3008 | developers/operators | Product/developer documentation surface |
-| `pwa` | 3009 | field teams | Offline evidence, milestone and field workflows |
-| `api` | 3010 | all apps/services | Canonical `/api/v1` HTTP boundary |
+| App | Port | Responsibility |
+|---|---:|---|
+| `web` | 3000 | Marketing and auth entry |
+| `crowdfunding` | 3001 | Discovery, project detail, campaign creation |
+| `donate` | 3002 | Contribution flow |
+| `checkout` | 3003 | Payment/wallet review and settlement status |
+| `dashboard` | 3004 | Founder/organizer workspace |
+| `treasury` | 3005 | Escrow, approvals and tranche releases |
+| `admin` | 3006 | Identity, moderation, policy and audit |
+| `explorer` | 3007 | Public transparency views |
+| `docs` | 3008 | Documentation app |
+| `pwa` | 3009 | Offline/field workflows |
+| `api` | 3010 | Canonical `/api/v1` boundary |
 
-## App rules
+## Rules
 
-- Every app extends the canonical Next.js/TypeScript configuration under `config/`.
-- Shared UI comes from `@powerchain/ui`; do not fork app-local copies of common components.
-- Financial state is read from authoritative API/domain projections, not inferred from button clicks.
-- Secrets remain server-side. Browser-safe environment variables must use the `NEXT_PUBLIC_` prefix.
-- Loading, empty, error, unauthorized and offline states are first-class UI states.
-- Light/dark themes use white, neutral gray, black and dark green application chrome.
+- Every app uses the canonical Next.js/TypeScript config under `config/`.
+- Shared UI comes from `@powerchain/ui`.
+- Apps declare every `@powerchain/*` package they import.
+- Secrets stay server-side.
+- Financial success is never inferred from a click, redirect, or unconfirmed transaction.
+- Loading, empty, unauthorized, offline, pending, confirmed, and failed states are explicit.
 
-Run an individual app with `pnpm dev:<name>` from the repository root.
+Run all apps with `pnpm dev` or one app with the corresponding `pnpm dev:<name>` script.
+
+Validate the application tree with:
+
+```bash
+pnpm source:check
+pnpm next:check
+pnpm build:check
+```

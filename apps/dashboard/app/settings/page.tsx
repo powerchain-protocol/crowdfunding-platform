@@ -1,0 +1,3 @@
+import { AppShell, PageHeader } from "@powerchain/ui";
+import { UserSettingsTabs } from "../../components/user-settings-tabs";
+export default function Page(){return <AppShell accountMode="dashboard" appName="Settings" nav={[{label:"Dashboard",href:"/"},{label:"Wallet",href:"/wallet"},{label:"Company",href:"/settings/company"},{label:"Help",href:"/help"}]}><PageHeader eyebrow="Account" title="Settings" description="Manage your profile, sessions, wallet connections, RPC preferences and privacy controls without mixing personal settings with organization policy."/><div className="mt-6"><UserSettingsTabs/></div></AppShell>}

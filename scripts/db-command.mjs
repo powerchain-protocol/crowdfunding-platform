@@ -11,10 +11,11 @@ const commands = {
   push: ["prisma", ["db", "push", "--schema", "prisma/schema.prisma"]],
   "migrate-dev": ["prisma", ["migrate", "dev", "--schema", "prisma/schema.prisma"]],
   "migrate-deploy": ["prisma", ["migrate", "deploy", "--schema", "prisma/schema.prisma"]],
+  "migrate-status": ["prisma", ["migrate", "status", "--schema", "prisma/schema.prisma"]],
   seed: ["tsx", ["prisma/seed.ts"]],
 };
 if (!commands[action]) {
-  console.error("Usage: node scripts/db-command.mjs <push|migrate-dev|migrate-deploy|seed>");
+  console.error("Usage: node scripts/db-command.mjs <push|migrate-dev|migrate-deploy|migrate-status|seed>");
   process.exit(2);
 }
 

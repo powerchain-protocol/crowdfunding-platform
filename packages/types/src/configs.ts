@@ -1,1 +1,13 @@
-export interface CrowdfundingRuntimeConfig { activityPollMs:number; websocketUrl?:string; sseUrl?:string; demoPayments:boolean; midtransEnabled:boolean; solanaNetwork:"devnet"|"mainnet-beta"; crowdfundingProgramId?:string; registryProgramId?:string; contributorsProgramId?:string; rewardMint?:string; }
+export interface CrowdfundingRuntimeConfig {
+  activityPollMs: number;
+  websocketUrl?: string;
+  sseUrl?: string;
+  demoPayments: boolean;
+  midtransEnabled: boolean;
+  displayCurrency: "USD" | "EUR" | "GBP";
+  solanaNetwork: "devnet" | "mainnet-beta";
+  crowdfundingProgramId?: string;
+  registryProgramId?: string;
+  contributorsProgramId?: string;
+  rewardMint?: string;
+}

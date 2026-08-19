@@ -1,0 +1,7 @@
+engine-strict=true
+save-exact=true
+fund=false
+update-notifier=false
+prefer-workspace-packages=true
+link-workspace-packages=true
+verify-store-integrity=true

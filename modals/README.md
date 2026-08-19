@@ -1,17 +1,7 @@
-# Modals
+# Shared modal patterns
 
-The canonical reusable modal implementation lives in `@powerchain/ui/modals`. The root `modals/` directory is reserved for composition notes and legacy migration; new shared modal primitives should be added to the UI package rather than duplicated per app.
+Reusable modal primitives live in `@powerchain/ui/modals`. The root `modals/` directory is documentation/migration space only; do not fork shared modal implementations into apps.
 
-Available shared patterns include a base accessible modal, confirmation modal, and transaction-review modal.
+Shared patterns cover accessible base dialogs, confirmations, and transaction review. Critical financial confirmation surfaces must show the exact asset, amount, fees, recipient, network, and user-signature boundary before provider/wallet handoff.
 
-## UX requirements
-
-- focus-visible controls and keyboard dismissal where safe
-- backdrop/escape behavior appropriate to transaction criticality
-- scroll locking without layout jumps
-- responsive mobile/full-width behavior
-- light/dark theme compatibility
-- explicit pending/success/error states
-- no success state before authoritative completion
-
-Financial confirmation modals should show exact assets, amounts, fees, recipients, network, and user-signature boundary before the wallet/provider handoff.
+A modal may display prepared/submitted/pending states, but it must not show success before authoritative completion.

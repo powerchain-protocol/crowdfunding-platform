@@ -20,6 +20,7 @@
     "node": "24.19.0"
   },
   "dependencies": {
-    "@powerchain/database": "workspace:*"
+    "@powerchain/database": "workspace:*",
+    "@prisma/client": "6.19.3"
   }
 }

@@ -1,0 +1,2 @@
+import { AppShell, PageHeader } from "@powerchain/ui"; import { SessionList } from "./session-list";
+export default function Page(){return <AppShell accountMode="dashboard" appName="Sessions" nav={[{label:"Dashboard",href:"/"},{label:"Settings",href:"/settings"}]}><PageHeader eyebrow="Security" title="Active sessions" description="Review and revoke server-side sessions. Raw IP addresses are not displayed or stored by the remember-me feature."/><div className="mt-6"><SessionList/></div></AppShell>}

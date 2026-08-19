@@ -38,7 +38,11 @@
     "@powerchain/saas": "workspace:*",
     "@powerchain/service-registry": "workspace:*",
     "@powerchain/constants": "workspace:*",
-    "@powerchain/contracts": "workspace:*"
+    "@powerchain/contracts": "workspace:*",
+    "@powerchain/providers": "workspace:*",
+    "@powerchain/ledger": "workspace:*",
+    "@powerchain/utils": "workspace:*",
+    "stripe": "22.5.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",

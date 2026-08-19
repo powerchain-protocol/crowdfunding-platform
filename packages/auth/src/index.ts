@@ -1,4 +1,6 @@
 export type PlatformRole =
+  | "CREATOR"
+  | "DEMO"
   | "FOUNDER"
   | "INVESTOR"
   | "ADVISOR"

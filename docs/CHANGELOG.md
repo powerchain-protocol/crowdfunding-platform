@@ -69,3 +69,13 @@ See [`VERSIONING.md`](VERSIONING.md). The canonical platform version remains `1.
 - Added `PowerChainInvoice`, live invoice preview tool and invoice listing hook.
 - Added invoice/company API boundaries and Prisma records for organization profiles and immutable invoice snapshots.
 - Added explicit invoice settlement/reference/audit fields and fail-closed invoice issuing until authenticated persistence is configured.
+
+### Repository recovery and documentation cleanup
+
+- Added tracked non-hidden recovery templates for root dotfiles that are commonly omitted by archive/copy workflows.
+- Added `repair:repository`, `setup:repair`, and `bootstrap:local` commands.
+- Preinstall now restores safe root configuration before validating the toolchain/workspace.
+- Cleaned the root, apps, packages, services, config, env, infra, skills, modals and docs READMEs around one canonical setup flow.
+- Added dedicated getting-started and troubleshooting guides with copy/paste-safe shell blocks.
+- Standardized all setup documentation on Node `24.19.0` and pnpm `11.22.0`.
+- Preserved strict dependency maturity policy and Turborepo `2.10.10` pin rather than weakening supply-chain checks.

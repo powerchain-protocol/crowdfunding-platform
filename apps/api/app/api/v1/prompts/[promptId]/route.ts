@@ -1,0 +1,4 @@
+import { prisma } from "@powerchain/database";
+import { requireSession } from "../../../../../lib/current-session";
+import { assertSameOrigin } from "../../../../../lib/request-security";
+export async function DELETE(request: Request, { params }: { params: Promise<{ promptId: string }> }) { try { assertSameOrigin(request); const session = await requireSession(); const { promptId } = await params; const result = await prisma.savedPrompt.deleteMany({ where: { id: promptId, userId: session.user.id } }); if (!result.count) return Response.json({ error: { code: "NOT_FOUND", message: "Prompt not found." } }, { status: 404 }); return Response.json({ data: { deleted: true }, meta: { requestId: crypto.randomUUID() } }); } catch { return Response.json({ error: { code: "UNAUTHENTICATED", message: "Sign in required." } }, { status: 401 }); } }

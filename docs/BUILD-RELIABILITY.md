@@ -23,6 +23,7 @@ nvm use 24.19.0
 corepack enable
 corepack prepare pnpm@11.22.0 --activate
 
+pnpm setup:repair
 pnpm install
 pnpm setup:check
 pnpm build:check

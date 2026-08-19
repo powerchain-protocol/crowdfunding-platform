@@ -4,3 +4,4 @@ export * from "./api-base";
 export * from "./use-reserve-fund";
 
 export * from "./use-invoices";
+export * from "./use-wallet-data";

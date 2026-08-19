@@ -11,13 +11,14 @@ pnpm source:check
 pnpm next:check
 ```
 
-## Repair generated configuration
+## Repair repository and generated configuration
 
 ```bash
+pnpm repair:repository
 pnpm repair:workspace
 ```
 
-This may recreate `.env.example`, `next.config.mjs`, `tsconfig.json`, `next-env.d.ts`, and `postcss.config.mjs` when those generated/configuration files are missing. It never invents missing product source.
+`repair:repository` restores safe root dotfiles from `config/repository/templates/`. `repair:workspace` recreates missing Next.js/TypeScript/PostCSS configuration. Neither command invents missing product source.
 
 If `apps/web/app`, `apps/pwa/app`, or another application source directory is missing, restore the canonical checkout instead of creating an empty directory.
 

@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./embedded-wallets": "./src/embedded-wallets.ts"
   },
   "scripts": {
     "typecheck": "tsc -p tsconfig.json",
@@ -12,7 +13,8 @@
     "lint": "echo providers:lint"
   },
   "devDependencies": {
-    "typescript": "^6.0.0"
+    "typescript": "^6.0.0",
+    "@types/node": "24.13.3"
   },
   "engines": {
     "node": "24.19.0"

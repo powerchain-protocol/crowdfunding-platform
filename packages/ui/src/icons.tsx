@@ -33,6 +33,7 @@ export type IconName =
   | "linkedin"
   | "link"
   | "lock"
+  | "log-out"
   | "mail"
   | "menu"
   | "monitor"
@@ -95,6 +96,7 @@ const paths: Record<IconName, ReactNode> = {
   linkedin: <><rect x="4" y="9" width="4" height="11" rx="1"/><circle cx="6" cy="5" r="2"/><path d="M12 20V9h4v2c1-1.5 5-2 5 3v6h-4v-5c0-2-1-3-2.5-3S12 13 12 15z"/></>,
   link: <><path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.1 1"/><path d="M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.1-1"/></>,
   lock: <><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></>,
+  "log-out": <><path d="M10 5H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h5"/><path d="M14 8l4 4-4 4M18 12H9"/></>,
   mail: <><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></>,
   menu: <><path d="M4 7h16M4 12h16M4 17h16"/></>,
   monitor: <><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></>,

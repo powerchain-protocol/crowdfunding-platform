@@ -15,6 +15,9 @@ const required = [
   "config/security/headers.ts",
   "config/runtime/versions.json",
   "config/workspace/apps.mjs",
+  "config/repository/templates/env.example",
+  "config/repository/templates/dockerignore.txt",
+  "config/repository/templates/npmignore.txt",
   ".env.example",
   "env/README.md",
   "env/development.env.example",
@@ -46,7 +49,7 @@ for (const app of POWERCHAIN_APPS) {
 
 if (problems.length) {
   console.error(`Configuration validation failed:\n- ${problems.join("\n- ")}`);
-  console.error("Run pnpm repair:workspace. If app source is missing, restore the repository before running dev.");
+  console.error("Run pnpm repair:repository first, then pnpm repair:workspace. If app source is missing, restore the repository before running dev.");
   process.exit(1);
 }
 console.log("Configuration OK: canonical TypeScript, Next.js, environment and workspace boundaries are present.");

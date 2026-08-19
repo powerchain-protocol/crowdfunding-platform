@@ -5,7 +5,7 @@
  * consume one implementation instead of maintaining app-local copies.
  */
 export { Button, type ButtonProps, type ButtonSize, type ButtonVariant } from "./button";
-export { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./card";
+export { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardIcon, CardStatusDot, CardTitle } from "./card";
 export { Input } from "./input";
 export { Textarea } from "./textarea";
 export { Label } from "./label";

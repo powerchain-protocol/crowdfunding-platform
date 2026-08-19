@@ -7,7 +7,8 @@
     "@powerchain/realtime": "workspace:*",
     "react": "19.2.8",
     "@powerchain/config": "workspace:*",
-    "@powerchain/types": "workspace:*"
+    "@powerchain/types": "workspace:*",
+    "@powerchain/data": "workspace:*"
   },
   "peerDependencies": {
     "react": "19.2.8"

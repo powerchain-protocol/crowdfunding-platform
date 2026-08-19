@@ -35,6 +35,34 @@
       "network": "configured-evm",
       "address": null,
       "status": "UNCONFIGURED"
+    },
+    {
+      "key": "crowdfunding",
+      "family": "SOLANA_PROGRAM",
+      "network": "mainnet-beta",
+      "address": null,
+      "status": "UNCONFIGURED"
+    },
+    {
+      "key": "registry",
+      "family": "SOLANA_PROGRAM",
+      "network": "mainnet-beta",
+      "address": null,
+      "status": "UNCONFIGURED"
+    },
+    {
+      "key": "contributors",
+      "family": "SOLANA_PROGRAM",
+      "network": "mainnet-beta",
+      "address": null,
+      "status": "UNCONFIGURED"
+    },
+    {
+      "key": "milestone-escrow",
+      "family": "SOLANA_PROGRAM",
+      "network": "mainnet-beta",
+      "address": null,
+      "status": "UNCONFIGURED"
     }
   ]
 }

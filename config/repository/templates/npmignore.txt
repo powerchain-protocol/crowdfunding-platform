@@ -1,0 +1,24 @@
+# PowerChain is a private workspace. These rules are a second line of defense
+# if a package is accidentally packed or publishing is enabled later.
+.env
+.env.*
+secrets/
+**/secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.secret
+id.json
+**/id.json
+node_modules/
+.next/
+.turbo/
+coverage/
+logs/
+*.log
+.DS_Store
+.vscode/
+.idea/

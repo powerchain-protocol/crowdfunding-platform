@@ -1,4 +1,19 @@
-import { AppShell, Card, Counter, PageHeader, StatusBadge } from "@powerchain/ui";
+import { AppShell, Card, Counter, StatusBadge } from "@powerchain/ui";
 import { EngineCampaignCard } from "../../components/engine-campaign-card";
 import { engineCampaigns } from "../../lib/engine-campaigns";
-export default function Page(){const total=engineCampaigns.reduce((n,c)=>n+c.funded,0);return <AppShell appName="Discover" nav={[{label:"Discover",href:"/explore"},{label:"Start a campaign",href:"/create"},{label:"My donations",href:"/my-donations"},{label:"Settings",href:"/settings"}]}><PageHeader eyebrow="Open campaigns" title="Discover projects with live funding progress." description="Browse open goal-based campaigns. Funding totals shown by PowerChain are reconciled before they become authoritative." action={<a href="/create" className="rounded-xl bg-emerald-950 px-4 py-2.5 text-sm font-bold text-white">Start a campaign</a>}/><div className="mt-6 grid gap-4 sm:grid-cols-3"><Card className="p-5"><Counter value={engineCampaigns.length} label="Open projects"/></Card><Card className="p-5"><div className="text-2xl font-bold">€{total.toLocaleString()}</div><div className="mt-1 text-xs text-neutral-500">Reconciled funding</div></Card><Card className="p-5"><div className="flex items-center gap-2"><StatusBadge tone="success">Live</StatusBadge><span className="text-sm font-semibold">5–15s activity refresh</span></div><p className="mt-2 text-xs leading-5 text-neutral-500">WebSocket → SSE → polling fallback policy.</p></Card></div><div className="mt-6 grid gap-3 md:grid-cols-[1fr_180px_160px]"><input className="h-11 rounded-xl border border-neutral-200 bg-white px-4 text-sm" placeholder="Search campaigns"/><select className="h-11 rounded-xl border border-neutral-200 bg-white px-3 text-sm"><option>All categories</option><option>Disaster Relief</option><option>Humanitarian</option><option>Renewables</option></select><select className="h-11 rounded-xl border border-neutral-200 bg-white px-3 text-sm"><option>Trending</option><option>Newest</option><option>Ending soon</option><option>Most funded</option></select></div><div className="mt-6 grid gap-5 lg:grid-cols-3">{engineCampaigns.map(c=><EngineCampaignCard key={c.id} campaign={c}/>)}</div></AppShell>}
+import { ProjectsTemplate } from "../../templates/projects-template";
+
+export default function Page() {
+  const total = engineCampaigns.reduce((sum, campaign) => sum + campaign.funded, 0);
+  return <AppShell appName="Discover" nav={[{label:"Discover",href:"/explore"},{label:"Start a campaign",href:"/create"},{label:"My donations",href:"/my-donations"},{label:"Settings",href:"/settings"}]}>
+    <ProjectsTemplate count={engineCampaigns.length}>
+      <div className="grid gap-4 sm:grid-cols-3">
+        <Card className="p-5"><Counter value={engineCampaigns.length} label="Open projects"/></Card>
+        <Card className="p-5"><div className="text-2xl font-bold">${total.toLocaleString()}</div><div className="mt-1 text-xs text-neutral-500">Reconciled funding · display currency USD</div></Card>
+        <Card className="p-5"><div className="flex items-center gap-2"><StatusBadge tone="success">Live</StatusBadge><span className="text-sm font-semibold">5–15s activity refresh</span></div><p className="mt-2 text-xs leading-5 text-neutral-500">WebSocket → SSE → polling fallback policy.</p></Card>
+      </div>
+      <div className="mt-6 grid gap-3 md:grid-cols-[1fr_180px_160px]"><input className="h-11 rounded-xl border border-neutral-200 bg-white px-4 text-sm dark:border-neutral-800 dark:bg-neutral-950" placeholder="Search projects, creators or organizations"/><select className="h-11 rounded-xl border border-neutral-200 bg-white px-3 text-sm dark:border-neutral-800 dark:bg-neutral-950"><option>All categories</option><option>Disaster Relief</option><option>Humanitarian</option><option>Renewables</option></select><select className="h-11 rounded-xl border border-neutral-200 bg-white px-3 text-sm dark:border-neutral-800 dark:bg-neutral-950"><option>Trending</option><option>Newest</option><option>Ending soon</option><option>Most funded</option></select></div>
+      <div className="mt-6 grid gap-5 lg:grid-cols-3">{engineCampaigns.map((campaign)=><EngineCampaignCard key={campaign.id} campaign={campaign}/>)}</div>
+    </ProjectsTemplate>
+  </AppShell>;
+}

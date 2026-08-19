@@ -26,7 +26,9 @@
     "@powerchain/i18n": "workspace:*",
     "@powerchain/proofs": "workspace:*",
     "@powerchain/data": "workspace:*",
-    "@powerchain/hooks": "workspace:*"
+    "@powerchain/hooks": "workspace:*",
+    "@powerchain/utils": "workspace:*",
+    "@powerchain/ledger": "workspace:*"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",

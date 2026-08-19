@@ -17,6 +17,9 @@ export type ListingFixture = {
   risks: string[];
   pitchDeckUrl: string;
   demoVideoUrl: string;
+  xHandle?: string;
+  logoUrl?: string;
+  founderAvatarUrl?: string;
 };
 
 export const listingFixtures: ListingFixture[] = [
@@ -48,6 +51,8 @@ export const listingFixtures: ListingFixture[] = [
     risks: ["Hardware certification schedule", "Battery supply-chain concentration", "Utility procurement cycles"],
     pitchDeckUrl: "https://example.invalid/solarflow-deck.pdf",
     demoVideoUrl: "https://example.invalid/solarflow-demo",
+    xHandle: "solarflowgrid",
+    logoUrl: "/assets/brand/powerchain.png",
   },
   {
     id: "lst_medroute",
@@ -75,6 +80,7 @@ export const listingFixtures: ListingFixture[] = [
     risks: ["Healthcare procurement", "Regulatory classification", "Integration complexity"],
     pitchDeckUrl: "https://example.invalid/medroute-deck.pdf",
     demoVideoUrl: "https://example.invalid/medroute-demo",
+    xHandle: "medrouteai",
   },
   {
     id: "lst_watermesh",
@@ -101,6 +107,7 @@ export const listingFixtures: ListingFixture[] = [
     risks: ["Hardware margin", "Long field maintenance cycles", "Small-team execution risk"],
     pitchDeckUrl: "https://example.invalid/watermesh-deck.pdf",
     demoVideoUrl: "https://example.invalid/watermesh-demo",
+    xHandle: "watermesh",
   },
 ];
 
